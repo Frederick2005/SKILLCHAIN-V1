@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillChain - Inbox</title>
+  <link rel="stylesheet" href="navbar.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white">  <!-- Navbar -->  <!-- Include navbar.html content here -->  <!-- Hero Section -->  <section class="hero bg-gradient-to-b from-indigo-600 to-purple-700 text-white text-center py-24 px-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Your Inbox</h1>
+    <p class="text-xl max-w-3xl mx-auto opacity-90">Check messages from other learners, creators, and notifications about your lessons.</p>
+  </section>  <!-- Messages Section -->  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-8">Recent Messages</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-6 rounded-xl shadow bg-gray-800">
+        <h3 class="font-semibold text-xl mb-2 text-white">John sent you a message</h3>
+        <p class="text-gray-300">"I really enjoyed your Python lesson! Can we collaborate on a new one?"</p>
+      </div>
+      <div class="card p-6 rounded-xl shadow bg-gray-800">
+        <h3 class="font-semibold text-xl mb-2 text-white">Mary replied to your comment</h3>
+        <p class="text-gray-300">"Thanks for your feedback on my Machine Learning tutorial."</p>
+      </div>
+      <div class="card p-6 rounded-xl shadow bg-gray-800">
+        <h3 class="font-semibold text-xl mb-2 text-white">System Notification</h3>
+        <p class="text-gray-300">"You have earned 50 tokens for creating a new lesson!"</p>
+      </div>
+      <div class="card p-6 rounded-xl shadow bg-gray-800">
+        <h3 class="font-semibold text-xl mb-2 text-white">Alex sent you a message</h3>
+        <p class="text-gray-300">"Check out my new lesson on Web3. I think you’ll like it!"</p>
+      </div>
+    </div>
+  </section>  <!-- CTA Section -->  <section class="py-20 text-center bg-indigo-700 text-white">
+    <h2 class="text-4xl font-bold mb-4">Stay Connected</h2>
+    <p class="text-lg mb-6">Send messages, get feedback, and collaborate with other learners.</p>
+    <a href="create.html" class="bg-white text-indigo-700 px-10 py-4 rounded-2xl font-bold shadow-lg hover:scale-105 transition cursor-pointer">Create a Lesson</a>
+  </section>
+  <!-- navbar.html -->
+<nav class="bottom-nav fixed bottom-0 left-0 w-full flex justify-around items-center py-3 z-50">
+  <a href="home.html" class="nav-item flex flex-col items-center text-gray-400 hover:text-white transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10"/>
+    </svg>
+    <span class="text-sm">Home</span>
+  </a>
+  <a href="account.html" class="nav-item flex flex-col items-center text-gray-400 hover:text-white transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A10.001 10.001 0 0112 15c2.386 0 4.568.832 6.121 2.195M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+    </svg>
+    <span class="text-sm">Account</span>
+  </a>
+  <a href="explore.html" class="nav-item flex flex-col items-center text-gray-400 hover:text-white transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4 4 4M4 17h16"/>
+    </svg>
+    <span class="text-sm">Explore</span>
+  </a>
+  <a href="inbox.html" class="nav-item flex flex-col items-center text-gray-400 hover:text-white transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 6v6"/>
+    </svg>
+    <span class="text-sm">Inbox</span>
+  </a>
+  <a href="library.html" class="nav-item flex flex-col items-center text-gray-400 hover:text-white transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z"/>
+    </svg>
+    <span class="text-sm">Library</span>
+  </a>
+  <a href="create.html" class="nav-item flex flex-col items-center text-gray-400 hover:text-white transition duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+    </svg>
+    <span class="text-sm">Create</span>
+  </a>
+</nav>
+
+<!-- Active page highlighting -->
+<script>
+  const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navItems.forEach(item => {
+    const link = item.getAttribute('href');
+    if(link === currentPage) {
+      item.classList.add('active-nav');
+    }
+  });
+</script>
+  </body>
+</html>
