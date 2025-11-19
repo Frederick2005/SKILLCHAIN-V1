@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Study Chat Room</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #ece5dd;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .chat-box {
+        width: 380px;
+        height: 600px;
+        background: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      .messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background: #efeae2;
+      }
+      .bubble {
+        max-width: 70%;
+        padding: 10px;
+        margin: 8px;
+        border-radius: 10px;
+        background: #dcf8c6;
+        position: relative;
+      }
+      .me {
+        background: #34b7f1;
+        color: white;
+        margin-left: auto;
+      }
+      .timestamp {
+        font-size: 10px;
+        color: #555;
+        float: right;
+        margin-top: 4px;
+      }
+      .input-area {
+        display: flex;
+        gap: 5px;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+      }
+      input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        background: #f0f0f0;
+        border-radius: 5px;
+      }
+      button {
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-box">
+      <div class="messages" id="messages"></div>
+
+      <div class="input-area">
+        <input id="text" placeholder="Message..." />
+        <input type="file" id="file" />
+        <button onclick="send()">Send</button>
+      </div>
+    </div>
+
+    <script>
+      const API = "http://localhost:5000";
+
+      function load(){
+          fetch(`${API}/messages`, {credentials:'include'})
+          .then(r=>r.json())
+          .then(data=>{
+              let box=document.getElementById("messages");
+              box.innerHTML="";
+
+              data.forEach(m=>{
+                  let div=document.createElement("div");
+                  div.className="bubble";
+                  if(m.username===localStorage.username) div.classList.add("me");
+
+                  let fileHTML="";
+                  if(m.file){ fileHTML = `<br><a href='${API}/uploads/${m.file}' target='_blank'>📎 ${m.file}</a>` }
+
+                  div.innerHTML = `<b>${m.username}</b><br>${m.text}${fileHTML}<br><span class='timestamp'>${m.timestamp}</span>`;
+                  box.appendChild(div);
+              });
+
+              box.scrollTop = box.scrollHeight;
+          })
+      }
+      setInterval(load, 1200);
+
+      function send(){
+          let text=document.getElementById("text").value;
+          let file=document.getElementById("file").files[0];
+
+          let form=new FormData();
+          form.append("text", text);
+          if(file) form.append("file", file);
+
+          fetch(`${API}/send`, {method:'POST', body:form, credentials:'include'});
+
+          document.getElementById("text").value="";
+          document.getElementById("file").value="";
+      }
+    </script>
+  </body>
+</html>
