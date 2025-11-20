@@ -1,8 +1,89 @@
+
+/* ======= QUICK FIX SHIMS — paste this at top of script.js ======= */
+
+/**
+ * protectPage shim
+ * If you later want to enforce auth, replace the body with real logic.
+ * For now it simply returns false (not redirecting) to avoid crashes.
+ */
+if (typeof protectPage === "undefined") {
+  function protectPage(options = {}) {
+    // Example: if you want to redirect unauthenticated users,
+    // set localStorage.setItem('userRegistered','true') on login
+    try {
+      const registered = localStorage.getItem("userRegistered") === "true";
+      if (!registered && options.redirect !== false) {
+        // don't auto-redirect by default (avoids surprise navigation during debugging)
+        // To enable redirecting, call protectPage({redirect:true})
+      }
+      return registered;
+    } catch (err) {
+      return false;
+    }
+  }
+}
+
+/**
+ * Ensure fullName variable exists
+ * Many scripts read fullName directly — provide a safe default.
+ */
+if (typeof fullName === "undefined") {
+  var fullName = (function(){
+    try {
+      return localStorage.getItem("fullName") || ""; 
+    } catch (e) {
+      return "";
+    }
+  })();
+}
+
+/**
+ * safeAfter helper to avoid "Cannot read properties of null (reading 'after')" errors.
+ * Usage replacement: instead of `el.after(node)` use `safeAfter(el, node)` or
+ * `safeAfterSelector('#some-id', htmlStringOrNode)`.
+ */
+function safeAfter(targetOrSelector, nodeOrHtml) {
+  try {
+    let target;
+    if (!targetOrSelector) return false;
+    if (typeof targetOrSelector === "string") {
+      target = document.querySelector(targetOrSelector);
+    } else {
+      target = targetOrSelector;
+    }
+    if (!target) return false;
+
+    if (typeof nodeOrHtml === "string") {
+      target.insertAdjacentHTML("afterend", nodeOrHtml);
+    } else if (nodeOrHtml instanceof Node) {
+      target.parentNode && target.parentNode.insertBefore(nodeOrHtml, target.nextSibling);
+    }
+    return true;
+  } catch (e) {
+    console.warn("safeAfter failed", e);
+    return false;
+  }
+}
+
+/**
+ * safeRun — wrapper to run code and never let one error stop the rest.
+ * Use: safeRun(() => { /* risky code * / });
+ */
+function safeRun(fn, label = "safeRun") {
+  try {
+    fn && fn();
+  } catch (err) {
+    console.error("Ignored error in", label, err);
+  }
+}
+
+/* ======= End shims ======= */
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('signupForm');
-  const username = document.getElementById('username');
+  const fullName = document.getElementById('fullName');
   const email = document.getElementById('email');
   const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
   const formMessage = document.getElementById('formMessage');
   const passwordStrength = document.createElement('div');
   passwordStrength.style.marginTop = '5px';
@@ -34,13 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Real-time confirm password check
-  // confirmPassword.addEventListener('input', () => {
-  //   if(confirmPassword.value !== password.value) {
-  //     confirmPassword.style.borderColor = '#ff4d4d';
-  //   } else {
-  //     confirmPassword.style.borderColor = '#4ade80';
-  //   }
-  // });
+  confirmPassword.addEventListener('input', () => {
+    if(confirmPassword.value !== password.value) {
+      confirmPassword.style.borderColor = '#ff4d4d';
+    } else {
+      confirmPassword.style.borderColor = '#4ade80';
+    }
+  });
 
   // Real-time email validation
   email.addEventListener('input', () => {
@@ -53,21 +134,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Real-time full name check
-  username.addEventListener('input', () => {
-    if(username.value.trim().length < 3) {
-      username.style.borderColor = '#ff4d4d';
+  fullName.addEventListener('input', () => {
+    if(fullName.value.trim().length < 3) {
+      fullName.style.borderColor = '#ff4d4d';
     } else {
-      username.style.borderColor = '#4ade80';
+      fullName.style.borderColor = '#4ade80';
     }
   });
 
   // Form submission
-  form.addEventListener('submit', async function(e) {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     formMessage.textContent = '';
     formMessage.style.color = '#ff6b6b';
 
-    if(username.value.trim().length < 3) {
+    if(fullName.value.trim().length < 3) {
       formMessage.textContent = 'Full Name must be at least 3 characters.';
       return;
     }
@@ -83,53 +164,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // if(password.value !== confirmPassword.value) {
-    //   formMessage.textContent = 'Passwords do not match.';
-    //   return;
-    // }
+    if(password.value !== confirmPassword.value) {
+      formMessage.textContent = 'Passwords do not match.';
+      return;
+    }
 
     // Success
     formMessage.style.color = '#4ade80';
     formMessage.textContent = 'Account created successfully! Redirecting...';
 
-    await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username.value.trim(),
-        email: email.value.trim(),
-        password: password.value
-      })
-    }).then(response => response.json())
-      .then(data => {
-        if(data.success) {
-          formMessage.style.color = '#4ade80';
-          formMessage.textContent = 'Account created successfully! Redirecting...';
-          setTimeout(() => {
-            window.location.href = '/'; // login page
-          }, 1500);
-        } else {
-          formMessage.style.color = '#ff6b6b';
-          formMessage.textContent = data.message || 'An error occurred. Please try again.';
-        }
-      })
-      .catch(error => {
-        formMessage.style.color = '#ff6b6b';
-        formMessage.textContent = 'An error occurred. Please try again.';
-      });
-
-    // Simulate success for demo purposes
-
-    // setTimeout(() => {
-    //   window.location.href = '/login';
-    // }, 1500);
+    setTimeout(() => {
+      window.location.href = 'signin.html';
+    }, 1500);
   });
 });
-username.addEventListener('input', () => {
-  username.classList.toggle('invalid', username.value.trim().length < 3);
-  username.classList.toggle('valid', username.value.trim().length >= 3);
+fullName.addEventListener('input', () => {
+  fullName.classList.toggle('invalid', fullName.value.trim().length < 3);
+  fullName.classList.toggle('valid', fullName.value.trim().length >= 3);
 });
 
 email.addEventListener('input', () => {
@@ -138,19 +189,18 @@ email.addEventListener('input', () => {
   email.classList.toggle('valid', email.value.match(emailPattern));
 });
 
-// password.addEventListener('input', () => {
-//   const strength = getPasswordStrength(password.value);
-//   passwordStrength.textContent = strength.text;
-//   passwordStrength.style.color = strength.color;
-//   password.classList.toggle('invalid', password.value.length < 6);
-//   password.classList.toggle('valid', password.value.length >= 6);
-// });
+password.addEventListener('input', () => {
+  const strength = getPasswordStrength(password.value);
+  passwordStrength.textContent = strength.text;
+  passwordStrength.style.color = strength.color;
+  password.classList.toggle('invalid', password.value.length < 6);
+  password.classList.toggle('valid', password.value.length >= 6);
+});
 
-// confirmPassword.addEventListener('input', () => {
-//   confirmPassword.classList.toggle('invalid', confirmPassword.value !== password.value);
-//   confirmPassword.classList.toggle('valid', confirmPassword.value === password.value);
-// });
-// ================= UNIVERSAL SCRIPT FOR SKILLCHAIN =================
+confirmPassword.addEventListener('input', () => {
+  confirmPassword.classList.toggle('invalid', confirmPassword.value !== password.value);
+  confirmPassword.classList.toggle('valid', confirmPassword.value === password.value);
+});
 
 // -------------------- HERO ANIMATIONS --------------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -193,45 +243,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // -------------------- FORM VALIDATION --------------------
 const forms = document.querySelectorAll("form");
 
-// forms.forEach(form => {
-//   form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     let valid = true;
+forms.forEach(form => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let valid = true;
 
-//     const inputs = form.querySelectorAll("input[required], textarea[required]");
-//     inputs.forEach(input => {
-//       if(input.value.trim() === "") {
-//         input.classList.add("invalid");
-//         input.classList.remove("valid");
-//         valid = false;
-//       } else {
-//         input.classList.add("valid");
-//         input.classList.remove("invalid");
-//       }
-//     });
+    const inputs = form.querySelectorAll("input[required], textarea[required]");
+    inputs.forEach(input => {
+      if(input.value.trim() === "") {
+        input.classList.add("invalid");
+        input.classList.remove("valid");
+        valid = false;
+      } else {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+    });
 
-//     // Password match check
-//     const password = form.querySelector('input[name="password"]');
-//     const confirm = form.querySelector('input[name="confirm_password"]');
-//     if(password && confirm) {
-//       if(password.value !== confirm.value) {
-//         confirm.classList.add("invalid");
-//         confirm.classList.remove("valid");
-//         valid = false;
-//         // alert("Passwords do not match!");
-//       } else if(confirm.value !== "") {
-//         confirm.classList.add("valid");
-//         confirm.classList.remove("invalid");
-//       }
-//     }
+    // Password match check
+    const password = form.querySelector('input[name="password"]');
+    const confirm = form.querySelector('input[name="confirm_password"]');
+    if(password && confirm) {
+      if(password.value !== confirm.value) {
+        confirm.classList.add("invalid");
+        confirm.classList.remove("valid");
+        valid = false;
+        alert("Passwords do not match!");
+      } else if(confirm.value !== "") {
+        confirm.classList.add("valid");
+        confirm.classList.remove("invalid");
+      }
+    }
 
-//     if(valid) {
-//       // alert("Form submitted successfully! (Simulated)");
-//       form.reset();
-//       inputs.forEach(i => i.classList.remove("valid"));
-//     }
-//   });
-// });
+    if(valid) {
+      alert("Form submitted successfully! (Simulated)");
+      form.reset();
+      inputs.forEach(i => i.classList.remove("valid"));
+    }
+  });
+});
 
 // -------------------- SHOW / HIDE PASSWORD --------------------
 document.querySelectorAll(".toggle-password").forEach(toggle => {
@@ -253,3 +303,25 @@ if(menuToggle && navLinks) {
     navLinks.classList.toggle("active");
   });
 }
+function isUserRegistered() {
+    return localStorage.getItem("userRegistered") === "true";
+}
+
+document.getElementById("start-learning-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (isUserRegistered()) {
+        window.location.href = "account.html";
+    } else {
+        window.location.href = "new_account.html";
+    }
+});
+
+document.getElementById("become-creator-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (isUserRegistered()) {
+        window.location.href = "create.html";
+    } else {
+        window.location.href = "new_account.html";
+    }
+});
+

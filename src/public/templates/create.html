@@ -3,21 +3,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkillChain - Create Lesson</title>
-  <link rel="stylesheet" href="/styles/navbar.css">
-  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sub-menu.css">
 </head>
-<body class="bg-gray-900 text-white">  <!-- Navbar -->  <!-- Include navbar.html content here -->  <!-- Hero Section -->  
-<section class="page-links flex justify-center gap-4 mt-6 flex-wrap">
-  <a href="/forks" class="nav-item flex items-center justify-center px-6 py-3 bg-indigo-500 text-white font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:text-black transition">
-    Fork
-  </a>
-  <a href="/challenges" class="nav-item flex items-center justify-center px-6 py-3 bg-indigo-500 text-white font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:text-black transition">
-    Challenge
-  </a>
-  <a href="/courses" class="nav-item flex items-center justify-center px-6 py-3 bg-indigo-500 text-white font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:text-black transition">
-    Course
-  </a>
-</section>
+<body>
+  
+<!-- ========== RIGHT SIDE MENU ========== -->
+<button id="menu-toggle" class="menu-toggle">☰</button>
+
+<div id="right-side-menu" class="right-side-menu">
+    <div class="right-menu-header">
+        <h2>Menu</h2>
+        <span id="right-close-btn" class="right-close-btn">&times;</span>
+    </div>
+
+    <ul class="right-menu-items">
+        <li><a href="leaderboard.html"><span class="menu-icon">🏆</span>Leaderboard</a></li>
+        <li><a href="notifications.html"><span class="menu-icon">🔔</span>Notifications</a></li>
+        <li><a href="settings.html"><span class="menu-icon">⚙️</span>Settings</a></li>
+        <li><a href="stats.html"><span class="menu-icon">📊</span>Stats</a></li>
+        <li><a href="support.html"><span class="menu-icon">🛠️</span>Support</a></li>
+
+        <li>
+            <a href="#" class="submenu-toggle">
+                <span class="menu-icon">🎯</span>Challenges
+                <span class="submenu-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="daily_challenges.html">Daily Challenges</a></li>
+                <li><a href="weekly_challenges.html">Weekly Challenges</a></li>
+            </ul>
+        </li>
+
+        <li><a href="profile.html"><span class="menu-icon">👤</span>Profile</a></li>
+        <li><a href="fork.html"><span class="menu-icon">🍴</span>Fork</a></li>
+        <li><a href="rewards.html"><span class="menu-icon">💎</span>Rewards</a></li>
+        <li><a href="messages.html"><span class="menu-icon">✉️</span>Messages</a></li>
+
+        <li>
+            <a href="#" class="submenu-toggle">
+                <span class="menu-icon">👥</span>Groups
+                <span class="submenu-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="group_chats.html">Chats</a></li>
+                <li><a href="group_members.html">Members</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="submenu-toggle">
+                <span class="menu-icon">📚</span>Courses
+                <span class="submenu-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="course_modules.html">Modules</a></li>
+                <li><a href="course_assignments.html">Assignments</a></li>
+            </ul>
+        </li>
+
+        <li><a href="help.html"><span class="menu-icon">❓</span>Help</a></li>
+        <li><a href="charts.html"><span class="menu-icon">📈</span>Charts</a></li>
+    </ul>
+</div>
+<!-- ========== END RIGHT SIDE MENU ========== -->
 <section class="hero bg-gradient-to-b from-indigo-600 to-purple-700 text-white text-center py-24 px-6">
     <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Create a New Lesson</h1>
     <p class="text-xl max-w-3xl mx-auto opacity-90">Share your knowledge with the community by creating your own lesson.</p>
@@ -27,7 +77,9 @@
         <span class="text-white font-semibold">Lesson Title</span>
         <input type="text" placeholder="Enter lesson title" class="w-full mt-2 p-3 rounded bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-indigo-500">
       </label><label class="block mb-4">
+        <br>
     <span class="text-white font-semibold">Category</span>
+    <br>
     <select class="w-full mt-2 p-3 rounded bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-indigo-500">
       <option>Programming</option>
       <option>Blockchain</option>
@@ -36,53 +88,53 @@
       <option>Data Science</option>
     </select>
   </label>
-
+<br>
   <label class="block mb-4">
     <span class="text-white font-semibold">Content</span>
     <textarea placeholder="Enter your lesson content here" class="w-full mt-2 p-3 rounded bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-indigo-500 h-40"></textarea>
   </label>
-
+<br>
   <label class="block mb-6">
     <span class="text-white font-semibold">Upload Resources (Optional)</span>
     <input type="file" class="w-full mt-2 p-3 rounded bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-indigo-500">
   </label>
-
+<br>
   <button type="submit" class="bg-indigo-700 text-white px-8 py-3 rounded-2xl font-bold shadow-lg hover:scale-105 transition">Create Lesson</button>
 </form>
 
   </section>
 <nav class="bottom-nav">
-  <a href="/" class="nav-item">
+  <a href="home.html" class="nav-item">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10"/>
     </svg>
     <span>Home</span>
   </a>
-  <a href="/account" class="nav-item">
+  <a href="account.html" class="nav-item">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A10.001 10.001 0 0112 15c2.386 0 4.568.832 6.121 2.195M12 12a4 4 0 100-8 4 4 0 000 8z"/>
     </svg>
     <span>Account</span>
   </a>
-  <a href="/explore" class="nav-item">
+  <a href="explore.html" class="nav-item">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4 4 4M4 17h16"/>
     </svg>
     <span>Explore</span>
   </a>
-  <a href="/inbox" class="nav-item">
+  <a href="inbox.html" class="nav-item">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 6v6"/>
     </svg>
     <span>Inbox</span>
   </a>
-  <a href="/library" class="nav-item">
+  <a href="library.html" class="nav-item">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z"/>
     </svg>
     <span>Library</span>
   </a>
-  <a href="/create" class="nav-item">
+  <a href="create.html" class="nav-item">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
     </svg>
@@ -101,6 +153,6 @@
     }
   });
 </script>
-
+<script src="sub-menu.js"></script>
 </body>
 </html>

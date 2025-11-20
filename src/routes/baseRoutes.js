@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Define a simple route
 router.get('/', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/home.html'));
+  res.sendFile(path.resolve('src/public/templates/index.html'));
 });
 
 router.get('/explore', (req, res) => {

@@ -4,9 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Decentralized Learning Platform</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/sub-menu.css">
 </head>
 <body>
+  <!-- ========== RIGHT SIDE MENU ========== -->
+<button id="menu-toggle" class="menu-toggle">☰</button>
+
+<div id="right-side-menu" class="right-side-menu">
+    <div class="right-menu-header">
+        <h2>Menu</h2>
+        <span id="right-close-btn" class="right-close-btn">&times;</span>
+    </div>
+
+    <ul class="right-menu-items">
+        <li><a href="leaderboard.html"><span class="menu-icon">🏆</span>Leaderboard</a></li>
+        <li><a href="notifications.html"><span class="menu-icon">🔔</span>Notifications</a></li>
+        <li><a href="settings.html"><span class="menu-icon">⚙️</span>Settings</a></li>
+        <li><a href="stats.html"><span class="menu-icon">📊</span>Stats</a></li>
+        <li><a href="support.html"><span class="menu-icon">🛠️</span>Support</a></li>
+
+        <li>
+            <a href="#" class="submenu-toggle">
+                <span class="menu-icon">🎯</span>Challenges
+                <span class="submenu-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="daily_challenges.html">Daily Challenges</a></li>
+                <li><a href="weekly_challenges.html">Weekly Challenges</a></li>
+            </ul>
+        </li>
+
+        <li><a href="profile.html"><span class="menu-icon">👤</span>Profile</a></li>
+        <li><a href="fork.html"><span class="menu-icon">🍴</span>Fork</a></li>
+        <li><a href="rewards.html"><span class="menu-icon">💎</span>Rewards</a></li>
+        <li><a href="messages.html"><span class="menu-icon">✉️</span>Messages</a></li>
+
+        <li>
+            <a href="#" class="submenu-toggle">
+                <span class="menu-icon">👥</span>Groups
+                <span class="submenu-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="group_chats.html">Chats</a></li>
+                <li><a href="group_members.html">Members</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="submenu-toggle">
+                <span class="menu-icon">📚</span>Courses
+                <span class="submenu-arrow">▼</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="course_modules.html">Modules</a></li>
+                <li><a href="course_assignments.html">Assignments</a></li>
+            </ul>
+        </li>
+
+        <li><a href="help.html"><span class="menu-icon">❓</span>Help</a></li>
+        <li><a href="charts.html"><span class="menu-icon">📈</span>Charts</a></li>
+    </ul>
+</div>
+<!-- ========== END RIGHT SIDE MENU ========== -->
 
 <!-- ===== HEADER ===== -->
 <header>
@@ -22,8 +82,8 @@
     fork knowledge like code, and earn real rewards for sharing skills.
   </p>
   <div class="cta">
-    <a href="account.html" class="btn btn-primary">Start Learning</a>
-    <a href="create.html" class="btn btn-secondary">Become a Creator</a>
+    <a href="/signup" class="btn btn-primary">Start Learning</a>
+    <a href="/signup" class="btn btn-secondary">Become a Creator</a>
   </div>
 </section>
 
@@ -141,7 +201,7 @@
   <h2>Ready to Join the Future of Learning?</h2>
   <p>Start learning in seconds. No gatekeepers. No limits.</p>
   <div class="cta">
-    <a href="account.html" class="btn btn-primary">Get Started</a>
+    <a href="new_account.html" class="btn btn-primary">Get Started</a>
   </div>
 </section>
 
@@ -149,6 +209,6 @@
 <footer>
   <p>&copy; 2025 SkillChain. All rights reserved.</p>
 </footer>
-
+<script src="/scripts/sub-menu.js"></script>
 </body>
 </html>

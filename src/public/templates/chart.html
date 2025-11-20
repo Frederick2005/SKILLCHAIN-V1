@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Chat Room</title>
+    <link rel="stylesheet" href="chart.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+
+      <div class="chat-header">
+        <button class="back-btn" onclick="history.back()">
+          ⬅
+        </button>
+        <h3>Study Chat</h3>
+      </div>
+
+      <div class="messages" id="messages"></div>
+
+      <div class="input-area">
+        <label class="file-btn">
+          +
+          <input type="file" id="file" hidden />
+        </label>
+
+        <input id="text" placeholder="Type a message…" />
+
+        <button class="send-btn" onclick="send()">
+          ➤
+        </button>
+      </div>
+    </div>
+
+    <script src="chart.js"></script>
+  </body>
+</html>

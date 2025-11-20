@@ -21,4 +21,4 @@ body { background: #0b0e16; color: #ffffff; display: flex; justify-content: cent
 
 /* ANIMATIONS */ @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
-/* MOBILE RESPONSIVENESS */ @media (max-width: 500px) { .signup-container { padding: 40px 20px; } .signup-container h1 { font-size: 2rem; } }
+/* MOBILE RESPONSIVENESS */ @media (max-width: 500px) { .signup-container { padding: 40px 20px; } .signup-container h1 { font-size: 2rem; } }*

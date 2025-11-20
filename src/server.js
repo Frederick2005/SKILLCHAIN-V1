@@ -3,14 +3,15 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import connectDB from './config/db.js';
+// import connectDB from './config/db.js';
 import baseRoutes from './routes/baseRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 
 dotenv.config();
 
+
 // CONNECT DATABASE
-connectDB()
+// connectDB()
 
 const app = express();
 const PORT = process.env.PORT || 3000;
