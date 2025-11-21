@@ -24,13 +24,13 @@ if (typeof protectPage === "undefined") {
 }
 
 /**
- * Ensure fullName variable exists
- * Many scripts read fullName directly — provide a safe default.
+ * Ensure username variable exists
+ * Many scripts read username directly — provide a safe default.
  */
-if (typeof fullName === "undefined") {
-  var fullName = (function(){
+if (typeof username === "undefined") {
+  var username = (function(){
     try {
-      return localStorage.getItem("fullName") || ""; 
+      return localStorage.getItem("username") || ""; 
     } catch (e) {
       return "";
     }

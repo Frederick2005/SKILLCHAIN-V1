@@ -1,53 +1,30 @@
-import express from 'express';
-import path from 'path';
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const router = express.Router();
 
-// Define a simple route
-router.get('/', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/index.html'));
-});
+// Base template folder
+const TEMPLATE_DIR = path.join(__dirname, "../public/templates");
 
-router.get('/explore', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/explore.html'));
-});
+// Helper function
+const renderTemplate = (res, fileName) => {
+  res.sendFile(path.join(TEMPLATE_DIR, fileName));
+};
 
-router.get('/profile', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/profile.html'));
-});
-
-router.get('/help', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/help.html'));
-});
-
-router.get('/account', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/account.html'));
-});
-
-router.get('/inbox', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/inbox.html'));
-});
-
-router.get('/library', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/library.html'));
-});
-
-router.get('/create', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/create.html'));
-});
-
-router.get('/messages', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/messages.html'));
-});
-
-router.get('/signup', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/new_account.html'));
-});
-
-router.get('/login', (req, res) => {
-  res.sendFile(path.resolve('src/public/templates/sign_in.html'));
-});
-
+router.get("/", (_, res) => renderTemplate(res, "index.html"));
+router.get("/explore", (_, res) => renderTemplate(res, "explore.html"));
+router.get("/profile", (_, res) => renderTemplate(res, "profile.html"));
+router.get("/help", (_, res) => renderTemplate(res, "help.html"));
+router.get("/account", (_, res) => renderTemplate(res, "account.html"));
+router.get("/inbox", (_, res) => renderTemplate(res, "inbox.html"));
+router.get("/library", (_, res) => renderTemplate(res, "library.html"));
+router.get("/create", (_, res) => renderTemplate(res, "create.html"));
+router.get("/messages", (_, res) => renderTemplate(res, "messages.html"));
+router.get("/signup", (_, res) => renderTemplate(res, "new_account.html"));
+router.get("/signin", (_, res) => renderTemplate(res, "sign_in.html"))
 
 export default router;

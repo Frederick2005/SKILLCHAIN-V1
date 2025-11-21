@@ -12,15 +12,14 @@
     <h1>Create Your Account</h1>
     <p>Join SkillChain and start learning, teaching, and earning rewards!</p>
     <form id="signupForm" class="signup-form" novalidate>
-      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="text" id="username" placeholder="Username" required>
       <input type="email" id="email" placeholder="Email Address" required>
       <input type="password" id="password" placeholder="Password" required>
-      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
       <button type="submit">Sign Up</button>
       <p id="formMessage" style="margin-top:10px;color:#ff6b6b;"></p>
     </form>
     <div class="signin-link">
-      Already have an account? <a href="/sign_in">Sign In</a>
+      Already have an account? <a href="/signin">Sign In</a>
       <div class="social-login mt-6 flex justify-center gap-4">
   <button class="social-btn google">Sign Up with Google</button>
   <button class="social-btn github">Sign Up with GitHub</button>
@@ -32,7 +31,7 @@
   </div>
 </section>
 
-<script src="/scripts/script.js"></script>
+<script src="/scripts/register.js"></script>
 
 </body>
 </html>

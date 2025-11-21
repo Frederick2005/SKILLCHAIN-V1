@@ -1,6 +1,8 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
+import jwt from 'jsonwebtoken'
 import generateToken from "../utils/generateToken.js";
+import asyncHandler from "express-async-handler";
 
 
 // -----------------------------------------------------------
@@ -25,7 +27,7 @@ export const registerUser = async (req, res) => {
 
     // Create user
     const user = await User.create({
-      username,       // this must match your field
+      username, // this must match your field
       email,
       password: hashedPassword,
     });
@@ -39,51 +41,51 @@ export const registerUser = async (req, res) => {
       },
       token: generateToken(user._id),
     });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 };
 
-
-
 // -----------------------------------------------------------
 // LOGIN USER
 // -----------------------------------------------------------
-export const loginUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+export const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
 
-    // Validate
-    if (!email || !password)
-      return res.status(400).json({ message: "All fields are required" });
+  const user = await User.findOne({ email });
+  if (!user) return res.status(400).json({ message: "User not found" });
 
-    // Find user
-    const user = await User.findOne({ email });
+  const match = await bcrypt.compare(password, user.password);
+  if (!match) return res.status(400).json({ message: "Invalid password" });
 
-    if (!user)
-      return res.status(404).json({ message: "User not found" });
+const token = jwt.sign(
+  { id: user._id },   // MUST MATCH protect middleware
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" }
+);
 
-    // Compare password
-    const isMatch = await bcrypt.compare(password, user.password);
 
-    if (!isMatch)
-      return res.status(400).json({ message: "Invalid credentials" });
+  res.status(200).json({
+    success: true,
+    message: "Login successful",
+    token: token,
+    user: user,
+  });
+});
 
-    // Success
-    return res.status(200).json({
-      message: "Login successful",
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-      },
-      token: generateToken(user._id),
-    });
+export const getProfile = asyncHandler(async (req, res) => {
+  const userId = req.user._id;    // req.user must be set by middleware
 
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Server error" });
+  if (!userId) {
+    return res.status(400).json({ message: "User ID missing in token" });
   }
-};
+
+  const user = await User.findById(userId).select("-password");
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.json(user);
+});
