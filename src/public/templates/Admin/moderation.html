@@ -1,0 +1,74 @@
+<section class="page admin-moderation" id="admin-moderation">
+
+    <!-- Navbar -->
+    <header id="navbar">
+        <div class="logo">SkillChain Admin</div>
+        <nav>
+            <ul>
+                <li><a href="#/admin-dashboard">Dashboard</a></li>
+                <li><a href="#/admin-users">Users</a></li>
+                <li><a href="#/admin-lessons">Lessons</a></li>
+                <li><a href="#/admin-reports">Reports</a></li>
+                <li><a href="#/admin-rewards">Rewards</a></li>
+                <li><a href="#/admin-moderation" class="active">Moderation</a></li>
+                <li><a href="#/admin-settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <ul>
+            <li><a href="#">Reported Lessons</a></li>
+            <li><a href="#">Flagged Users</a></li>
+            <li><a href="#">Pending Approvals</a></li>
+            <li><a href="#">Violations History</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="moderation-overview">
+            <h1>Content & User Moderation</h1>
+
+            <!-- Search & Filters -->
+            <div class="moderation-controls">
+                <input type="text" placeholder="Search reports..." id="moderation-search">
+                <select id="moderation-filter">
+                    <option value="all">All Reports</option>
+                    <option value="lessons">Reported Lessons</option>
+                    <option value="users">Flagged Users</option>
+                    <option value="pending">Pending Approvals</option>
+                </select>
+                <button id="refresh-btn">Refresh</button>
+            </div>
+
+            <!-- Moderation Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Content/User</th>
+                        <th>Type</th>
+                        <th>Reported By</th>
+                        <th>Date Reported</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lesson: "Intro to AI"</td>
+                        <td>Lesson</td>
+                        <td>Jane Doe</td>
+                        <td>2025-12-16</td>
+                        <td>Pending</td>
+                        <td>
+                            <button>Approve</button>
+                            <button>Warn User</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>

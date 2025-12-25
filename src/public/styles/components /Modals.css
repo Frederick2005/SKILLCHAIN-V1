@@ -1,0 +1,234 @@
+/* =========================
+   Modals & Auth CSS - SkillChain
+   ========================= */
+
+@import "/src/public/styles/base/variables.css";
+@import "/src/public/styles/base/foundation.css";
+
+/* ---------- MODAL BASE ---------- */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 90%;
+  max-width: 500px;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-medium) var(--easing-default),
+              transform var(--transition-medium) var(--easing-default);
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ---------- MODAL HEADER ---------- */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-text-muted);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+}
+
+.modal-header .close-btn {
+  background: transparent;
+  border: none;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast) var(--easing-default);
+}
+
+.modal-header .close-btn:hover {
+  color: var(--color-error);
+  transform: rotate(90deg);
+}
+
+/* ---------- MODAL BODY ---------- */
+.modal-body {
+  padding: var(--spacing-md);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+/* ---------- MODAL FOOTER ---------- */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--color-text-muted);
+}
+
+.modal-footer .btn {
+  min-width: 100px;
+  text-align: center;
+}
+
+/* ---------- MODAL OVERLAY ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-medium) var(--easing-default);
+  z-index: 900;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- ANIMATIONS ---------- */
+.modal-header,
+.modal-body,
+.modal-footer {
+  animation: fadeIn var(--transition-medium) var(--easing-default);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .modal {
+    width: 95%;
+    padding: var(--spacing-sm);
+  }
+  .modal-header, .modal-body, .modal-footer {
+    padding: var(--spacing-sm);
+  }
+  .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* =========================
+   AUTH MODAL / LOGIN / SIGNUP
+   ========================= */
+.auth-wrapper {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-gradient-end));
+}
+
+.auth-modal {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  animation: authFadeIn 0.8s var(--easing-default);
+}
+
+.auth-modal h1 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-light);
+  transition: text-shadow var(--transition-medium);
+}
+
+.auth-modal h1:hover {
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.6);
+}
+
+.auth-modal p {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+}
+
+.auth-form input {
+  width: 100%;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-thin) solid transparent;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-light);
+  font-size: var(--font-size-md);
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.auth-form input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.auth-form input:focus {
+  outline: none;
+  transform: scale(1.02);
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.45);
+}
+
+/* Buttons */
+.auth-modal .btn {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+}
+
+/* Link below form */
+.auth-footer {
+  margin-top: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.auth-footer a {
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.auth-footer a:hover {
+  color: var(--color-accent);
+}
+
+/* ---------- AUTH ANIMATION ---------- */
+@keyframes authFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .auth-modal {
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+  }
+
+  .auth-modal h1 {
+    font-size: var(--font-size-2xl);
+  }
+}

@@ -1,0 +1,43 @@
+<section class="page chat-settings" id="chat-settings">
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
+    <nav>
+      <ul>
+        <li><a href="#/chat">Chat</a></li>
+        <li><a href="#/dashboard">Dashboard</a></li>
+        <li><a href="#/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+    <h1>Chat Settings</h1>
+    <form id="chat-settings-form">
+      <label>
+        <input type="checkbox" id="enable-notifications" />
+        Enable Notifications
+      </label>
+
+      <label>
+        <input type="checkbox" id="dark-mode-chat" />
+        Enable Dark Mode
+      </label>
+
+      <label>
+        Default Chat Theme:
+        <select id="chat-theme-select">
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <!-- Add other themes -->
+        </select>
+      </label>
+
+      <button type="submit">Save Settings</button>
+    </form>
+  </main>
+
+</section>

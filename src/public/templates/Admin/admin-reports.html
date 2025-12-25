@@ -1,0 +1,70 @@
+<section class="page admin-reports" id="admin-reports">
+
+    <!-- Navbar -->
+    <header id="navbar">
+        <div class="logo">SkillChain Admin</div>
+        <nav>
+            <ul>
+                <li><a href="#/admin-dashboard">Dashboard</a></li>
+                <li><a href="#/admin-users">Users</a></li>
+                <li><a href="#/admin-lessons">Lessons</a></li>
+                <li><a href="#/admin-reports" class="active">Reports</a></li>
+                <li><a href="#/admin-settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <ul>
+            <li><a href="#">User Activity</a></li>
+            <li><a href="#">Lesson Engagement</a></li>
+            <li><a href="#">Forking Stats</a></li>
+            <li><a href="#">Reported Content</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="reports-overview">
+            <h1>Platform Reports</h1>
+
+            <!-- Report Filters -->
+            <div class="report-controls">
+                <input type="text" placeholder="Search reports..." id="report-search">
+                <select id="report-type">
+                    <option value="all">All Reports</option>
+                    <option value="user">User Activity</option>
+                    <option value="lessons">Lesson Engagement</option>
+                    <option value="forking">Forking Stats</option>
+                    <option value="flagged">Flagged Content</option>
+                </select>
+                <button id="generate-report-btn">Generate Report</button>
+            </div>
+
+            <!-- Reports Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Report Name</th>
+                        <th>Type</th>
+                        <th>Date Generated</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Top Forked Lessons</td>
+                        <td>Forking Stats</td>
+                        <td>2025-12-17</td>
+                        <td>Completed</td>
+                        <td>
+                            <button>View</button>
+                            <button>Download</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>

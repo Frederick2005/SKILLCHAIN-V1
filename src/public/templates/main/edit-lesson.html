@@ -1,0 +1,40 @@
+<section class="page edit-lesson" id="edit-lesson">
+  <!-- ===== HEADER ===== -->
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
+    <nav>
+      <ul>
+        <li><a href="#/dashboard">Dashboard</a></li>
+        <li><a href="#/lessons">Lessons</a></li>
+        <li><a href="#/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+    <section class="lesson-edit">
+      <h1>Edit Lesson</h1>
+      <form id="edit-lesson-form">
+        <label>Title:</label>
+        <input type="text" placeholder="Lesson title" required>
+
+        <label>Content:</label>
+        <textarea placeholder="Edit lesson content here..." required></textarea>
+
+        <label>Media (optional):</label>
+        <input type="file" accept="image/*,video/*">
+
+        <label>Difficulty Level:</label>
+        <select>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+
+        <button type="submit">Save Changes</button>
+      </form>
+    </section>
+  </main>
+
+</section>

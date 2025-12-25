@@ -1,0 +1,75 @@
+<section class="page reported-content" id="reported-content">
+
+    <!-- Navbar -->
+    <header id="navbar">
+        <div class="logo">SkillChain Admin</div>
+        <nav>
+            <ul>
+                <li><a href="#/admin-dashboard">Dashboard</a></li>
+                <li><a href="#/admin-users">Users</a></li>
+                <li><a href="#/admin-lessons">Lessons</a></li>
+                <li><a href="#/admin-reports">Reports</a></li>
+                <li><a href="#/admin-rewards">Rewards</a></li>
+                <li><a href="#/admin-moderation">Moderation</a></li>
+                <li><a href="#/reported-content" class="active">Reported Content</a></li>
+                <li><a href="#/admin-settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <ul>
+            <li><a href="#">All Reported Content</a></li>
+            <li><a href="#">Pending Review</a></li>
+            <li><a href="#">Resolved Reports</a></li>
+            <li><a href="#">Top Reported Lessons</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="reported-content-overview">
+            <h1>Reported Content Management</h1>
+
+            <!-- Search & Filter -->
+            <div class="reported-controls">
+                <input type="text" placeholder="Search content..." id="reported-search">
+                <select id="reported-filter">
+                    <option value="all">All</option>
+                    <option value="pending">Pending Review</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="top">Top Reported</option>
+                </select>
+                <button id="refresh-reports-btn">Refresh</button>
+            </div>
+
+            <!-- Reported Content Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lesson / Content</th>
+                        <th>Reported By</th>
+                        <th>Reason</th>
+                        <th>Date Reported</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lesson: "Advanced JS Tricks"</td>
+                        <td>John Doe</td>
+                        <td>Inappropriate content</td>
+                        <td>2025-12-16</td>
+                        <td>Pending</td>
+                        <td>
+                            <button>Mark as Resolved</button>
+                            <button>Delete Content</button>
+                            <button>Warn Creator</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>

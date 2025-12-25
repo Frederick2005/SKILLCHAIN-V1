@@ -1,0 +1,131 @@
+<section class="page feedback" id="feedback">
+
+  <!-- ===== HEADER ===== -->
+  <header class="page-header">
+    <h1 id="page-title">Feature Requests </h1>
+    <p class="text-muted" id="page-subtitle">Suggest new features and improvements</p>
+  </header>
+
+  <!-- ===== TABS ===== -->
+  <section class="feedback-tabs flex gap-2 mt-4">
+    <button class="tab-btn active" data-tab="feature">Request Feature</button>
+    <button class="tab-btn" data-tab="feedback">Send Feedback</button>
+  </section>
+
+  <!-- ===== FEATURE REQUEST PAGE ===== -->
+  <section id="feature-page" class="tab-page mt-6">
+    <!-- Stats -->
+    <section class="feedback-stats flex gap-4">
+      <div class="stat-card">
+        <h3 id="total-requests">0</h3>
+        <p>Total Requests</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="total-features">0</h3>
+        <p>Feature Requests</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="total-bugs">0</h3>
+        <p>Bug Reports</p>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <form id="feature-form" class="card p-4 rounded-lg shadow-md mt-4">
+      <h2>Request a Feature</h2>
+
+      <label>Request Type</label>
+      <select id="feature-type" required>
+        <option value="">Select type</option>
+        <option>Feature Request</option>
+        <option>Improvement Suggestion</option>
+        <option>UI / UX Feedback</option>
+        <option>Performance Issue</option>
+        <option>General Feedback</option>
+      </select>
+
+      <label>Priority Level</label>
+      <select id="feature-priority" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+        <option>Critical</option>
+      </select>
+
+      <label>You are a</label>
+      <select id="feature-user-type" required>
+        <option>Student</option>
+        <option>Teacher</option>
+        <option>Developer</option>
+        <option>Content Creator</option>
+        <option>Other</option>
+      </select>
+
+      <label>Title</label>
+      <input type="text" id="feature-title" required placeholder="Short summary">
+
+      <label>Details</label>
+      <textarea id="feature-details" rows="5" required></textarea>
+
+      <div class="form-actions flex gap-2 mt-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== FEEDBACK PAGE ===== -->
+  <section id="feedback-page" class="tab-page mt-6 hidden">
+    <!-- Stats -->
+    <section class="feedback-stats flex gap-4">
+      <div class="stat-card">
+        <h3 id="total-feedback">0</h3>
+        <p>Total Feedback</p>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <form id="feedback-form" class="card p-4 rounded-lg shadow-md mt-4">
+      <h2>Send Feedback</h2>
+
+      <label>Feedback Type</label>
+      <select id="feedback-type" required>
+        <option value="">Select type</option>
+        <option>General Feedback</option>
+        <option>Bug Report</option>
+        <option>Improvement Suggestion</option>
+        <option>UI / UX Feedback</option>
+        <option>Performance Issue</option>
+      </select>
+
+      <label>Priority Level</label>
+      <select id="feedback-priority" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+        <option>Critical</option>
+      </select>
+
+      <label>You are a</label>
+      <select id="feedback-user-type" required>
+        <option>Student</option>
+        <option>Teacher</option>
+        <option>Developer</option>
+        <option>Content Creator</option>
+        <option>Other</option>
+      </select>
+
+      <label>Title</label>
+      <input type="text" id="feedback-title" required placeholder="Short summary">
+
+      <label>Details</label>
+      <textarea id="feedback-details" rows="5" required></textarea>
+
+      <div class="form-actions flex gap-2 mt-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </section>
+
+</section>

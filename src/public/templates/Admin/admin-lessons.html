@@ -1,0 +1,71 @@
+<section class="page admin-lessons" id="admin-lessons">
+
+    <!-- Navbar -->
+    <header id="navbar">
+        <div class="logo">SkillChain Admin</div>
+        <nav>
+            <ul>
+                <li><a href="#/admin-dashboard">Dashboard</a></li>
+                <li><a href="#/admin-users">Users</a></li>
+                <li><a href="#/admin-lessons" class="active">Lessons</a></li>
+                <li><a href="#/admin-analytics">Analytics</a></li>
+                <li><a href="#/admin-settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <ul>
+            <li><a href="#">All Lessons</a></li>
+            <li><a href="#">Pending Approval</a></li>
+            <li><a href="#">Top Forked</a></li>
+            <li><a href="#">Reported Lessons</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="lesson-overview">
+            <h1>Manage Lessons</h1>
+
+            <!-- Search & Filter -->
+            <div class="lesson-controls">
+                <input type="text" placeholder="Search lessons..." id="lesson-search">
+                <select id="lesson-filter">
+                    <option value="all">All</option>
+                    <option value="pending">Pending Approval</option>
+                    <option value="approved">Approved</option>
+                    <option value="forked">Forked Lessons</option>
+                </select>
+                <button id="add-lesson-btn">Add New Lesson</button>
+            </div>
+
+            <!-- Lessons Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lesson Title</th>
+                        <th>Creator</th>
+                        <th>Forked From</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Placeholder row -->
+                    <tr>
+                        <td>Introduction to Algebra</td>
+                        <td>John Doe</td>
+                        <td>—</td>
+                        <td>Approved</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                            <button>Approve</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>

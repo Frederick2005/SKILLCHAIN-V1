@@ -1,0 +1,124 @@
+/* =========================
+   SkillChain Dashboard 
+   ========================= */
+
+/* IMPORTS */
+@import "../base/variables.css";
+@import "../base/foundation.css";
+
+/* ---------- DASHBOARD CONTAINER ---------- */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  transition: background-color var(--transition-medium) var(--easing-default);
+}
+
+/* ---------- DASHBOARD HEADER ---------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-header h2 {
+  font-size: var(--font-size-2xl);
+}
+
+.dashboard-header .user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ---------- DASHBOARD GRID ---------- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--grid-gap-lg);
+  width: 100%;
+}
+
+/* ---------- DASHBOARD CARD ---------- */
+.dashboard-card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast) var(--easing-default),
+              box-shadow var(--transition-fast) var(--easing-default);
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.dashboard-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.dashboard-card p {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+}
+
+/* ---------- STAT CARDS ---------- */
+.dashboard-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.dashboard-stat .icon {
+  font-size: var(--font-size-3xl);
+  color: var(--color-secondary);
+}
+
+.dashboard-stat .stat-info h4 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xxs);
+}
+
+.dashboard-stat .stat-info p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- DASHBOARD BUTTONS ---------- */
+.dashboard-card .btn {
+  margin-top: var(--spacing-md);
+  align-self: flex-start;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: var(--spacing-md);
+  }
+}

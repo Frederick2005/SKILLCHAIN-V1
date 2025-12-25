@@ -1,0 +1,41 @@
+<section class="page login" id="login">
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="logo">SkillChain</div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="dashboard-container">
+    <section class="dashboard-card auth-form">
+
+      <h1 class="section-title">Welcome Back</h1>
+      <p class="section-text">Login to continue learning and earning.</p>
+
+      <form id="login-form" action="#/home" method="GET">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <div class="form-options">
+          <label>
+            <input type="checkbox" name="remember" /> Remember me
+          </label>
+          <a href="#/forgot-password">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+
+      <p class="auth-footer">Don’t have an account? <a href="#/signup">Sign Up</a></p>
+
+    </section>
+  </main>
+
+</section>

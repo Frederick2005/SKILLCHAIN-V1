@@ -1,0 +1,100 @@
+/* =========================
+   Footer Styles with Animations
+   ========================= */
+
+/* IMPORTS */
+@import "/src/public/styles/base/variables.css";
+@import "/src/public/styles/base/foundation.css";
+
+/* ---------- FOOTER BASE ---------- */
+.footer {
+  background-color: var(--color-footer-bg, #1e40af); /* dark blue */
+  color: var(--color-text-muted, #cbd5e1);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+/* ---------- FOOTER GRID ---------- */
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+/* ---------- FOOTER COLUMNS ---------- */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-sm);
+  cursor: pointer;
+  color: var(--color-text, #ffffff);
+  transition: color var(--transition-fast) var(--easing-default);
+}
+
+.footer-column h4:hover {
+  color: var(--color-secondary, #3b82f6);
+}
+
+/* ---------- FOOTER LINKS ---------- */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--easing-default), opacity 0.4s var(--easing-default);
+  opacity: 0;
+}
+
+.footer-column.active .footer-links {
+  max-height: 500px; /* big enough to fit links */
+  opacity: 1;
+}
+
+.footer-links li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: var(--color-text-muted, #cbd5e1);
+  transition: color var(--transition-fast) var(--easing-default);
+}
+
+.footer-links li a:hover {
+  color: var(--color-secondary, #3b82f6);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+/* ---------- STICKY FOOTER ---------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
