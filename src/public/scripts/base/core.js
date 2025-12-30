@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   "/home": "/src/public/templates/main/home.html",
   "/main": "/src/public/templates/main/main.html",
   "/lesson": "/src/public/templates/main/lesson.html",
-  "/create": "/src/public/templates/main/create.html",
+  "/create-lesson": "/src/public/templates/main/create.html",
   "/edit-lesson": "/src/public/templates/main/edit-lesson.html",
   "/delete-confirm": "/src/public/templates/main/delete-confirm.html",
   "/fork": "/src/public/templates/main/fork.html",
@@ -47,31 +47,31 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================
      CHAT
   ====================== */
-  "/chat": "/src/public/templates/chat/chat.html",
-  "/chat/private": "/src/public/templates/chat/private-chat.html",
+  "/chat": "/src/public/templates/chart /chat.html",
+  "/chat-private": "/src/public/templates/chart/private-chat.html",
   "/chat/history": "/src/public/templates/chat-history.html",
-  "/chat/moderation": "/src/public/templates/chat/chat-moderation.html",
-  "/chat/settings": "/src/public/templates/chat/chat-settings.html",
+  "/moderation": "/src/public/templates/chat/chat-moderation.html",
+  "/settings": "/src/public/templates/chat/chat-settings.html",
 
   /* =====================
      DISCOVER
   ====================== */
-  "/discover": "/src/public/templates/discover/explorer.html",
-  "/discover/categories": "/src/public/templates/discover/categories.html",
-  "/discover/recommended": "/src/public/templates/discover/recommended.html",
-  "/discover/trending": "/src/public/templates/discover/trending.html",
-  "/discover/search": "/src/public/templates/discover/search.html",
-  "/discover/tags": "/src/public/templates/discover/tags.html",
+  "/discover": "/src/public/templates/Discover/explorer.html",
+  "/categories": "/src/public/templates/discover/categories.html",
+  "/recommended": "/src/public/templates/Discover/recommended.html",
+  "/trending": "/src/public/templates/Discover/trending.html",
+  "/search": "/src/public/templates/Discover/search.html",
+  "/tags": "/src/public/templates/Discover/tags.html",
 
   /* =====================
      REWARDS
   ====================== */
-  "/rewards": "/src/public/templates/rewards/rewards.html",
-  "/rewards/wallet": "/src/public/templates/rewards/wallet.html",
-  "/rewards/earnings": "/src/public/templates/rewards/earnings.html",
-  "/rewards/withdraw": "/src/public/templates/rewards/withdraw.html",
-  "/rewards/leaderboard": "/src/public/templates/rewards/leaderboard.html",
-  "/rewards/points-history": "/src/public/templates/rewards/points-history.html",
+  "/rewards": "/src/public/templates/Rewards/rewards.html",
+  "/wallet": "/src/public/templates/Rewards/wallet.html",
+  "/earnings": "/src/public/templates/Rewards/earnings.html",
+  "/withdraw": "/src/public/templates/Rewards/wallet.html",
+  "/leaderboard": "/src/public/templates/Rewards/leaderboard.html",
+  "/points-history": "/src/public/templates/rewards/points-history.html",
 
   /* =====================
      SOCIAL
@@ -123,12 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
   "/offline/downloads": "/src/public/templates/offline/download-manager.html",
 
   /* =====================
-     LEGAL (LEGO)
+     LEGAL 
   ====================== */
-  "/terms": "/src/public/templates/lego/terms.html",
-  "/privacy": "/src/public/templates/lego/privacy.html",
-  "/license": "/src/public/templates/lego/license.html",
-  "/cookies": "/src/public/templates/lego/cookie-policy.html",
+  "/terms": "/src/public/templates/legal/terms.html",
+  "/privacy": "/src/public/templates/legal/privacy.html",
+  "/license": "/src/public/templates/legal/license.html",
+  "/cookies": "/src/public/templates/legal/cookie-policy.html",
 
   /* =====================
      SYSTEM
