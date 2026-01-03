@@ -454,3 +454,73 @@
 .sidebar:hover .links hr {
   border-color: transparent;
 }
+
+/*=========animated bar =========*/
+.scroll-container {
+  overflow-x: auto; 
+  overflow-y: hidden;
+  width: 100%;
+  margin-top: 20px;
+  scroll-behavior: smooth; 
+  scroll-snap-type: x mandatory; 
+}
+
+.scroll-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll-left 30s linear infinite;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-item {
+  min-width: 200px;
+  max-width: 220px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  white-space: normal;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.scroll-item i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.scroll-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.scroll-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #f0f0f0;
+}
+
+.scroll-item:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.scroll-container {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
