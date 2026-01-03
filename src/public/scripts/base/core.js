@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   "/home": "/src/public/templates/main/home.html",
   "/main": "/src/public/templates/main/main.html",
   "/lesson": "/src/public/templates/main/lesson.html",
-  "/create-lesson": "/src/public/templates/main/create.html",
+  "/create": "/src/public/templates/main/create.html",
   "/edit-lesson": "/src/public/templates/main/edit-lesson.html",
   "/delete-confirm": "/src/public/templates/main/delete-confirm.html",
   "/fork": "/src/public/templates/main/fork.html",
@@ -29,29 +29,29 @@ document.addEventListener("DOMContentLoaded", () => {
   "/login": "/src/public/templates/auth/login.html",
   "/signup": "/src/public/templates/auth/signup.html",
   "/logout": "/src/public/templates/auth/logout.html",
-  "/forgot-password": "/src/public/templates/auth/forgotpassword.html",
-  "/verify": "/src/public/templates/auth/verify.html",
-  "/receive": "/src/public/templates/auth/receive.html",
-
+  "/forgot-password": "/src/public/templates/auth/forgot-password.html",
+  "/verify-email": "/src/public/templates/auth/verify-email.html",
+  "/reset-password": "/src/public/templates/auth/verify-email.html",
+  
   /* =====================
      ADMIN
   ====================== */
-  "/admin/dashboard": "/src/public/templates/admin/admin-dashboard.html",
-  "/admin/lessons": "/src/public/templates/admin/admin-lessons.html",
-  "/admin/users": "/src/public/templates/admin/admin-user.html",
-  "/admin/reports": "/src/public/templates/admin/admin-reports.html",
-  "/admin/rewards": "/src/public/templates/admin/admin-rewards.html",
-  "/admin/moderation": "/src/public/templates/admin/admin-moderation.html",
-  "/admin/recommended": "/src/public/templates/admin/admin-recommended-content.html",
+  "/dashboard": "/src/public/templates/Admin/admin-dashboard.html",
+  "/lessons": "/src/public/templates/Admin/admin-lessons.html",
+  "/users": "/src/public/templates/Admin/admin-users.html",
+  "/reports": "/src/public/templates/Admin/admin-reports.html",
+  "/rewards": "/src/public/templates/Admin/admin-rewards.html",
+  "/moderation": "/src/public/templates/Admin/admin-moderation.html",
+  "/reported-content": "/src/public/templates/admin/admin-reported-content.html",
 
   /* =====================
      CHAT
   ====================== */
   "/chat": "/src/public/templates/chart /chat.html",
-  "/chat-private": "/src/public/templates/chart/private-chat.html",
-  "/chat/history": "/src/public/templates/chat-history.html",
-  "/moderation": "/src/public/templates/chat/chat-moderation.html",
-  "/settings": "/src/public/templates/chat/chat-settings.html",
+  "/private-chat": "/src/public/templates/chart/private-chat.html",
+  "/chat-history": "/src/public/templates/chat-history.html",
+  "/chat-moderation": "/src/public/templates/chat/chat-moderation.html",
+  "/chat-settings": "/src/public/templates/chat/chat-settings.html",
 
   /* =====================
      DISCOVER
@@ -86,11 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
      SETTINGS
   ====================== */
   "/settings": "/src/public/templates/settings/settings.html",
-  "/settings/theme": "/src/public/templates/settings/theme.html",
-  "/settings/language": "/src/public/templates/settings/language.html",
-  "/settings/preferences": "/src/public/templates/settings/preferences.html",
-  "/settings/security": "/src/public/templates/settings/security.html",
-  "/settings/privacy": "/src/public/templates/settings/privacy-policy.html",
+  "/theme": "/src/public/templates/settings/theme.html",
+  "/language": "/src/public/templates/settings/language.html",
+  "/preferences": "/src/public/templates/settings/preferences.html",
+  "/security": "/src/public/templates/settings/security.html",
+  "/privacy": "/src/public/templates/settings/privacy-policy.html",
 
   /* =====================
      SUPPORT
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================
      MARKETING
   ====================== */
-  "/about": "/src/public/templates/marketing/about.html",
+  "/about": "/src/public/templates/marketing /about.html",
   "/blog": "/src/public/templates/marketing/blog.html",
   "/pricing": "/src/public/templates/marketing/pricing.html",
   "/roadmap": "/src/public/templates/marketing/roadmap.html",
@@ -116,11 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
      OFFLINE
   ====================== */
   "/offline": "/src/public/templates/offline/offline.html",
-  "/offline/library": "/src/public/templates/offline/offline-library.html",
-  "/offline/settings": "/src/public/templates/offline/offline-settings.html",
-  "/offline/queue": "/src/public/templates/offline/queue.html",
-  "/offline/sync": "/src/public/templates/offline/sync-status.html",
-  "/offline/downloads": "/src/public/templates/offline/download-manager.html",
+  "/library": "/src/public/templates/offline/offline-library.html",
+  "/settings": "/src/public/templates/offline/offline-settings.html",
+  "/queue": "/src/public/templates/offline/queue.html",
+  "/sync": "/src/public/templates/offline/sync-status.html",
+  "/downloads": "/src/public/templates/offline/download-manager.html",
 
   /* =====================
      LEGAL 
