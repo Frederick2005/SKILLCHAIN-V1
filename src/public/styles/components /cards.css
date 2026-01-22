@@ -10,11 +10,11 @@
   background: var(--color-card-bg);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-md) 0;
+  padding: var(--spacing-sm);
+  margin: var(--spacing-md) ;
   transition: all var(--transition-medium) var(--easing-default);
   cursor: pointer;
-  position: relative;
+  position: static;
   overflow: hidden;
   font-family: var(--font-family-sans);
   color: var(--color-text);
@@ -68,7 +68,7 @@
 .card.flip-inner {
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  position: relative;
+  position: static;
 }
 
 .card.flip:hover .flip-inner {

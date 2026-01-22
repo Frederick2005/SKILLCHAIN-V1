@@ -88,7 +88,7 @@
 
     <!-- DASHBOARD HEADER -->
     <header class="dashboard-header">
-      <h2>Welcome back, Student 👋</h2>
+      <h2>Welcome back, <span id="stndent">Student</span> 👋</h2>
       <div class="user-info">
         <span>Points: 0</span>
         <span>Badges: 0</span>
@@ -99,16 +99,35 @@
     <div class="dashboard-grid">
 
       <!-- Quick Actions -->
-      <div class="dashboard-card">
-        <h3>Quick Actions</h3>
-        <ul>
-          <li><a href="#/create-lesson">Create a Lesson</a></li>
-          <li><a href="#/explore">Explore Lessons</a></li>
-          <li><a href="#/profile">View Profile</a></li>
-          <li><a href="#/wallet">Rewards</a></li>
-        </ul>
-      </div>
+  <div class="dashboard-card" id="user-progress">
 
+  <h3>Your Progress</h3>
+
+  <div class="progress-stats">
+
+    <div class="stat">
+      <span class="stat-value" data-field="completedLessons">12</span>
+      <span class="stat-label">Lessons Completed</span>
+    </div>
+
+    <div class="stat">
+      <span class="stat-value" data-field="points">1,450</span>
+      <span class="stat-label">Points Earned</span>
+    </div>
+
+    <div class="stat">
+      <span class="stat-value" data-field="badges">5</span>
+      <span class="stat-label">Badges</span>
+    </div>
+
+    <div class="stat">
+      <span class="stat-value" data-field="streak">7</span>
+      <span class="stat-label">Day Streak</span>
+    </div>
+
+  </div>
+
+</div>
       <!-- Progress -->
       <div class="dashboard-card">
         <h3>Your Progress</h3>

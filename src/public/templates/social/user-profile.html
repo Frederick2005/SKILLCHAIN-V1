@@ -1,33 +1,110 @@
-<!-- SPA: User Profile -->
-<section id="user-profile" data-route="user-profile">
-
+<section id="profile" data-route="profile">
+  
+  <!-- HEADER -->
   <header>
-    <h1>User Profile</h1>
+    <h1>My Profile</h1>
   </header>
-
+  
   <main class="container">
-    <section class="section">
-      <h2>Username</h2>
-      <p>Top Creator • Physics</p>
-      <p>Followers: 560 | Following: 120</p>
-      <p>Reputation Score: 4.8</p>
-    </section>
-
-    <section class="section">
-      <h3>Lessons</h3>
-      <ul>
-        <li>Physics Formulas Explained</li>
-        <li>Electricity Basics</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h3>Recent Activity</h3>
-      <ul>
-        <li>New lesson published</li>
-        <li>Lesson forked 12 times</li>
-      </ul>
-    </section>
+    
+    <!-- PROFILE CARD -->
+    <div class="card profile-card">
+      
+      <!-- PROFILE TOP: PICTURE + INFO -->
+      <div class="profile-top">
+        <!-- Dummy Profile Pic -->
+        <div class="profile-pic">
+          <img src="https://via.placeholder.com/120x120.png?text=User" alt="Profile Picture">
+        </div>
+        
+        <!-- INFO -->
+        <div class="profile-info">
+          
+          <h1 class="username">Akampa</h1>
+          <p class="name">SkillChain Learner</p>
+          
+          <p class="meta">
+            Skill Tier: <strong class="tier tier-bronze">Bronze</strong> •
+            Skill Points: <strong id="sp">450</strong>
+          </p>
+          
+          <!-- Quick Stats -->
+          <div class="profile-stats">
+            <span><strong>18</strong> Lessons</span>
+            <span><strong>6</strong> Day Streak 🔥</span>
+            <span><strong>3</strong> Skills</span>
+          </div>
+          
+          <!-- Social -->
+          <div class="profile-social">
+            <span><strong>120</strong> Followers</span>
+            <span><strong>80</strong> Following</span>
+          </div>
+          
+          <!-- Allies -->
+          <div class="profile-allies">
+            <h4>Allies</h4>
+            <p class="allies-count"><strong>12</strong> Allies</p>
+          </div>
+          
+          <!-- External Profiles -->
+          <div class="profile-links">
+            <h4>Profiles</h4>
+            <div class="links-list">
+              <a href="#" aria-label="GitHub">GitHub</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <a href="#" aria-label="X">X</a>
+              <a href="#" aria-label="Portfolio">Portfolio</a>
+            </div>
+          </div>
+          
+          <!-- Account Info -->
+          <p class="small">
+            Joined SkillChain: <strong>Jan 2026</strong><br>
+            Last Active: <strong>Today</strong>
+          </p>
+          
+        </div>
+      </div>
+      
+      <!-- PROGRESS & CONTRIBUTIONS CARDS -->
+      <div class="profile-details">
+        
+        <!-- PROGRESS CARD -->
+        <div class="card animate">
+          <h4>Progress</h4>
+          <p>Rank: <strong>2 Bronze</strong></p>
+          <p>Leaderboard Position: <strong>#2</strong></p>
+          <p>Total Skill Points: <strong>450</strong></p>
+          <p>Total Lessons Completed: <strong>18</strong></p>
+        </div>
+        
+        <!-- CONTRIBUTIONS CARD -->
+        <div class="card animate">
+          <h4>Contributions</h4>
+          <p>Community Comments: <strong>316</strong></p>
+          <p>Forked Lessons: <strong>18</strong></p>
+          <p>Skills Authored: <strong>5</strong></p>
+          <p>Total Stars Earned: <strong>123</strong></p>
+        </div>
+        
+        <!-- STREAKS CARD -->
+        <div class="card animate">
+          <h4>Streaks</h4>
+          <p>Most in a Day: <strong>27</strong></p>
+          <p>Most in a Week: <strong>37</strong></p>
+          <p>Current Streak: <strong>0</strong></p>
+        </div>
+        
+        <!-- SKILLS CARD -->
+        <div class="card animate">
+          <h4>Active Skills</h4>
+          <p>JavaScript: Rank 3 Bronze | Completed Lessons: 249</p>
+          <p>Ruby: Rank 3 Bronze | Completed Lessons: 137</p>
+          <p>Python: Rank 2 Bronze | Completed Lessons: 421</p>
+        </div>
+        
+      </div>
+    </div>
   </main>
-
 </section>
