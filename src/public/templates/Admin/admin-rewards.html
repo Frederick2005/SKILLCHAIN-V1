@@ -1,71 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain Admin – Rewards</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <section class="page admin-rewards" id="admin-rewards">
 
-    <!-- Navbar -->
-    <header id="navbar">
-        <div class="logo">SkillChain Admin</div>
-        <nav>
-            <ul>
-                <li><a href="#/admin-dashboard">Dashboard</a></li>
-                <li><a href="#/admin-users">Users</a></li>
-                <li><a href="#/admin-lessons">Lessons</a></li>
-                <li><a href="#/admin-rewards" class="active">Rewards</a></li>
-                <li><a href="#/admin-settings">Settings</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header id="navbar">
+    <div class="logo">SkillChain Admin</div>
+    <nav>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-lessons.html">Lessons</a></li>
+        <li><a href="admin-rewards.html" class="active">Rewards</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Sidebar -->
-    <aside id="sidebar">
-        <ul>
-            <li><a href="#">All Rewards</a></li>
-            <li><a href="#">Pending Rewards</a></li>
-            <li><a href="#">Top Contributors</a></li>
-            <li><a href="#">Adjust Rewards</a></li>
-        </ul>
-    </aside>
+  <aside id="sidebar">
+    <ul>
+      <li><a href="#">All Rewards</a></li>
+      <li><a href="#">Pending Rewards</a></li>
+      <li><a href="#">Top Contributors</a></li>
+      <li><a href="#">Adjust Rewards</a></li>
+    </ul>
+  </aside>
 
-    <!-- Main Content -->
-    <main id="main-content">
-        <section class="rewards-overview">
-            <h1>User Rewards Management</h1>
+  <main id="main-content">
+    <section class="rewards-overview">
+      <h1>User Rewards Management</h1>
 
-            <!-- Search & Filter -->
-            <div class="rewards-controls">
-                <input type="text" placeholder="Search users..." id="user-search">
-                <select id="reward-filter">
-                    <option value="all">All Users</option>
-                    <option value="pending">Pending</option>
-                    <option value="top">Top Contributors</option>
-                </select>
-                <button id="adjust-reward-btn">Adjust Reward</button>
-            </div>
+      <div class="rewards-controls">
+        <input type="text" placeholder="Search users..." id="user-search">
+        <select id="reward-filter">
+          <option value="all">All Users</option>
+          <option value="pending">Pending</option>
+          <option value="top">Top Contributors</option>
+        </select>
+        <button id="adjust-reward-btn">Adjust Reward</button>
+      </div>
 
-            <!-- Rewards Table -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>Total Tokens</th>
-                        <th>Lessons Forked</th>
-                        <th>Engagement Score</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jane Doe</td>
-                        <td>1500</td>
-                        <td>10</td>
-                        <td>95%</td>
-                        <td>Approved</td>
-                        <td>
-                            <button>View</button>
-                            <button>Edit</button>
-                            <button>Adjust</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Total Tokens</th>
+            <th>Lessons Forked</th>
+            <th>Engagement Score</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jane Doe</td>
+            <td>1500</td>
+            <td>10</td>
+            <td>95%</td>
+            <td>Approved</td>
+            <td>
+              <button>View</button>
+              <button>Edit</button>
+              <button>Adjust</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</section>
+
+<script src="./src/public/scripts/base/core.js"></script>
+<script src="./src/public/scripts/base/main.js"></script>
+<script src="./src/public/scripts/pages/auth.js"></script>
+<script src="./src/public/scripts/pages/dashboard.js"></script>
+<script src="./src/public/scripts/UI/components.js"></script>
+<script src="./src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

@@ -1,71 +1,102 @@
-<section class="page admin-lessons" id="admin-lessons">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain Admin – Lessons</title>
 
-    <!-- Navbar -->
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- ===== ADMIN LESSONS PAGE ===== -->
+  <section class="page admin-lessons" id="admin-lessons">
+
+    <!-- ===== NAVBAR ===== -->
     <header id="navbar">
-        <div class="logo">SkillChain Admin</div>
-        <nav>
-            <ul>
-                <li><a href="#/admin-dashboard">Dashboard</a></li>
-                <li><a href="#/admin-users">Users</a></li>
-                <li><a href="#/admin-lessons" class="active">Lessons</a></li>
-                <li><a href="#/admin-analytics">Analytics</a></li>
-                <li><a href="#/admin-settings">Settings</a></li>
-            </ul>
-        </nav>
+      <div class="logo">SkillChain Admin</div>
+      <nav>
+        <ul>
+          <li><a href="admin-dashboard.html">Dashboard</a></li>
+          <li><a href="admin-users.html">Users</a></li>
+          <li><a href="admin-lessons.html" class="active">Lessons</a></li>
+          <li><a href="admin-analytics.html">Analytics</a></li>
+          <li><a href="admin-settings.html">Settings</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- Sidebar -->
+    <!-- ===== SIDEBAR ===== -->
     <aside id="sidebar">
-        <ul>
-            <li><a href="#">All Lessons</a></li>
-            <li><a href="#">Pending Approval</a></li>
-            <li><a href="#">Top Forked</a></li>
-            <li><a href="#">Reported Lessons</a></li>
-        </ul>
+      <ul>
+        <li><a href="#">All Lessons</a></li>
+        <li><a href="#">Pending Approval</a></li>
+        <li><a href="#">Top Forked</a></li>
+        <li><a href="#">Reported Lessons</a></li>
+      </ul>
     </aside>
 
-    <!-- Main Content -->
+    <!-- ===== MAIN CONTENT ===== -->
     <main id="main-content">
-        <section class="lesson-overview">
-            <h1>Manage Lessons</h1>
+      <section class="lesson-overview">
+        <h1>Manage Lessons</h1>
 
-            <!-- Search & Filter -->
-            <div class="lesson-controls">
-                <input type="text" placeholder="Search lessons..." id="lesson-search">
-                <select id="lesson-filter">
-                    <option value="all">All</option>
-                    <option value="pending">Pending Approval</option>
-                    <option value="approved">Approved</option>
-                    <option value="forked">Forked Lessons</option>
-                </select>
-                <button id="add-lesson-btn">Add New Lesson</button>
-            </div>
+        <!-- Search & Filter -->
+        <div class="lesson-controls">
+          <input type="text" placeholder="Search lessons..." id="lesson-search" />
 
-            <!-- Lessons Table -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Lesson Title</th>
-                        <th>Creator</th>
-                        <th>Forked From</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Placeholder row -->
-                    <tr>
-                        <td>Introduction to Algebra</td>
-                        <td>John Doe</td>
-                        <td>—</td>
-                        <td>Approved</td>
-                        <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                            <button>Approve</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+          <select id="lesson-filter">
+            <option value="all">All</option>
+            <option value="pending">Pending Approval</option>
+            <option value="approved">Approved</option>
+            <option value="forked">Forked Lessons</option>
+          </select>
+
+          <button id="add-lesson-btn">Add New Lesson</button>
+        </div>
+
+        <!-- Lessons Table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson Title</th>
+              <th>Creator</th>
+              <th>Forked From</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Placeholder row -->
+            <tr>
+              <td>Introduction to Algebra</td>
+              <td>John Doe</td>
+              <td>—</td>
+              <td>Approved</td>
+              <td>
+                <button>Edit</button>
+                <button>Delete</button>
+                <button>Approve</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
+
+  </section>
+
+  <!-- ===== GLOBAL JS (ATTACHED AS-IS) ===== -->
+  <script src="./src/public/scripts/base/core.js"></script>
+  <script src="./src/public/scripts/base/main.js"></script>
+  <script src="./src/public/scripts/pages/auth.js"></script>
+  <script src="./src/public/scripts/pages/dashboard.js"></script>
+  <script src="./src/public/scripts/UI/components.js"></script>
+  <script src="./src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

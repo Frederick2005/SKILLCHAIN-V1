@@ -1,14 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Chat Room</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <section class="page chat-room" id="chat-room">
+
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
+  </header>
 
   <main id="main-content" class="chat-room">
 
-    <!-- Chat window -->
     <div class="chat-window" id="chat-window">
-      <!-- Example system message -->
       <div class="message received">Welcome to SkillChain Chat! Be respectful and collaborative.</div>
     </div>
 
-    <!-- Chat input -->
     <div class="chat-input">
       <input type="text" id="chat-message-input" placeholder="Type a message..." />
       <button id="send-message-btn">➤</button>
@@ -18,6 +30,13 @@
 
 </section>
 
+<script src="./src/public/scripts/base/core.js"></script>
+<script src="./src/public/scripts/base/main.js"></script>
+<script src="./src/public/scripts/pages/auth.js"></script>
+<script src="./src/public/scripts/pages/dashboard.js"></script>
+<script src="./src/public/scripts/UI/components.js"></script>
+<script src="./src/public/scripts/UI/theme.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const chatWindow = document.getElementById("chat-window");
@@ -26,30 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!chatWindow || !input || !sendBtn) return;
 
-  // Function to add a message
   const addMessage = (text, type = "sent") => {
     if (!text.trim()) return;
-    
     const message = document.createElement("div");
     message.classList.add("message", type);
     message.innerHTML = text;
-
     chatWindow.appendChild(message);
-
-    // Scroll to bottom
     chatWindow.scrollTop = chatWindow.scrollHeight;
-
-    // Clear input
     input.value = "";
     input.focus();
   };
 
-  // Send message on button click
-  sendBtn.addEventListener("click", () => {
-    addMessage(input.value, "sent");
-  });
-
-  // Send message on Enter key
+  sendBtn.addEventListener("click", () => addMessage(input.value, "sent"));
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -57,7 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Example: simulate received message (optional)
   setTimeout(() => addMessage("Hello! How are you?", "received"), 2000);
 });
 </script>
+
+</body>
+</html>

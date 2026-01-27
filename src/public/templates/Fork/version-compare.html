@@ -1,29 +1,67 @@
-<section class="page version-compare" id="version-compare">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Version Compare</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1>Compare Versions</h1>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="dashboard-container">
+
+  <header class="dashboard-header">
+    <h2>Compare Lesson Versions</h2>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main-content">
+  <div class="dashboard-grid">
 
-    <section class="section">
-      <p>
-        Compare two versions of the same lesson to see what has changed.
-      </p>
-    </section>
+    <div class="dashboard-card">
+      <h3>Lesson: Python Basics</h3>
+      <div class="version-compare">
 
-    <section class="section version-a">
-      <h3>Version A</h3>
-      <p id="version-a-content">Earlier version of the lesson.</p>
-    </section>
+        <div class="version">
+          <h4>Original Version</h4>
+          <p>
+            Variables, Data Types, and Basic Operators are explained here.
+          </p>
+        </div>
 
-    <section class="section version-b">
-      <h3>Version B</h3>
-      <p id="version-b-content">Updated version with improvements.</p>
-    </section>
+        <div class="version">
+          <h4>Your Version</h4>
+          <p>
+            Added examples on Loops and Functions along with original content.
+          </p>
+        </div>
 
-  </main>
+        <div class="actions">
+          <button id="accept-changes">Accept Changes</button>
+          <button id="discard-changes">Discard Changes</button>
+        </div>
 
-</section>
+      </div>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Comparison Stats</h3>
+      <ul>
+        <li>Lines added: 12</li>
+        <li>Lines removed: 3</li>
+        <li>Sections modified: 2</li>
+      </ul>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

@@ -1,43 +1,75 @@
-<section class="page admin-dashboard" id="admin-dashboard">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain Admin Dashboard</title>
 
-  <!-- ===== NAVBAR ===== -->
-  <header id="navbar">
-    <div class="logo">SkillChain Admin</div>
-  </header>
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main-content">
-    <!-- Dashboard Overview -->
-    <section class="dashboard-overview">
-      <h1>Welcome, Admin</h1>
-      <div class="stats-cards">
-        <div class="card">Total Users: <span id="total-users">0</span></div>
-        <div class="card">Active Lessons: <span id="active-lessons">0</span></div>
-        <div class="card">Forked Lessons: <span id="forked-lessons">0</span></div>
-        <div class="card">New Signups Today: <span id="new-signups">0</span></div>
-      </div>
-    </section>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-    <!-- Recent Activity -->
-    <section class="recent-activity">
-      <h2>Recent Activity</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Action</th>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jane Doe</td>
-            <td>Created Lesson</td>
-            <td>2025-12-17</td>
-            <td>Approved</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+  <!-- ===== ADMIN DASHBOARD PAGE ===== -->
+  <section class="page admin-dashboard" id="admin-dashboard">
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar">
+      <div class="logo">SkillChain Admin</div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
+
+      <!-- Dashboard Overview -->
+      <section class="dashboard-overview">
+        <h1>Welcome, Admin</h1>
+
+        <div class="stats-cards">
+          <div class="card">Total Users: <span id="total-users">0</span></div>
+          <div class="card">Active Lessons: <span id="active-lessons">0</span></div>
+          <div class="card">Forked Lessons: <span id="forked-lessons">0</span></div>
+          <div class="card">New Signups Today: <span id="new-signups">0</span></div>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="recent-activity">
+        <h2>Recent Activity</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Action</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jane Doe</td>
+              <td>Created Lesson</td>
+              <td>2025-12-17</td>
+              <td>Approved</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </section>
+
+  <!-- ===== GLOBAL JS (ATTACHED AS-IS) ===== -->
+  <script src="./src/public/scripts/base/core.js"></script>
+  <script src="./src/public/scripts/base/main.js"></script>
+  <script src="./src/public/scripts/pages/auth.js"></script>
+  <script src="./src/public/scripts/pages/dashboard.js"></script>
+  <script src="./src/public/scripts/UI/components.js"></script>
+  <script src="./src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

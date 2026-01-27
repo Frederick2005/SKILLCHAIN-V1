@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Login</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <section class="page login" id="login">
 
   <!-- Header -->
@@ -11,8 +22,8 @@
 
       <h1 class="section-title">Welcome Back</h1>
       <p class="section-text">Login to continue learning and earning.</p>
-<!-- ==== change to backend ====-->
-      <form id="login-form" action="#/home" method="GET">
+
+      <form id="login-form" action="home.html" method="GET">
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="you@example.com" required />
@@ -27,15 +38,25 @@
           <label>
             <input type="checkbox" name="remember" /> Remember me
           </label>
-          <a href="#/forgot-password">Forgot Password?</a>
+          <a href="forgot-password.html">Forgot Password?</a>
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
 
-      <p class="auth-footer">Don’t have an account? <a href="#/signup">Sign Up</a></p>
+      <p class="auth-footer">Don’t have an account? <a href="signup.html">Sign Up</a></p>
 
     </section>
   </main>
 
 </section>
+
+<script src="./src/public/scripts/base/core.js"></script>
+<script src="./src/public/scripts/base/main.js"></script>
+<script src="./src/public/scripts/pages/auth.js"></script>
+<script src="./src/public/scripts/pages/dashboard.js"></script>
+<script src="./src/public/scripts/UI/components.js"></script>
+<script src="./src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

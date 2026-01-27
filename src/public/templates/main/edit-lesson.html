@@ -1,4 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Edit Lesson</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <section class="page edit-lesson" id="edit-lesson">
+
   <!-- ===== HEADER ===== -->
   <header id="navbar">
     <div class="logo">SkillChain</div>
@@ -9,25 +21,35 @@
     <section class="lesson-edit">
       <h1>Edit Lesson</h1>
       <form id="edit-lesson-form">
-        <label>Title:</label>
-        <input type="text" placeholder="Lesson title" required>
+        <label for="lesson-title">Title:</label>
+        <input type="text" id="lesson-title" placeholder="Lesson title" required>
 
-        <label>Content:</label>
-        <textarea placeholder="Edit lesson content here..." required></textarea>
+        <label for="lesson-content">Content:</label>
+        <textarea id="lesson-content" placeholder="Edit lesson content here..." required></textarea>
 
-        <label>Media (optional):</label>
-        <input type="file" accept="image/*,video/*">
+        <label for="lesson-media">Media (optional):</label>
+        <input type="file" id="lesson-media" accept="image/*,video/*">
 
-        <label>Difficulty Level:</label>
-        <select>
+        <label for="lesson-difficulty">Difficulty Level:</label>
+        <select id="lesson-difficulty">
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
         </select>
 
-        <button type="submit">Save Changes</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
       </form>
     </section>
   </main>
 
 </section>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/pages/lessons.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

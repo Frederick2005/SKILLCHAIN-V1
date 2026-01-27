@@ -1,26 +1,60 @@
-<section class="page fork-history" id="fork-history">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Fork History</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1>Fork History</h1>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="dashboard-container">
+
+  <header class="dashboard-header">
+    <h2>Fork History</h2>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main-content">
+  <div class="dashboard-grid">
 
-    <section class="section">
-      <p>
-        View the full history of how this lesson has been forked and improved.
-      </p>
-    </section>
+    <div class="dashboard-card">
+      <h3>My Forked Lessons</h3>
+      <ul>
+        <li>
+          <strong>"Python for Beginners"</strong> – forked from John
+          <span class="date">2026-01-10</span>
+        </li>
+        <li>
+          <strong>"AI & Machine Learning Basics"</strong> – forked from Mary
+          <span class="date">2026-01-12</span>
+        </li>
+        <li>
+          <strong>"Web3 Fundamentals"</strong> – forked from Alex
+          <span class="date">2026-01-15</span>
+        </li>
+        <li>
+          <strong>"Introduction to Blockchain"</strong> – forked from Zoe
+          <span class="date">2026-01-18</span>
+        </li>
+      </ul>
+    </div>
 
-    <section class="section">
-      <h3>Fork Timeline</h3>
-      <p id="fork-timeline">
-        Each fork represents a new version created by the community.
-      </p>
-    </section>
+    <div class="dashboard-card">
+      <h3>Statistics</h3>
+      <p>Total Forked Lessons: <span id="total-forks">4</span></p>
+      <p>Most Forked Category: <span id="most-forked-category">Programming</span></p>
+    </div>
 
-  </main>
+  </div>
 
-</section>
+</main>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

@@ -1,70 +1,99 @@
-<section class="page admin-reports" id="admin-reports">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain Admin – Reports</title>
 
-    <!-- Navbar -->
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- ===== ADMIN REPORTS PAGE ===== -->
+  <section class="page admin-reports" id="admin-reports">
+
+    <!-- ===== NAVBAR ===== -->
     <header id="navbar">
-        <div class="logo">SkillChain Admin</div>
-        <nav>
-            <ul>
-                <li><a href="#/admin-dashboard">Dashboard</a></li>
-                <li><a href="#/admin-users">Users</a></li>
-                <li><a href="#/admin-lessons">Lessons</a></li>
-                <li><a href="#/admin-reports" class="active">Reports</a></li>
-                <li><a href="#/admin-settings">Settings</a></li>
-            </ul>
-        </nav>
+      <div class="logo">SkillChain Admin</div>
+      <nav>
+        <ul>
+          <li><a href="admin-dashboard.html">Dashboard</a></li>
+          <li><a href="admin-users.html">Users</a></li>
+          <li><a href="admin-lessons.html">Lessons</a></li>
+          <li><a href="admin-reports.html" class="active">Reports</a></li>
+          <li><a href="admin-settings.html">Settings</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- Sidebar -->
+    <!-- ===== SIDEBAR ===== -->
     <aside id="sidebar">
-        <ul>
-            <li><a href="#">User Activity</a></li>
-            <li><a href="#">Lesson Engagement</a></li>
-            <li><a href="#">Forking Stats</a></li>
-            <li><a href="#">Reported Content</a></li>
-        </ul>
+      <ul>
+        <li><a href="#">User Activity</a></li>
+        <li><a href="#">Lesson Engagement</a></li>
+        <li><a href="#">Forking Stats</a></li>
+        <li><a href="#">Reported Content</a></li>
+      </ul>
     </aside>
 
-    <!-- Main Content -->
+    <!-- ===== MAIN CONTENT ===== -->
     <main id="main-content">
-        <section class="reports-overview">
-            <h1>Platform Reports</h1>
+      <section class="reports-overview">
+        <h1>Platform Reports</h1>
 
-            <!-- Report Filters -->
-            <div class="report-controls">
-                <input type="text" placeholder="Search reports..." id="report-search">
-                <select id="report-type">
-                    <option value="all">All Reports</option>
-                    <option value="user">User Activity</option>
-                    <option value="lessons">Lesson Engagement</option>
-                    <option value="forking">Forking Stats</option>
-                    <option value="flagged">Flagged Content</option>
-                </select>
-                <button id="generate-report-btn">Generate Report</button>
-            </div>
+        <!-- Report Filters -->
+        <div class="report-controls">
+          <input type="text" placeholder="Search reports..." id="report-search" />
+          <select id="report-type">
+            <option value="all">All Reports</option>
+            <option value="user">User Activity</option>
+            <option value="lessons">Lesson Engagement</option>
+            <option value="forking">Forking Stats</option>
+            <option value="flagged">Flagged Content</option>
+          </select>
+          <button id="generate-report-btn">Generate Report</button>
+        </div>
 
-            <!-- Reports Table -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Report Name</th>
-                        <th>Type</th>
-                        <th>Date Generated</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Top Forked Lessons</td>
-                        <td>Forking Stats</td>
-                        <td>2025-12-17</td>
-                        <td>Completed</td>
-                        <td>
-                            <button>View</button>
-                            <button>Download</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <!-- Reports Table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Report Name</th>
+              <th>Type</th>
+              <th>Date Generated</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Top Forked Lessons</td>
+              <td>Forking Stats</td>
+              <td>2025-12-17</td>
+              <td>Completed</td>
+              <td>
+                <button>View</button>
+                <button>Download</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
+
+  </section>
+
+  <!-- ===== GLOBAL JS (ALL ATTACHED) ===== -->
+  <script src="./src/public/scripts/base/core.js"></script>
+  <script src="./src/public/scripts/base/main.js"></script>
+  <script src="./src/public/scripts/pages/auth.js"></script>
+  <script src="./src/public/scripts/pages/dashboard.js"></script>
+  <script src="./src/public/scripts/UI/components.js"></script>
+  <script src="./src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

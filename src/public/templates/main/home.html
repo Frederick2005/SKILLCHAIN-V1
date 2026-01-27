@@ -1,171 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Home</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
   <div class="logo">
-    <img src="/src/public/images/logo.png" alt="" />
+    <img src="/src/public/images/logo.png" alt="SkillChain Logo" />
     <h2>SkillChain</h2>
   </div>
   
   <ul class="links">
     <h4>Main</h4>
-    <li>
-      <span class="dash"><i class="fa-solid fa-home"></i> </span>
-      <a href="#/home">Home</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-compass"></i></span>
-      <a href="#/search">Discover</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-comments"></i></span>
-      <a href="#/chat">Chat</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
-      <a href="#/create">Create</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-tasks"></i></span>
-      <a href="#/tasks">Tasks</a></li>
-    <li>
-   <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-   <a href="#/offline">Offline</a>
- </li>
+    <li><span class="dash"><i class="fa-solid fa-home"></i></span><a href="/home">Home</a></li>
+    <li><span class="dash"><i class="fa-solid fa-compass"></i></span><a href="/search">Discover</a></li>
+    <li><span class="dash"><i class="fa-solid fa-comments"></i></span><a href="/chat">Chat</a></li>
+    <li><span class="dash"><i class="fa-solid fa-square-plus"></i></span><a href="/create">Create</a></li>
+    <li><span class="dash"><i class="fas fa-tasks"></i></span><a href="/tasks">Tasks</a></li>
+    <li><span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span><a href="/offline">Offline</a></li>
     <hr>
     
-    
-    <h4>account</h4>
-    <li>
-      <span class="dash"><i class="fas fa-chart-line"></i> </span>
-      <a href="#/activity">Activity</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="#/profile">Profile</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-life-ring"></i></span>
-      <a href="#/community-guidelines">Community</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-wallet"></i></span>
-      <a href="#/wallet">Wallet</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-bell"></i></span>
-      <a href="#/notifications">Notifications</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-cog"></i></span>
-      <a href="#/settings">Settings</a>
-    </li>
+    <h4>Account</h4>
+    <li><span class="dash"><i class="fas fa-chart-line"></i></span><a href="/activity">Activity</a></li>
+    <li><span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span><a href="/profile">Profile</a></li>
+    <li><span class="dash"><i class="fas fa-life-ring"></i></span><a href="/community-guidelines">Community</a></li>
+    <li><span class="dash"><i class="fas fa-wallet"></i></span><a href="/wallet">Wallet</a></li>
+    <li><span class="dash"><i class="fas fa-bell"></i></span><a href="/notifications">Notifications</a></li>
+    <li><span class="dash"><i class="fas fa-cog"></i></span><a href="/settings">Settings</a></li>
     <hr>
 
-    <h4>systems</h4>
-    <li>
-      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
-      <a href="#/support">Contact</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
-      <a href="#/feedback">Feedback</a>
-    </li>
-     <li>
-   <span class="dash"><i class="fas fa-question-circle"></i></i></span>
-   <a href="#/help">Help</a>
- </li>
-<li><span class="dash"><i class="fas fa-history"></i></span><a href="#/activity">Activity</a></li>
-<li><span class="dash"><i class="fas fa-info-circle"></i></span><a href="#/about">About</a></li>
-<li><span class="dash"><i class="fas fa-sign-out-alt"></i></span><a href="#/logout">Logout</a></li>
-
-<hr>
-
+    <h4>Systems</h4>
+    <li><span class="dash"><i class="fa-solid fa-address-book"></i></span><a href="/support">Contact</a></li>
+    <li><span class="dash"><i class="fa-solid fa-comment-dots"></i></span><a href="/feedback">Feedback</a></li>
+    <li><span class="dash"><i class="fas fa-question-circle"></i></span><a href="/help">Help</a></li>
+    <li><span class="dash"><i class="fas fa-info-circle"></i></span><a href="/about">About</a></li>
+    <li><span class="dash"><i class="fas fa-sign-out-alt"></i></span><a href="/logout">Logout</a></li>
   </ul>
   
 </section>
+
 <!-- ===== DASHBOARD MAIN ===== -->
-  <main class="dashboard-container">
+<main class="dashboard-container">
 
-    <!-- DASHBOARD HEADER -->
-    <header class="dashboard-header">
-      <h2>Welcome back, <span id="stndent">Student</span> 👋</h2>
-      <div class="user-info">
-        <span>Points: 0</span>
-        <span>Badges: 0</span>
+  <!-- DASHBOARD HEADER -->
+  <header class="dashboard-header">
+    <h2>Welcome back, <span id="student">Student</span> 👋</h2>
+    <div class="user-info">
+      <span>Points: 0</span>
+      <span>Badges: 0</span>
+    </div>
+  </header>
+
+  <!-- DASHBOARD GRID -->
+  <div class="dashboard-grid">
+
+    <!-- User Progress -->
+    <div class="dashboard-card" id="user-progress">
+      <h3>Your Progress</h3>
+      <div class="progress-stats">
+        <div class="stat">
+          <span class="stat-value" data-field="completedLessons">12</span>
+          <span class="stat-label">Lessons Completed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-field="points">1,450</span>
+          <span class="stat-label">Points Earned</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-field="badges">5</span>
+          <span class="stat-label">Badges</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-field="streak">7</span>
+          <span class="stat-label">Day Streak</span>
+        </div>
       </div>
-    </header>
-
-    <!-- DASHBOARD GRID -->
-    <div class="dashboard-grid">
-
-      <!-- Quick Actions -->
-  <div class="dashboard-card" id="user-progress">
-
-  <h3>Your Progress</h3>
-
-  <div class="progress-stats">
-
-    <div class="stat">
-      <span class="stat-value" data-field="completedLessons">12</span>
-      <span class="stat-label">Lessons Completed</span>
     </div>
 
-    <div class="stat">
-      <span class="stat-value" data-field="points">1,450</span>
-      <span class="stat-label">Points Earned</span>
+    <!-- Recent Activity -->
+    <div class="dashboard-card">
+      <h3>Recent Activity</h3>
+      <ul>
+        <li>John completed "Python for Beginners"</li>
+        <li>Mary forked "AI & Machine Learning Basics"</li>
+        <li>Alex created "Web3 Fundamentals"</li>
+      </ul>
     </div>
 
-    <div class="stat">
-      <span class="stat-value" data-field="badges">5</span>
-      <span class="stat-label">Badges</span>
+    <!-- Recommendations -->
+    <div class="dashboard-card">
+      <h3>Recommended for You</h3>
+      <ul>
+        <li>Introduction to Blockchain</li>
+        <li>Advanced JavaScript</li>
+        <li>UI/UX Design Basics</li>
+      </ul>
     </div>
 
-    <div class="stat">
-      <span class="stat-value" data-field="streak">7</span>
-      <span class="stat-label">Day Streak</span>
+    <!-- Notifications -->
+    <div class="dashboard-card">
+      <h3>Notifications</h3>
+      <ul>
+        <li>Your subscription will renew in 3 days</li>
+        <li>New lesson added: "Smart Contracts"</li>
+        <li>System maintenance scheduled for tomorrow</li>
+      </ul>
     </div>
 
   </div>
 
-</div>
-      <!-- Progress -->
-      <div class="dashboard-card">
-        <h3>Your Progress</h3>
-        <p>Your completed lessons, points, badges, and learning streaks will appear here.</p>
-      </div>
+</main>
 
-      <!-- Recent Activity -->
-      <div class="dashboard-card">
-        <h3>Recent Activity</h3>
-        <ul>
-          <li>John completed "Python for Beginners"</li>
-          <li>Mary forked "AI & Machine Learning Basics"</li>
-          <li>Alex created "Web3 Fundamentals"</li>
-        </ul>
-      </div>
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
 
-      <!-- Recommendations -->
-      <div class="dashboard-card">
-        <h3>Recommended for You</h3>
-        <ul>
-          <li>Introduction to Blockchain</li>
-          <li>Advanced JavaScript</li>
-          <li>UI/UX Design Basics</li>
-        </ul>
-      </div>
-
-      <!-- Notifications -->
-      <div class="dashboard-card">
-        <h3>Notifications</h3>
-        <ul>
-          <li>Your subscription will renew in 3 days</li>
-          <li>New lesson added: "Smart Contracts"</li>
-          <li>System maintenance scheduled for tomorrow</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </main>
-
-</section>
+</body>
+</html>
