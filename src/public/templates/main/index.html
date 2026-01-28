@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Home</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -10,78 +21,82 @@
     <h4>Main</h4>
     <li>
       <span class="dash"><i class="fa-solid fa-home"></i> </span>
-      <a href="#/home">Home</a>
+      <a href="/pages/home.html">Home</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-compass"></i></span>
-      <a href="#/search">Discover</a>
+      <a href="/pages/discover.html">Discover</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-comments"></i></span>
-      <a href="#/chat">Chat</a>
+      <a href="/pages/chat.html">Chat</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
-      <a href="#/create">Create</a>
+      <a href="/pages/create.html">Create</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-tasks"></i></span>
-      <a href="#/tasks">Tasks</a></li>
-    <li>
-   <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-   <a href="#/offline">Offline</a>
- </li>
-    <hr>
-    
-    
-    <h4>account</h4>
-    <li>
-      <span class="dash"><i class="fas fa-chart-line"></i> </span>
-      <a href="#/activity">Activity</a>
+      <a href="/pages/tasks.html">Tasks</a>
     </li>
     <li>
       <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="#/profile">Profile</a>
+      <a href="/pages/offline.html">Offline</a>
+    </li>
+    <hr>
+    
+    <h4>Account</h4>
+    <li>
+      <span class="dash"><i class="fas fa-chart-line"></i> </span>
+      <a href="/pages/activity.html">Activity</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/profile.html">Profile</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-life-ring"></i></span>
-      <a href="#/community-guidelines">Community</a>
+      <a href="/pages/community-guidelines.html">Community</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-wallet"></i></span>
-      <a href="#/wallet">Wallet</a>
+      <a href="/pages/wallet.html">Wallet</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-bell"></i></span>
-      <a href="#/notifications">Notifications</a>
+      <a href="/pages/notifications.html">Notifications</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-cog"></i></span>
-      <a href="#/settings">Settings</a>
+      <a href="/pages/settings.html">Settings</a>
     </li>
     <hr>
 
-    <h4>systems</h4>
+    <h4>Systems</h4>
     <li>
       <span class="dash"><i class="fa-solid fa-address-book"></i></span>
-      <a href="#/support">Contact</a>
+      <a href="/pages/support.html">Contact</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
-      <a href="#/feedback">Feedback</a>
+      <a href="/pages/feedback.html">Feedback</a>
     </li>
-     <li>
-   <span class="dash"><i class="fas fa-question-circle"></i></i></span>
-   <a href="#/help">Help</a>
- </li>
-<li><span class="dash"><i class="fas fa-info-circle"></i></span><a href="#/about">About</a></li>
-<li><span class="dash"><i class="fas fa-sign-out-alt"></i></span><a href="#/logout">Logout</a></li>
-
-<hr>
-
+    <li>
+      <span class="dash"><i class="fas fa-question-circle"></i></span>
+      <a href="/pages/help.html">Help</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-info-circle"></i></span>
+      <a href="/pages/about.html">About</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
+      <a href="/pages/logout.html">Logout</a>
+    </li>
+    <hr>
   </ul>
-  
 </section>
+
 <!-- ===== HERO SECTION ===== -->
 <div class="hero">
   <h2>Learn. Teach. Grow — Together.</h2>
@@ -92,12 +107,12 @@
   </p>
   
   <div class="cta">
-    <a href="#/signup" class="btn btn-primary">Start Learning</a>
-    <a href="#/signup" class="btn btn-secondary">Become a Contributor</a>
+    <a href="/pages/signup.html" class="btn btn-primary">Start Learning</a>
+    <a href="/pages/signup.html" class="btn btn-secondary">Become a Contributor</a>
   </div>
   
   <p class="hero-note">
-    Any subject Any level 
+    Any subject, any level
   </p>
 </div>
 
@@ -123,11 +138,11 @@
       <h4>Discover</h4>
       <p>Explore lessons across multiple categories and fields.</p>
     </div>
-    <div >
+    <div>
       <h4>Learn or Teach</h4>
       <p>Study at your own pace or contribute your own educational content.</p>
     </div>
-    <div >
+    <div>
       <h4>Grow Together</h4>
       <p>Improve skills, earn recognition, and help others learn.</p>
     </div>
@@ -137,7 +152,6 @@
 <!-- ===== CATEGORIES ===== -->
 <div class="section">
   <h3>What You Can Learn or Teach</h3>
-
   <div class="scroll-container">
     <div class="scroll-track">
       <div class="scroll-item">
@@ -145,247 +159,84 @@
         <h4>Mathematics</h4>
         <p>Algebra, Calculus, Geometry, and more.</p>
       </div>
-
       <div class="scroll-item">
         <i class="fas fa-atom"></i>
         <h4>Physics</h4>
         <p>Mechanics, Electromagnetism, Thermodynamics.</p>
       </div>
-
       <div class="scroll-item">
         <i class="fas fa-flask"></i>
         <h4>Chemistry</h4>
         <p>Organic, Inorganic, and Analytical Chemistry concepts.</p>
       </div>
-
       <div class="scroll-item">
         <i class="fas fa-code"></i>
         <h4>Programming</h4>
         <p>Python, JavaScript, Java, C++, and web development.</p>
       </div>
-
       <div class="scroll-item">
         <i class="fas fa-dna"></i>
         <h4>Biology</h4>
         <p>Genetics, Physiology, Ecology, and more.</p>
       </div>
-
-      <!-- Duplicate for continuous scroll -->
-      <div class="scroll-item">
-        <i class="fas fa-calculator"></i>
-        <h4>Mathematics</h4>
-        <p>Algebra, Calculus, Geometry, and more.</p>
-      </div>
-            <div class="scroll-item">
-        <i class="fas fa-atom"></i>
-        <h4>Physics</h4>
-        <p>Mechanics, Electromagnetism, Thermodynamics.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-flask"></i>
-        <h4>Chemistry</h4>
-        <p>Organic, Inorganic, and Analytical Chemistry concepts.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-code"></i>
-        <h4>Programming</h4>
-        <p>Python, JavaScript, Java, C++, and web development.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-dna"></i>
-        <h4>Biology</h4>
-        <p>Genetics, Physiology, Ecology, and more.</p>
-      </div>
-
     </div>
   </div>
-</div>
-
   <p class="section-note">
     Don’t see your subject? Create your own category.
   </p>
 </div>
 
-<!-- ===== CORE PRINCIPLES ===== -->
-<div class="section bg-light">
-  <h3>Our Core Principles</h3>
-  <div>
-    <div>Education First</div>
-    <div >Open Knowledge Sharing</div>
-    <div>Community Collaboration</div>
-    <div>Quality & Respect</div>
-    <div>Progress Tracking</div>
-    <div>Mobile & Offline Friendly</div>
-  </div>
-</div>
-
-<!-- ===== FEATURES ===== -->
-<div class="section">
-  <h3>What You Can Do on SkillChain</h3>
-  <ul class="features">
-    <li>Create and publish educational lessons</li>
-    <li>Learn from verified community content</li>
-    <li>Fork and improve existing lessons</li>
-    <li>Track learning progress</li>
-    <li>Earn recognition for contributions</li>
-    <li>Chat and collaborate with others</li>
-    <li>Access content on mobile, even offline</li>
-  </ul>
-</div>
-
-<!-- ===== USERS ===== -->
-<div class="section">
-  <h3>SkillChain Is For</h3>
-
-  <div class="scroll-container">
-    <div class="scroll-track">
-      <!-- Students -->
-      <div class="scroll-item">
-        <i class="fas fa-user-graduate"></i>
-        <h4>Students</h4>
-        <p>Learn lessons, practice quizzes, and track progress in every subject.</p>
-      </div>
-
-      <!-- Teachers -->
-      <div class="scroll-item">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <h4>Teachers</h4>
-        <p>Create and share lessons, guide learners, and track engagement.</p>
-      </div>
-
-      <!-- Professionals -->
-      <div class="scroll-item">
-        <i class="fas fa-briefcase"></i>
-        <h4>Professionals</h4>
-        <p>Share industry knowledge, tutorials, and skill-building content.</p>
-      </div>
-
-      <!-- Lifelong Learners -->
-      <div class="scroll-item">
-        <i class="fas fa-book-open"></i>
-        <h4>Lifelong Learners</h4>
-        <p>Explore diverse subjects, improve skills, and learn at your own pace.</p>
-      </div>
-
-      <!-- Study Groups -->
-      <div class="scroll-item">
-        <i class="fas fa-users"></i>
-        <h4>Study Groups</h4>
-        <p>Collaborate, discuss lessons, and participate in challenges.</p>
-      </div>
-
-      <!-- Subjects / Categories -->
-      <div class="scroll-item">
-        <i class="fas fa-square-root-alt"></i>
-        <h4>Mathematics</h4>
-        <p>Access lessons in Algebra, Calculus, Geometry, Statistics, and more.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-atom"></i>
-        <h4>Physics</h4>
-        <p>Explore Mechanics, Optics, Thermodynamics, and modern Physics concepts.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-vial"></i>
-        <h4>Chemistry</h4>
-        <p>Learn Organic, Inorganic, Physical Chemistry, and chemical experiments.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-dna"></i>
-        <h4>Biology</h4>
-        <p>Study Botany, Zoology, Genetics, and human anatomy interactively.</p>
-      </div>
-
-      <div class="scroll-item">
-        <i class="fas fa-laptop-code"></i>
-        <h4>Programming</h4>
-        <p>Learn Python, JavaScript, C++, and other coding skills.</p>
-      </div>
-
-      <!-- Duplicate first  s for seamless scrolling -->
-      <div class="scroll-item">
-        <i class="fas fa-user-graduate"></i>
-        <h4>Students</h4>
-        <p>Learn lessons, practice quizzes, and track progress in every subject.</p>
-      </div>
-      <div class="scroll-item">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <h4>Teachers</h4>
-        <p>Create and share lessons, guide learners, and track engagement.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ===== COMMUNITY & REWARDS ===== -->
-<div class="section">
-  <h3>Recognition & Growth</h3>
-  <p>
-    SkillChain rewards meaningful learning and contribution.
-    Build your profile, earn points, and grow your reputation
-    as a learner or educator.
-  </p>
-  <ul class="features">
-    <li>Contribution points</li>
-    <li>Learning milestones</li>
-    <li>Community recognition</li>
-  </ul>
-</div>
-
 <!-- ===== FINAL CTA ===== -->
 <div class="hero">
   <h2>Join SkillChain Today</h2>
-  <p>
-    Start learning, start teaching, and be part of a growing
-    educational community.
-  </p>
+  <p>Start learning, start teaching, and be part of a growing educational community.</p>
   <div class="cta">
-    <a href="#/signup" class="btn btn-primary">Join for Free</a>
+    <a href="/pages/signup.html" class="btn btn-primary">Join for Free</a>
   </div>
 </div>
+
+<!-- ===== FOOTER ===== -->
 <footer>
   <section class="footer-grid">
-
     <div class="footer-column">
       <h4>About</h4>
       <ul>
-        <li><a href="#/about">About SkillChain</a></li>
-        <li><a href="#/features">Features</a></li>
-        <li><a href="#/roadmap">Roadmap</a></li>
+        <li><a href="/pages/about.html">About SkillChain</a></li>
+        <li><a href="/pages/features.html">Features</a></li>
+        <li><a href="/pages/roadmap.html">Roadmap</a></li>
       </ul>
     </div>
-
     <div class="footer-column">
       <h4>Community</h4>
       <ul>
-        <li><a href="#/guidelines">Guidelines</a></li>
-        <li><a href="#/contributors">Contributors</a></li>
+        <li><a href="/pages/guidelines.html">Guidelines</a></li>
+        <li><a href="/pages/contributors.html">Contributors</a></li>
       </ul>
     </div>
-
     <div class="footer-column">
       <h4>Support</h4>
       <ul>
-        <li><a href="#/help">Help Center</a></li>
-        <li><a href="#/chat">Contact</a></li>
+        <li><a href="/pages/help.html">Help Center</a></li>
+        <li><a href="/pages/chat.html">Contact</a></li>
       </ul>
     </div>
-
     <div class="footer-column">
       <h4>Legal</h4>
       <ul>
-        <li><a href="#/terms">Terms</a></li>
-        <li><a href="#/feedback">feedback</a></li>
+        <li><a href="/pages/terms.html">Terms</a></li>
+        <li><a href="/pages/feedback.html">Feedback</a></li>
       </ul>
     </div>
-    
- <p>
-    &copy; <span id="current-year">2024</span> SkillChain. All rights reserved.
-  </p>
+    <p>&copy; <span id="current-year">2026</span> SkillChain. All rights reserved.</p>
   </section>
 </footer>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/pages/auth.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

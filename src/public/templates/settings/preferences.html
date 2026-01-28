@@ -1,13 +1,24 @@
-<!-- SPA: Preferences -->
-<section id="preferences" data-route="preferences">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Preferences</title>
 
-  <header>
-    <h1>Preferences</h1>
-    <p>Control how SkillChain behaves for you.</p>
-  </header>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-  <main>
-    <section>
+<section class="page preferences" id="preferences" data-route="preferences">
+  <main id="main-content" class="container">
+
+    <header>
+      <h1>Preferences</h1>
+      <p>Control how SkillChain behaves for you.</p>
+    </header>
+
+    <section class="section">
       <ul>
         <li>Notifications on/off</li>
         <li>Auto-play lessons</li>
@@ -15,6 +26,14 @@
         <li>Data usage preferences</li>
       </ul>
     </section>
-  </main>
 
+  </main>
 </section>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

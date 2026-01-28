@@ -1,110 +1,103 @@
-<section id="profile" data-route="profile">
-  
-  <!-- HEADER -->
-  <header>
-    <h1>My Profile</h1>
-  </header>
-  
-  <main class="container">
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Profile</title>
+
+  <!-- SAME GLOBAL STYLES -->
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<section class="page profile" id="profile" data-route="profile">
+  <main id="main-content" class="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>My Profile</h1>
+      <p>Your SkillChain identity and progress.</p>
+    </header>
+
     <!-- PROFILE CARD -->
-    <div class="card profile-card">
-      
-      <!-- PROFILE TOP: PICTURE + INFO -->
+    <section class="section card profile-card">
+
+      <!-- TOP -->
       <div class="profile-top">
-        <!-- Dummy Profile Pic -->
+
         <div class="profile-pic">
-          <img src="https://via.placeholder.com/120x120.png?text=User" alt="Profile Picture">
+          <img
+            src="https://via.placeholder.com/120x120.png?text=User"
+            alt="Profile Picture"
+          />
+          <span class="tier tier-bronze">Bronze</span>
         </div>
-        
-        <!-- INFO -->
+
         <div class="profile-info">
-          
-          <h1 class="username">Akampa</h1>
-          <p class="name">SkillChain Learner</p>
-          
+          <h2 class="username">Akampa</h2>
           <p class="meta">
-            Skill Tier: <strong class="tier tier-bronze">Bronze</strong> •
-            Skill Points: <strong id="sp">450</strong>
+            Skill Points: <strong>450</strong> •
+            Joined: <strong>Jan 2026</strong>
           </p>
-          
-          <!-- Quick Stats -->
+
           <div class="profile-stats">
             <span><strong>18</strong> Lessons</span>
-            <span><strong>6</strong> Day Streak 🔥</span>
+            <span><strong>6</strong> Day Streak</span>
             <span><strong>3</strong> Skills</span>
           </div>
-          
-          <!-- Social -->
+
           <div class="profile-social">
             <span><strong>120</strong> Followers</span>
             <span><strong>80</strong> Following</span>
+            <span><strong>12</strong> Allies</span>
           </div>
-          
-          <!-- Allies -->
-          <div class="profile-allies">
-            <h4>Allies</h4>
-            <p class="allies-count"><strong>12</strong> Allies</p>
-          </div>
-          
-          <!-- External Profiles -->
-          <div class="profile-links">
-            <h4>Profiles</h4>
-            <div class="links-list">
-              <a href="#" aria-label="GitHub">GitHub</a>
-              <a href="#" aria-label="LinkedIn">LinkedIn</a>
-              <a href="#" aria-label="X">X</a>
-              <a href="#" aria-label="Portfolio">Portfolio</a>
-            </div>
-          </div>
-          
-          <!-- Account Info -->
-          <p class="small">
-            Joined SkillChain: <strong>Jan 2026</strong><br>
-            Last Active: <strong>Today</strong>
-          </p>
-          
         </div>
       </div>
-      
-      <!-- PROGRESS & CONTRIBUTIONS CARDS -->
+
+      <!-- DETAILS -->
       <div class="profile-details">
-        
-        <!-- PROGRESS CARD -->
-        <div class="card animate">
+
+        <div class="card">
           <h4>Progress</h4>
-          <p>Rank: <strong>2 Bronze</strong></p>
-          <p>Leaderboard Position: <strong>#2</strong></p>
-          <p>Total Skill Points: <strong>450</strong></p>
-          <p>Total Lessons Completed: <strong>18</strong></p>
+          <p>Tier: <strong>Bronze</strong></p>
+          <p>Leaderboard: <strong>#2</strong></p>
+          <p>Lessons Completed: <strong>18</strong></p>
         </div>
-        
-        <!-- CONTRIBUTIONS CARD -->
-        <div class="card animate">
+
+        <div class="card">
           <h4>Contributions</h4>
-          <p>Community Comments: <strong>316</strong></p>
+          <p>Comments: <strong>316</strong></p>
           <p>Forked Lessons: <strong>18</strong></p>
           <p>Skills Authored: <strong>5</strong></p>
-          <p>Total Stars Earned: <strong>123</strong></p>
         </div>
-        
-        <!-- STREAKS CARD -->
-        <div class="card animate">
+
+        <div class="card">
           <h4>Streaks</h4>
-          <p>Most in a Day: <strong>27</strong></p>
-          <p>Most in a Week: <strong>37</strong></p>
-          <p>Current Streak: <strong>0</strong></p>
+          <p>Current: <strong>6 days</strong></p>
+          <p>Best Day: <strong>27</strong></p>
+          <p>Best Week: <strong>37</strong></p>
         </div>
-        
-        <!-- SKILLS CARD -->
-        <div class="card animate">
+
+        <div class="card">
           <h4>Active Skills</h4>
-          <p>JavaScript: Rank 3 Bronze | Completed Lessons: 249</p>
-          <p>Ruby: Rank 3 Bronze | Completed Lessons: 137</p>
-          <p>Python: Rank 2 Bronze | Completed Lessons: 421</p>
+          <p>JavaScript — Bronze</p>
+          <p>Python — Bronze</p>
+          <p>Ruby — Bronze</p>
         </div>
-        
+
       </div>
-    </div>
+
+    </section>
+
   </main>
 </section>
+
+<!-- SAME SCRIPTS -->
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

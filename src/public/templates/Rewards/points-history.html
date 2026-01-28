@@ -1,30 +1,56 @@
-<section class="section points-history">
-  <h1>Points History</h1>
-  <p>View how your points were earned and spent.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Points History</title>
+
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<section class="page points-history" id="points-history">
+  <main id="main-content">
+
+    <section class="section points-history">
+      <h1>Points History</h1>
+      <p>View how your points were earned and spent.</p>
+    </section>
+
+    <section class="section">
+      <ul class="points-list">
+        <li class="points-positive">
+          <span>Completed lesson</span>
+          <strong>+10 points</strong>
+        </li>
+
+        <li class="points-positive">
+          <span>Daily login</span>
+          <strong>+2 points</strong>
+        </li>
+
+        <li class="points-negative">
+          <span>Redeemed reward</span>
+          <strong>−20 points</strong>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <p>
+        Points are earned through learning activities and community engagement.
+        Spending points may reduce your total balance.
+      </p>
+    </section>
+
+  </main>
 </section>
 
-<section class="section">
-  <ul class="points-list">
-    <li class="points-positive">
-      <span>Completed lesson</span>
-      <strong>+10 points</strong>
-    </li>
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
 
-    <li class="points-positive">
-      <span>Daily login</span>
-      <strong>+2 points</strong>
-    </li>
-
-    <li class="points-negative">
-      <span>Redeemed reward</span>
-      <strong>−20 points</strong>
-    </li>
-  </ul>
-</section>
-
-<section class="section">
-  <p>
-    Points are earned through learning activities and community engagement.
-    Spending points may reduce your total balance.
-  </p>
-</section>
+</body>
+</html>

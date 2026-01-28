@@ -1,123 +1,150 @@
-<section class="section leaderboard">
-  <h1>Leaderboard</h1>
-  <p>Top learners and creators based on activity and impact.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Leaderboard</title>
 
-  <!-- Tabs -->
-  <div class="leaderboard-tabs">
-    <button class="tab-btn active" data-tab="weekly">Weekly</button>
-    <button class="tab-btn" data-tab="monthly">Monthly</button>
-    <button class="tab-btn" data-tab="alltime">All Time</button>
-  </div>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<section class="page leaderboard" id="leaderboard">
+  <main id="main-content">
+
+    <section class="section leaderboard">
+      <h1>Leaderboard</h1>
+      <p>Top learners and creators based on activity and impact.</p>
+
+      <!-- Tabs -->
+      <div class="leaderboard-tabs">
+        <button class="tab-btn active" data-tab="weekly">Weekly</button>
+        <button class="tab-btn" data-tab="monthly">Monthly</button>
+        <button class="tab-btn" data-tab="alltime">All Time</button>
+      </div>
+    </section>
+
+    <!-- WEEKLY LEADERBOARD -->
+    <section class="card leaderboard-tab active" id="weekly">
+      <h3>Weekly Leaders</h3>
+      <div class="table-container">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Points</th>
+              <th>Badges</th>
+              <th>Streak (Days)</th>
+              <th>Projects Completed</th>
+              <th>Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Akampa Fredrick</td>
+              <td>1,200</td>
+              <td>Star Learner, Code Master</td>
+              <td>15</td>
+              <td>5</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Samantha Jones</td>
+              <td>980</td>
+              <td>Bio Expert, Quiz Whiz</td>
+              <td>10</td>
+              <td>4</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Jin M. Franc</td>
+              <td>1,350</td>
+              <td>Health Guru, Rapid Coder</td>
+              <td>18</td>
+              <td>6</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Lee Ben Edwards</td>
+              <td>760</td>
+              <td>Flight Commander, Quick Learner</td>
+              <td>7</td>
+              <td>3</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Ashley Grey</td>
+              <td>1,420</td>
+              <td>Romance Reader, Star Collector</td>
+              <td>22</td>
+              <td>7</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Marc A. Redric</td>
+              <td>1,600</td>
+              <td>Bio Innovator, Mastermind</td>
+              <td>25</td>
+              <td>8</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Mark Org</td>
+              <td>950</td>
+              <td>Tech Pioneer, Efficient Learner</td>
+              <td>12</td>
+              <td>4</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Chris Ron</td>
+              <td>870</td>
+              <td>Problem Solver, Quiz Whiz</td>
+              <td>9</td>
+              <td>3</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Alec Ben</td>
+              <td>1,100</td>
+              <td>Strategist, Star Collector</td>
+              <td>14</td>
+              <td>5</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Albert Wright</td>
+              <td>1,230</td>
+              <td>Code Master, Innovator</td>
+              <td>16</td>
+              <td>6</td>
+              <td>5</td>
+            </tr>
+            <!-- Add rows 11–20 as needed -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
 </section>
-<!-- WEEKLY LEADERBOARD -->
-<section class="card leaderboard-tab active" id="weekly">
-  <h3>Weekly Leaders</h3>
-  <div class="table-container">
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Points</th>
-          <th>Badges</th>
-          <th>Streak (Days)</th>
-          <th>Projects Completed</th>
-          <th>Level</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Akampa Fredrick</td>
-          <td>1,200</td>
-          <td>Star Learner, Code Master</td>
-          <td>15</td>
-          <td>5</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Samantha Jones</td>
-          <td>980</td>
-          <td>Bio Expert, Quiz Whiz</td>
-          <td>10</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Jin M. Franc</td>
-          <td>1,350</td>
-          <td>Health Guru, Rapid Coder</td>
-          <td>18</td>
-          <td>6</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Lee Ben Edwards</td>
-          <td>760</td>
-          <td>Flight Commander, Quick Learner</td>
-          <td>7</td>
-          <td>3</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Ashley Grey</td>
-          <td>1,420</td>
-          <td>Romance Reader, Star Collector</td>
-          <td>22</td>
-          <td>7</td>
-          <td>6</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Marc A. Redric</td>
-          <td>1,600</td>
-          <td>Bio Innovator, Mastermind</td>
-          <td>25</td>
-          <td>8</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>Mark Org</td>
-          <td>950</td>
-          <td>Tech Pioneer, Efficient Learner</td>
-          <td>12</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>Chris Ron</td>
-          <td>870</td>
-          <td>Problem Solver, Quiz Whiz</td>
-          <td>9</td>
-          <td>3</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>Alec Ben</td>
-          <td>1,100</td>
-          <td>Strategist, Star Collector</td>
-          <td>14</td>
-          <td>5</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>Albert Wright</td>
-          <td>1,230</td>
-          <td>Code Master, Innovator</td>
-          <td>16</td>
-          <td>6</td>
-          <td>5</td>
-        </tr>
-        <!-- Add rows 11–20 as needed -->
-      </tbody>
-    </table>
-  </div>
-</section>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

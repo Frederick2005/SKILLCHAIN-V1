@@ -1,13 +1,24 @@
-<!-- SPA: System Status -->
-<section id="status" data-route="status">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – System Status</title>
 
-  <header>
-    <h1>System Status</h1>
-    <p>Check the current status of SkillChain services.</p>
-  </header>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-  <main>
-    <section>
+<section class="page status" id="status" data-route="status">
+  <main id="main-content" class="container">
+
+    <header>
+      <h1>System Status</h1>
+      <p>Check the current status of SkillChain services.</p>
+    </header>
+
+    <section class="section">
       <ul>
         <li>Website: ✅ Online</li>
         <li>API: ✅ Online</li>
@@ -15,6 +26,14 @@
         <li>Rewards System: ✅ Online</li>
       </ul>
     </section>
-  </main>
 
+  </main>
 </section>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>
