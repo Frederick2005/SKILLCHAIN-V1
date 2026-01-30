@@ -11,125 +11,92 @@
 <body>
 
 <!-- ====== SIDE BAR =========-->
-<section class="sidebar" id="sidebar">
-  
-  <div class="logo">
-    <img src="/src/public/images/logo.png" alt="" />
-    <h2>SkillChain</h2>
-  </div>
-  
-  <ul class="links">
-    <h4>Main</h4>
-    <li>
-      <span class="dash"><i class="fa-solid fa-home"></i> </span>
-      <a href="/pages/home.html">Home</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-compass"></i></span>
-      <a href="/pages/discover.html">Discover</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-comments"></i></span>
-      <a href="/pages/chat.html">Chat</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
-      <a href="/pages/create.html">Create</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-tasks"></i></span>
-      <a href="/pages/tasks.html">Tasks</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="/pages/offline.html">Offline</a>
-    </li>
-    <hr>
+  <section class="sidebar" id="sidebar">
     
-    <h4>Account</h4>
-    <li>
-      <span class="dash"><i class="fas fa-chart-line"></i> </span>
-      <a href="/pages/activity.html">Activity</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="/pages/profile.html">Profile</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-life-ring"></i></span>
-      <a href="/pages/community-guidelines.html">Community</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-wallet"></i></span>
-      <a href="/pages/wallet.html">Wallet</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-bell"></i></span>
-      <a href="/pages/notifications.html">Notifications</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-cog"></i></span>
-      <a href="/pages/settings.html">Settings</a>
-    </li>
-    <hr>
-
-    <h4>Systems</h4>
-    <li>
-      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
-      <a href="/pages/support.html">Contact</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
-      <a href="/pages/feedback.html">Feedback</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-question-circle"></i></span>
-      <a href="/pages/help.html">Help</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-info-circle"></i></span>
-      <a href="/pages/about.html">About</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
-      <a href="/pages/logout.html">Logout</a>
-    </li>
-    <hr>
-  </ul>
-</section>
-<section class="page chat-settings" id="chat-settings">
-
-  <header id="navbar">
-    <div class="logo">SkillChain</div>
-  </header>
-
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
-
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
-
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
-
-      <button type="submit">Save Settings</button>
-    </form>
-  </main>
-
-</section>
+    <div class="logo">
+      <img src="/src/public/images/logo.png" alt="" />
+      <h2>SkillChain</h2>
+    </div>
+    
+    <ul class="links">
+      <h4>Main</h4>
+      <li>
+        <span class="dash"><i class="fa-solid fa-home"></i> </span>
+        <a href="/src/public/templates/main/home.html">Home</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fa-solid fa-compass"></i></span>
+        <a href="/src/public/templates/Discover/explore.html">Discover</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fa-solid fa-comments"></i></span>
+        <a href="/src/public/templates/chart /chat.html">Chat</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
+        <a href="/src/public/templates/main/create.html">Create</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-tasks"></i></span>
+        <a href="/src/public/templates/main/tasks.html">Tasks</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+        <a href="/src/public/templates/offline /offline.html">Offline</a>
+      </li>
+      <hr>
+      
+      <h4>Account</h4>
+      <li>
+        <span class="dash"><i class="fas fa-chart-line"></i> </span>
+        <a href="/src/public/templates/social/activity-feed.html">Activity</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+        <a href="/src/public/templates/social/profile.html">Profile</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-life-ring"></i></span>
+        <a href="/src/public/templates/support/community-guidelines.html">Community</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-wallet"></i></span>
+        <a href="/src/public/templates/Rewards/wallet.html">Wallet</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-bell"></i></span>
+        <a href="/src/public/templates/social/notifications.html">Notifications</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-cog"></i></span>
+        <a href="/src/public/templates/settings/settings.html">Settings</a>
+      </li>
+      <hr>
+  
+      <h4>Systems</h4>
+      <li>
+        <span class="dash"><i class="fa-solid fa-address-book"></i></span>
+        <a href="/src/public/templates/support/contact.html">Contact</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
+        <a href="/src/public/templates/support/feedback.html">Feedback</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-question-circle"></i></span>
+        <a href="/src/public/templates/support/help.html">Help</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-info-circle"></i></span>
+        <a href="/src/public/templates/marketing /about.html">About</a>
+      </li>
+      <li>
+        <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
+        <a href="/src/public/templates/auth/logout.html">Logout</a>
+      </li>
+      <hr>
+    </ul>
+  </section>
 
 <section class="page preferences" id="preferences" data-route="preferences">
   <main id="main-content" class="container">
