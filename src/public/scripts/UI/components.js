@@ -55,3 +55,55 @@ document.querySelectorAll('.footer-toggle').forEach(toggle => {
     console.log("New category added:", newCategory);
   });
 });
+// sidebar-toggle.js
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("sidebar-toggle");
+
+  if (!sidebar || !toggleBtn) return;
+
+  toggleBtn.addEventListener("click", () => {
+    const isMobile = window.innerWidth <= 1023;
+
+    if (isMobile) {
+      // Mobile overlay behavior
+      sidebar.classList.toggle("open");
+      document.body.classList.toggle("sidebar-open");
+    } else {
+      // Desktop collapse
+      sidebar.classList.toggle("collapsed");
+      document.body.classList.toggle("sidebar-collapsed");
+    }
+
+    toggleBtn.classList.toggle("collapsed");
+    updateIcon();
+  });
+
+  function updateIcon() {
+    const icon = toggleBtn.querySelector("i");
+    if (!icon) return;
+
+    const isMobile = window.innerWidth <= 1023;
+    if ((sidebar.classList.contains("collapsed") && !isMobile) || (sidebar.classList.contains("open") && isMobile)) {
+      icon.classList.remove("fa-bars");
+      icon.classList.add("fa-arrow-left");
+    } else {
+      icon.classList.remove("fa-arrow-left");
+      icon.classList.add("fa-bars");
+    }
+  }
+
+  // Update icon on window resize
+  window.addEventListener("resize", updateIcon);
+
+  // Close sidebar on mobile when clicking outside
+  document.addEventListener("click", (e) => {
+    if (window.innerWidth > 1023) return;
+    if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains("open")) {
+      sidebar.classList.remove("open");
+      document.body.classList.remove("sidebar-open");
+      toggleBtn.classList.remove("collapsed");
+      updateIcon();
+    }
+  });
+});

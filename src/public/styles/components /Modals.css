@@ -1006,3 +1006,86 @@
   width: 0%;
   transition: width var(--transition-medium) var(--easing-default);
 }
+
+/* Sidebar base */
+#sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-card-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  transition: transform var(--transition-medium), width var(--transition-medium);
+  z-index: var(--z-drawer);
+}
+
+/* Collapsed state */
+#sidebar.collapsed {
+  transform: translateX(-100%);
+  width: 0;
+  overflow: hidden;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  cursor: pointer;
+  z-index: var(--z-drawer + 1);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-fast), transform var(--transition-medium);
+}
+
+.sidebar-toggle:hover {
+  background-color: var(--color-primary-light);
+}
+
+.sidebar-toggle i {
+  font-size: 1.25rem;
+  transition: transform var(--transition-medium);
+}
+
+.sidebar-toggle.collapsed i {
+  transform: rotate(180deg);
+}
+
+/* Main content adjustment on desktop */
+body.sidebar-collapsed main {
+  margin-left: 0;
+  transition: margin-left var(--transition-medium);
+}
+
+/* Desktop: main content shifted by sidebar width when open */
+@media (min-width: 1024px) {
+  main {
+    margin-left: var(--sidebar-width);
+    transition: margin-left var(--transition-medium);
+  }
+}
+
+/* Mobile: sidebar overlays content */
+@media (max-width: 1023px) {
+  #sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-width);
+  }
+  #sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Optional: dim background when sidebar open */
+  body.sidebar-open::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: var(--z-overlay);
+  }
+}
