@@ -55,29 +55,23 @@ document.querySelectorAll('.footer-toggle').forEach(toggle => {
     console.log("New category added:", newCategory);
   });
 });
-// sidebar-toggle.js
+// sidebar.js - harmonized version
 document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
-  const toggleBtn = document.getElementById("sidebar-toggle");
+  let toggleBtn = document.getElementById("sidebar-toggle");
 
-  if (!sidebar || !toggleBtn) return;
+  // If no toggle button exists, create one dynamically
+  if (!toggleBtn) {
+    toggleBtn = document.createElement("button");
+    toggleBtn.id = "sidebar-toggle";
+    toggleBtn.classList.add("sidebar-toggle");
+    toggleBtn.innerHTML = `<i class="fas fa-angle-left"></i>`;
+    document.body.appendChild(toggleBtn);
+  }
 
-  toggleBtn.addEventListener("click", () => {
-    const isMobile = window.innerWidth <= 1023;
+  if (!sidebar) return;
 
-    if (isMobile) {
-      // Mobile overlay behavior
-      sidebar.classList.toggle("open");
-      document.body.classList.toggle("sidebar-open");
-    } else {
-      // Desktop collapse
-      sidebar.classList.toggle("collapsed");
-      document.body.classList.toggle("sidebar-collapsed");
-    }
-
-    toggleBtn.classList.toggle("collapsed");
-    updateIcon();
-  });
+  const body = document.body;
 
   function updateIcon() {
     const icon = toggleBtn.querySelector("i");
@@ -93,17 +87,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Update icon on window resize
-  window.addEventListener("resize", updateIcon);
+  function toggleSidebar() {
+    const isMobile = window.innerWidth <= 1023;
 
-  // Close sidebar on mobile when clicking outside
+    if (isMobile) {
+      sidebar.classList.toggle("open");
+      body.classList.toggle("sidebar-open");
+    } else {
+      sidebar.classList.toggle("collapsed");
+      body.classList.toggle("sidebar-collapsed");
+      toggleBtn.classList.toggle("collapsed");
+    }
+
+    updateIcon();
+  }
+
+  toggleBtn.addEventListener("click", toggleSidebar);
+
+  // Close mobile sidebar when clicking outside
   document.addEventListener("click", (e) => {
     if (window.innerWidth > 1023) return;
+
     if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains("open")) {
       sidebar.classList.remove("open");
-      document.body.classList.remove("sidebar-open");
+      body.classList.remove("sidebar-open");
       toggleBtn.classList.remove("collapsed");
       updateIcon();
     }
   });
+
+  // Handle window resize: reset classes appropriately
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1023) {
+      sidebar.classList.remove("open");
+      body.classList.remove("sidebar-open");
+    }
+    if (window.innerWidth <= 1023) {
+      sidebar.classList.remove("collapsed");
+      body.classList.remove("sidebar-collapsed");
+      toggleBtn.classList.remove("collapsed");
+    }
+    updateIcon();
+  });
+
+  // Initial icon setup
+  updateIcon();
 });
