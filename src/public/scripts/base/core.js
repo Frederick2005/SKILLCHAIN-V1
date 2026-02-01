@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   "/edit-lesson": "/src/public/templates/main/edit-lesson.html",
   "/delete-confirm": "/src/public/templates/main/delete-confirm.html",
   "/fork": "/src/public/templates/main/fork.html",
-  "/opinion": "/src/public/templates/main/opinion.html",
 
   /* =====================
      AUTH
