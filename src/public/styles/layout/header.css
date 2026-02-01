@@ -16,7 +16,7 @@ header {
   align-items: center;
   font-family: var(--font-family-sans);
   box-shadow: var(--shadow-md);
-  position: sticky;
+  position: static;
   top: 0;
   z-index: 1000;
 }
@@ -45,7 +45,7 @@ header nav ul {
 }
 
 header nav ul li {
-  position: relative;
+  position: static;
 }
 
 header nav ul li a {
@@ -73,7 +73,7 @@ header nav ul li ul {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--color-header-bg, #1e40af);
+  background-color: var(--color-header-bg);
   min-width: 200px;
   display: none;
   flex-direction: column;
@@ -94,12 +94,12 @@ header nav ul li ul li {
 header nav ul li ul li a {
   padding: var(--spacing-sm) var(--spacing-md);
   display: block;
-  color: var(--color-card-bg, #ffffff);
+  color: var(--color-card-bg);
 }
 
 header nav ul li ul li a:hover {
-  background-color: var(--color-secondary, #3b82f6);
-  color: var(--color-card-bg, #ffffff);
+  background-color: var(--color-secondary);
+  color: var(--color-card-bg);
 }
 
 /* ---------- RESPONSIVE NAVIGATION ---------- */

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Contributors</title>
+  <title>SkillChain – Chat Room</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+  
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -129,24 +129,22 @@
   </main>
 
 </section>
-<section class="page contributors" id="contributors">
+<section class="page chat-room" id="chat-room">
 
-  <header>
-    <h1>Contributors</h1>
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" class="chat-room">
 
-    <section class="section">
-      <p>This page shows everyone who has contributed to improving this lesson.</p>
-    </section>
+    <div class="chat-window" id="chat-window">
+      <div class="message received">Welcome to SkillChain Chat! Be respectful and collaborative.</div>
+    </div>
 
-    <section class="section">
-      <h3>Contributors List</h3>
-      <p id="contributors-list">
-        Each contributor is credited based on their edits, forks, and improvements.
-      </p>
-    </section>
+    <div class="chat-input">
+      <input type="text" id="chat-message-input" placeholder="Type a message..." />
+      <button id="send-message-btn">➤</button>
+    </div>
 
   </main>
 
@@ -158,6 +156,37 @@
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chatWindow = document.getElementById("chat-window");
+  const input = document.getElementById("chat-message-input");
+  const sendBtn = document.getElementById("send-message-btn");
+
+  if (!chatWindow || !input || !sendBtn) return;
+
+  const addMessage = (text, type = "sent") => {
+    if (!text.trim()) return;
+    const message = document.createElement("div");
+    message.classList.add("message", type);
+    message.innerHTML = text;
+    chatWindow.appendChild(message);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+    input.value = "";
+    input.focus();
+  };
+
+  sendBtn.addEventListener("click", () => addMessage(input.value, "sent"));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addMessage(input.value, "sent");
+    }
+  });
+
+  setTimeout(() => addMessage("Hello! How are you?", "received"), 2000);
+});
+</script>
 
 </body>
 </html>

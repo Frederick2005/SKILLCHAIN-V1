@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Contributors</title>
+  <title>SkillChain – Private Chat</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
 </head>
@@ -129,25 +129,23 @@
   </main>
 
 </section>
-<section class="page contributors" id="contributors">
+<section class="page private-chat" id="private-chat">
 
-  <header>
-    <h1>Contributors</h1>
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
   </header>
 
   <main id="main-content">
+    <h1>Private Chat</h1>
 
-    <section class="section">
-      <p>This page shows everyone who has contributed to improving this lesson.</p>
-    </section>
+    <div class="private-chat-window" id="private-chat-window">
+      <div class="chat-message system">Start your private conversation!</div>
+    </div>
 
-    <section class="section">
-      <h3>Contributors List</h3>
-      <p id="contributors-list">
-        Each contributor is credited based on their edits, forks, and improvements.
-      </p>
-    </section>
-
+    <div class="private-chat-input">
+      <input type="text" id="private-message-input" placeholder="Type your message..." />
+      <button id="send-private-message-btn">Send</button>
+    </div>
   </main>
 
 </section>
@@ -158,6 +156,38 @@
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chatWindow = document.getElementById("private-chat-window");
+  const input = document.getElementById("private-message-input");
+  const sendBtn = document.getElementById("send-private-message-btn");
+
+  if (!chatWindow || !input || !sendBtn) return;
+
+  const addMessage = (text, type = "sent") => {
+    if (!text.trim()) return;
+    const message = document.createElement("div");
+    message.classList.add("chat-message", type);
+    message.innerHTML = text;
+    chatWindow.appendChild(message);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+    input.value = "";
+    input.focus();
+  };
+
+  sendBtn.addEventListener("click", () => addMessage(input.value, "sent"));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addMessage(input.value, "sent");
+    }
+  });
+
+  // Optional: simulate received message
+  setTimeout(() => addMessage("Hey! Welcome to your private chat.", "received"), 2000);
+});
+</script>
 
 </body>
 </html>
