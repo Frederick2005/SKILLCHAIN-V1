@@ -1,57 +1,91 @@
-// footer drop-down menu
-document.querySelectorAll('.footer-toggle').forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const ul = toggle.nextElementSibling;
-      ul.style.display = (ul.style.display === 'block') ? 'none' : 'block';
-    });
-  });
-  
-  // Adding new categories 
-  
-  document.addEventListener("DOMContentLoaded", () => {
+// components.js - Traditional Multi-Page Version
+
+function initUIComponents() {
+  initFooterDropdown();
+  initCategoryManager();
+  initAutoScroll();
+}
+
+// -------------------------
+// Footer Dropdown
+// -------------------------
+function initFooterDropdown() {
+  const toggles = document.querySelectorAll(".footer-toggle");
+  if (!toggles.length) return;
+
+  toggles.forEach(t =>
+    t.addEventListener("click", () => {
+      const ul = t.nextElementSibling;
+      if (!ul) return;
+      ul.style.display = ul.style.display === "block" ? "none" : "block";
+    })
+  );
+}
+
+// -------------------------
+// Category Manager
+// -------------------------
+function initCategoryManager() {
   const categorySelect = document.getElementById("lesson-category");
-  const newCategoryWrapper = document.getElementById("new-category-wrapper");
-  const newCategoryInput = document.getElementById("new-category-input");
-  const addCategoryBtn = document.getElementById("add-category-btn");
+  const wrapper = document.getElementById("new-category-wrapper");
+  const input = document.getElementById("new-category-input");
+  const btn = document.getElementById("add-category-btn");
+  if (!categorySelect || !wrapper || !input || !btn) return;
 
-  // Show input when "Add new category" is selected
   categorySelect.addEventListener("change", () => {
-    if (categorySelect.value === "__add_new__") {
-      newCategoryWrapper.style.display = "flex";
-      newCategoryInput.focus();
-    } else {
-      newCategoryWrapper.style.display = "none";
-      newCategoryInput.value = "";
-    }
+    const show = categorySelect.value === "__add_new__";
+    wrapper.style.display = show ? "flex" : "none";
+    if (show) input.focus();
+    else input.value = "";
   });
 
-  // Add new category
-  addCategoryBtn.addEventListener("click", () => {
-    const newCategory = newCategoryInput.value.trim();
+  btn.addEventListener("click", () => {
+    const val = input.value.trim();
+    if (!val) return;
 
-    if (!newCategory) return;
-
-    const value = newCategory.toLowerCase().replace(/\s+/g, "-");
-
-    // Create new option
     const option = document.createElement("option");
-    option.value = value;
-    option.textContent = newCategory;
+    option.value = val.toLowerCase().replace(/\s+/g, "-");
+    option.textContent = val;
 
-    // Insert before "+ Add new category"
-    categorySelect.insertBefore(
-      option,
-      categorySelect.lastElementChild
-    );
+    categorySelect.insertBefore(option, categorySelect.lastElementChild);
+    categorySelect.value = option.value;
 
-    // Select it
-    categorySelect.value = value;
-
-    // Reset input
-    newCategoryInput.value = "";
-    newCategoryWrapper.style.display = "none";
-
-    // 🔥 This is where later you will send to DB
-    console.log("New category added:", newCategory);
+    input.value = "";
+    wrapper.style.display = "none";
+    console.log("New category added:", val);
   });
-});
+}
+
+function initAutoScroll() {
+  const container = document.querySelector(".scroll-container");
+  const items = document.querySelectorAll(".scroll-item");
+  if (!container || !items.length) return;
+
+  let currentIndex = 0;
+  const total = items.length;
+
+  // Auto scroll without changing focus
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % total;
+    const nextItem = items[currentIndex];
+    container.scrollTo({
+      left: nextItem.offsetLeft - container.offsetLeft,
+      behavior: "smooth"
+    });
+  }, 3000);
+
+  // Mouse drag scroll
+  let isDown = false, startX, scrollLeft;
+  container.addEventListener("mousedown", e => {
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+  });
+  container.addEventListener("mouseup", () => isDown = false);
+  container.addEventListener("mouseleave", () => isDown = false);
+  container.addEventListener("mousemove", e => {
+    if (!isDown) return;
+    const x = e.pageX - container.offsetLeft;
+    container.scrollLeft = scrollLeft - (x - startX) * 2;
+  });
+}

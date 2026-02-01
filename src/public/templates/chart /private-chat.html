@@ -98,59 +98,27 @@
     <hr>
   </ul>
 </section>
-<section class="page chat-settings" id="chat-settings">
+<section class="page chat-room" id="chat-room">
 
   <header id="navbar">
     <div class="logo">SkillChain</div>
   </header>
 
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
+  <main id="main-content" class="chat-room">
 
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
+    <div class="chat-window" id="chat-window">
+      <div class="message received">Welcome to SkillChain private Chat! Be respectful and collaborative.Thanks for choosing this</div>
+    </div>
 
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
+    <div class="chat-input">
+      <input type="text" id="chat-message-input" placeholder="Type a message..." />
+      <button id="send-message-btn">➤</button>
+    </div>
 
-      <button type="submit">Save Settings</button>
-    </form>
   </main>
 
 </section>
-<section class="page private-chat" id="private-chat">
 
-  <header id="navbar">
-    <div class="logo">SkillChain</div>
-  </header>
-
-  <main id="main-content">
-    <h1>Private Chat</h1>
-
-    <div class="private-chat-window" id="private-chat-window">
-      <div class="chat-message system">Start your private conversation!</div>
-    </div>
-
-    <div class="private-chat-input">
-      <input type="text" id="private-message-input" placeholder="Type your message..." />
-      <button id="send-private-message-btn">Send</button>
-    </div>
-  </main>
-
-</section>
 
 <script src="/src/public/scripts/base/core.js"></script>
 <script src="/src/public/scripts/base/main.js"></script>
@@ -158,38 +126,6 @@
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const chatWindow = document.getElementById("private-chat-window");
-  const input = document.getElementById("private-message-input");
-  const sendBtn = document.getElementById("send-private-message-btn");
-
-  if (!chatWindow || !input || !sendBtn) return;
-
-  const addMessage = (text, type = "sent") => {
-    if (!text.trim()) return;
-    const message = document.createElement("div");
-    message.classList.add("chat-message", type);
-    message.innerHTML = text;
-    chatWindow.appendChild(message);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-    input.value = "";
-    input.focus();
-  };
-
-  sendBtn.addEventListener("click", () => addMessage(input.value, "sent"));
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      addMessage(input.value, "sent");
-    }
-  });
-
-  // Optional: simulate received message
-  setTimeout(() => addMessage("Hey! Welcome to your private chat.", "received"), 2000);
-});
-</script>
 
 </body>
 </html>

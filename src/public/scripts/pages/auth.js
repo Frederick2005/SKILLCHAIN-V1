@@ -1,210 +1,261 @@
-/* =========================
-   AUTH LOGIC – SkillChain
-   ========================= */
+// auth.js - SkillChain Auth Module
+// Handles login, signup, logout, forgot/reset password, verify email
 
 document.addEventListener("DOMContentLoaded", () => {
+  initAuth();
+});
+
+function initAuth() {
   handleLogin();
   handleSignup();
   handleForgotPassword();
   handleResetPassword();
   handleLogout();
   handleVerifyEmail();
-});
+}
 
-/* ------------------------------
-   LOGIN LOGIC
--------------------------------*/
+// -------------------------
+// Utilities
+// -------------------------
+
+function getCSRFToken() {
+  const meta = document.querySelector('meta[name="csrf-token"]');
+  return meta ? meta.getAttribute("content") : "";
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showMessage(elementId, text, type = "info") {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  el.textContent = text;
+  el.className = `auth-message ${type}`;
+}
+
+function startCooldown(button, seconds = 60) {
+  button.disabled = true;
+  let timer = seconds;
+
+  const interval = setInterval(() => {
+    button.textContent = `Resend in ${timer--}s`;
+    if (timer < 0) {
+      clearInterval(interval);
+      button.disabled = false;
+      button.textContent = "Resend verification email";
+    }
+  }, 1000);
+}
+
+// -------------------------
+// Login
+// -------------------------
 function handleLogin() {
   const form = document.getElementById("login-form");
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const email = form.email.value.trim();
     const password = form.password.value.trim();
-    const remember = form.remember.checked;
+    const remember = form.remember?.checked || false;
 
-    if (!email || !password) {
-      alert("Please fill in both fields.");
-      return;
+    if (!email || !password) return alert("Please fill all fields");
+    if (!isValidEmail(email)) return alert("Invalid email");
+
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": getCSRFToken()
+        },
+        body: JSON.stringify({ email, password, remember }),
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Login failed");
+
+      // Redirect to dashboard/home
+      window.location.href = "/src/public/templates/main/home.html";
+    } catch (err) {
+      showMessage("login-message", err.message, "error");
     }
-
-    if (!isValidEmail(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    // Simulated API call
-    console.log("Logging in:", { email, password, remember });
-    const fakeResponse = { success: true, token: "abc123" };
-
-    if (fakeResponse.success) {
-      if (remember) {
-        localStorage.setItem("userToken", fakeResponse.token);
-      } else {
-        sessionStorage.setItem("userToken", fakeResponse.token);
-      }
-      alert("Login successful!");
-      location.hash = "#/home";
-    } else {
-      alert("Invalid email or password.");
-    }
-
-    form.reset();
   });
 }
 
-/* ------------------------------
-   SIGNUP LOGIC
--------------------------------*/
+// -------------------------
+// Signup
+// -------------------------
 function handleSignup() {
   const form = document.getElementById("signup-form");
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const username = form.username.value.trim();
+    const email = form.email.value.trim();
+    const password = form.password.value;
+    const confirmPassword = form["confirm-password"].value;
 
-    const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
+    if (!username || !email || !password || !confirmPassword)
+      return alert("All fields are required");
+    if (!isValidEmail(email)) return alert("Invalid email");
+    if (password !== confirmPassword) return alert("Passwords do not match");
+    if (password.length < 8) return alert("Password must be at least 8 characters");
 
-    if (!username || !email || !password || !confirmPassword) {
-      alert("Please fill in all fields.");
-      return;
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": getCSRFToken()
+        },
+        body: JSON.stringify({ username, email, password }),
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Signup failed");
+
+      // Redirect to verify email page
+      window.location.href = "verify-email.html";
+    } catch (err) {
+      showMessage("signup-message", err.message, "error");
     }
-
-    if (!isValidEmail(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-
-    console.log("Signing up:", { username, email });
-
-    const fakeResponse = { success: true, token: "xyz789" };
-
-    if (fakeResponse.success) {
-      alert("Account created successfully! Please verify your email.");
-      location.hash = "#/verify-email";
-    } else {
-      alert("Failed to create account. Try again.");
-    }
-
-    form.reset();
   });
 }
 
-/* ------------------------------
-   FORGOT PASSWORD LOGIC
--------------------------------*/
+// -------------------------
+// Forgot Password
+// -------------------------
 function handleForgotPassword() {
   const form = document.getElementById("forgot-password-form");
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const email = form.email.value.trim();
+    if (!email || !isValidEmail(email)) return alert("Invalid email");
 
-    const email = document.getElementById("email").value.trim();
+    try {
+      const res = await fetch("/api/auth/forgot-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": getCSRFToken()
+        },
+        body: JSON.stringify({ email }),
+        credentials: "include"
+      });
 
-    if (!email) {
-      alert("Please enter your email.");
-      return;
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Request failed");
+
+      showMessage("forgot-message", "Password reset link sent!", "success");
+      form.reset();
+    } catch (err) {
+      showMessage("forgot-message", err.message, "error");
     }
-
-    if (!isValidEmail(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    console.log("Sending password reset link to:", email);
-
-    const fakeResponse = { success: true };
-
-    if (fakeResponse.success) {
-      alert(`Password reset link sent to ${email}. Check your inbox.`);
-      location.hash = "#/login";
-    } else {
-      alert("Failed to send reset link. Try again.");
-    }
-
-    form.reset();
   });
 }
 
-/* ------------------------------
-   RESET PASSWORD LOGIC
--------------------------------*/
+// -------------------------
+// Reset Password
+// -------------------------
 function handleResetPassword() {
   const form = document.getElementById("reset-password-form");
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const newPassword = form["new-password"].value;
+    const confirmPassword = form["confirm-password"].value;
 
-    const newPassword = document.getElementById("new-password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
+    if (!newPassword || newPassword !== confirmPassword)
+      return alert("Passwords do not match");
 
-    if (!newPassword || !confirmPassword) {
-      alert("Please fill in both fields.");
-      return;
+    try {
+      const res = await fetch("/api/auth/reset-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": getCSRFToken()
+        },
+        body: JSON.stringify({ password: newPassword }),
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Reset failed");
+
+      showMessage("reset-message", "Password updated! Redirecting...", "success");
+      setTimeout(() => window.location.href = "login.html", 3000);
+    } catch (err) {
+      showMessage("reset-message", err.message, "error");
     }
-
-    if (newPassword !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-
-    console.log("Password reset to:", newPassword);
-    alert("Password reset successfully!");
-    location.hash = "#/login";
-
-    form.reset();
   });
 }
 
-/* ------------------------------
-   LOGOUT LOGIC
--------------------------------*/
+// -------------------------
+// Logout
+// -------------------------
 function handleLogout() {
-  const logoutPage = document.querySelector(".page.logout");
-  if (!logoutPage) return;
+  const logoutBtn = document.getElementById("logout-btn");
+  if (!logoutBtn) return;
 
-  localStorage.removeItem("userToken");
-  sessionStorage.clear();
+  logoutBtn.addEventListener("click", async () => {
+    try {
+      await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: { "X-CSRF-Token": getCSRFToken() },
+        credentials: "include"
+      });
 
-  setTimeout(() => {
-    location.hash = "#/login";
-  }, 1500);
-}
-
-/* ------------------------------
-   VERIFY EMAIL LOGIC
--------------------------------*/
-function handleVerifyEmail() {
-  const btn = document.getElementById("resend-email-btn");
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    console.log("Resending verification email...");
-    const fakeResponse = { success: true };
-
-    if (fakeResponse.success) {
-      alert("Verification email resent! Check your inbox.");
-    } else {
-      alert("Failed to resend email. Try again.");
+      sessionStorage.clear();
+      localStorage.removeItem("userToken");
+      window.location.href = "login.html";
+    } catch (err) {
+      console.error("Logout failed", err);
     }
   });
 }
 
-/* ------------------------------
-   HELPER FUNCTIONS
--------------------------------*/
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+// -------------------------
+// Verify Email
+// -------------------------
+function handleVerifyEmail() {
+  const resendBtn = document.getElementById("resend-email-btn");
+  if (!resendBtn) return;
+
+  const isVerified = localStorage.getItem("emailVerified") === "true";
+  if (isVerified) {
+    resendBtn.disabled = true;
+    resendBtn.textContent = "Email already verified";
+    showMessage("verify-message", "Your email is already verified.", "success");
+    return;
+  }
+
+  resendBtn.addEventListener("click", async () => {
+    startCooldown(resendBtn);
+
+    try {
+      const res = await fetch("/api/auth/resend-verification", {
+        method: "POST",
+        headers: { "X-CSRF-Token": getCSRFToken() },
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Could not resend email");
+
+      localStorage.setItem("emailVerified", "true");
+      showMessage("verify-message", "Email verified! Redirecting...", "success");
+      setTimeout(() => window.location.href = "login.html", 3000);
+    } catch (err) {
+      showMessage("verify-message", err.message, "error");
+    }
+  });
 }

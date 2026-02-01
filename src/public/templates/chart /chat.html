@@ -8,9 +8,19 @@
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+
+
+<section class="page chat-room" id="chat-room">
+
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
+  </header>
+
+  <main id="main-content" class="chat-room">
+      
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -98,49 +108,9 @@
     <hr>
   </ul>
 </section>
-<section class="page chat-settings" id="chat-settings">
-
-  <header id="navbar">
-    <div class="logo">SkillChain</div>
-  </header>
-
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
-
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
-
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
-
-      <button type="submit">Save Settings</button>
-    </form>
-  </main>
-
-</section>
-<section class="page chat-room" id="chat-room">
-
-  <header id="navbar">
-    <div class="logo">SkillChain</div>
-  </header>
-
-  <main id="main-content" class="chat-room">
 
     <div class="chat-window" id="chat-window">
-      <div class="message received">Welcome to SkillChain Chat! Be respectful and collaborative.</div>
+      <div class="message received">Welcome to SkillChain private Chat! Be respectful and collaborative.Thanks for choosing this</div>
     </div>
 
     <div class="chat-input">
@@ -152,43 +122,14 @@
 
 </section>
 
+
+
 <script src="/src/public/scripts/base/core.js"></script>
 <script src="/src/public/scripts/base/main.js"></script>
 <script src="/src/public/scripts/pages/auth.js"></script>
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const chatWindow = document.getElementById("chat-window");
-  const input = document.getElementById("chat-message-input");
-  const sendBtn = document.getElementById("send-message-btn");
-
-  if (!chatWindow || !input || !sendBtn) return;
-
-  const addMessage = (text, type = "sent") => {
-    if (!text.trim()) return;
-    const message = document.createElement("div");
-    message.classList.add("message", type);
-    message.innerHTML = text;
-    chatWindow.appendChild(message);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-    input.value = "";
-    input.focus();
-  };
-
-  sendBtn.addEventListener("click", () => addMessage(input.value, "sent"));
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      addMessage(input.value, "sent");
-    }
-  });
-
-  setTimeout(() => addMessage("Hello! How are you?", "received"), 2000);
-});
-</script>
 
 </body>
 </html>
