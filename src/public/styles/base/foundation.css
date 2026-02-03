@@ -3,7 +3,7 @@
    ========================= */
 
 /* ---------- IMPORT VARIABLES ---------- */
-@import "/src/public/styles/base/variables.css";
+@import "./variables.css";
 
 /* ---------- RESET / BASE ---------- */
 *,

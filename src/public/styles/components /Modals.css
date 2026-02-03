@@ -1,7 +1,7 @@
 /* ============ Modals & Auth.============= */
 
-@import "/src/public/styles/base/variables.css";
-@import "/src/public/styles/base/foundation.css";
+@import "../base/variables.css";
+@import "../base/foundation.css";
 
 /* ---------- MODAL BASE ---------- */
 .modal {

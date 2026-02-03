@@ -1,0 +1,45 @@
+.dashboard-div {
+    background: whitesmoke;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 12px;
+}
+
+.dashboard-div h2 {
+    color: blue;
+    margin-bottom: 8px;
+}
+
+.dashboard-div div span {
+    color: rgb(82, 80, 80);
+}
+
+.dashboard-cards {
+    background: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dashboard-cards .dashboard-card {
+    background: whitesmoke;
+    margin: 8px;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 8px 8px 12px;
+}
+
+.dashboard-cards .dashboard-card h3 {
+    color: black;
+    margin-bottom: 8px;
+}
+
+.dashboard-cards .dashboard-card ul li {
+    list-style: decimal;
+    margin-left: 20px;
+}
+

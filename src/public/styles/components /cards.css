@@ -2,8 +2,8 @@
    Cards - SkillChain 
    ================================== */
 
-@import "/src/public/styles/base/variables.css";
-@import "/src/public/styles/base/foundation.css";
+@import "../base/variables.css";
+@import "../base/foundation.css";
 
 /* ---------- CARD BASE ---------- */
 .card {
