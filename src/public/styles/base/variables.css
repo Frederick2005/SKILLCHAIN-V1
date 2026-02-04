@@ -5,13 +5,15 @@
 /*====== COLORS ======= */
 :root {
 
-  --color-primary: #1E40AF;       
+  /* ===== PRIMARY ===== */
+  --color-primary: blue;       
   --color-primary-light: #3B82F6; 
-  --color-primary-dark: #16276B;  
-  --color-secondary: #10B981; 
+  --color-primary-dark: rgb(0, 15, 40);  
+
+  --color-secondary: white; 
   --color-secondary-light: #34D399;
   --color-secondary-dark: #0F766E;
-  --color-accent: #F59E0B;
+  --color-accent: whitesmoke;
 
   /* ===== STATUS / ALERTS ===== */
   --color-success: #10B981;
@@ -23,23 +25,23 @@
   --color-info: #3B82F6;
   --color-info-light: #BFDBFE;
 
-/* ===== BACKGROUNDS ===== */
---color-bg: #191970;  
---color-card-bg: #073980;    
---color-header-bg: #191970;    
---color-footer-bg: #020617;   
+  /* ===== BACKGROUNDS  ===== */
+  --color-bg: white;  
+  --color-card-bg: whitesmoke;    
+  --color-header-bg: white;    
+  --color-footer-bg: black;   
 
-/* ===== TEXT ===== */
---color-text: #CBD5F5;  
---color-text-muted: #8B9DD6;  
---color-text-light: #E0E7FF;   
+  /* ===== TEXT  ===== */
+  --color-text: black;  
+  --color-text-muted: rgb(82, 80, 80);  
+  --color-text-light: white;   
 
-  /* ====== SHADOW ===== */
-  --color-shadow: rgba(0, 0, 0, 0.1);
+  /* ===== SHADOW ===== */
+  --color-shadow: rgba(0, 0, 0, 0.15);
 
-  /* ===== GRADIENTS ====/ */
-  --color-gradient-start: #3B82F6;
-  --color-gradient-end: #2563EB;
+  /* ===== GRADIENTS  ===== */
+  --color-gradient-start: rgb(0, 15, 40);
+  --color-gradient-end: blue;
 }
 
 /* ========= TYPOGRAPHY ========*/
@@ -65,7 +67,7 @@
   --letter-spacing-wide: 0.5px;
 }
 
-/* ========== SPACING  ========*/
+/* ========== SPACING ========*/
 :root {
   --spacing-xxs: 2px;
   --spacing-xs: 4px;
@@ -80,7 +82,7 @@
   --grid-gap-lg: 24px;
   --sidebar-width: 280px;
   --z-drawer: 1000;
---z-overlay: 900;
+  --z-overlay: 900;
 }
 
 /* ====== BORDERS / RADIUS ======= */
@@ -98,16 +100,16 @@
   --border: 1px solid var(--color-text);
 }
 
-/* ===== SHADOWS / ELEVATION ===== */
+/* ===== SHADOWS / ELEVATION  ===== */
 :root {
   --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-md: 8px 8px 12px rgba(0,0,0,0.15);
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
   --shadow-xl: 0 20px 25px rgba(0,0,0,0.2);
 }
 
-/* ===== ANIMATION / TRANSITIONS ===== */
+/* ===== ANIMATION / TRANSITIONS  ===== */
 :root {
   --transition-fast: 0.2s ease-in-out;
   --transition-medium: 0.4s ease-in-out;
@@ -117,7 +119,7 @@
   --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* ===== DARK MODE =====*/
+/* ===== DARK MODE ===== */
 :root[data-theme="dark"] {
   --color-bg: #111827;
   --color-text: #F3F4F6;
