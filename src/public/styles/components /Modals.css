@@ -356,7 +356,7 @@
 /* Hover expand for desktop */
 @media (min-width: 1024px) {
   .sidebar:hover {
-    width: 45%;
+    width: 20%;
   }
 }
 
