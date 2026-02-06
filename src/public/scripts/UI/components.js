@@ -90,7 +90,7 @@ function initAutoScroll() {
   });
 }
 
-// sidebar.js - harmonized version
+// sidebar.js 
 document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
   let toggleBtn = document.getElementById("sidebar-toggle");

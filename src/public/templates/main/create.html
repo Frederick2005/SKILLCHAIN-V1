@@ -6,6 +6,8 @@
   <title>SkillChain – Create Lesson</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
   
+    <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+  
 </head>
 <body>
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
@@ -101,44 +103,55 @@
 
 
   
-<!-- ===CREATE NEW LESSON===--->
-</section>
 <section class="page create-lesson" id="create-lesson">
 
-  <!-- ===== HEADER ===== -->
-  <header id="navbar">
+  <!-- Header -->
+  <header class="dashboard-header">
     <div class="logo">SkillChain</div>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main-content">
-    <section class="auth-form">
-      <h1>Create New Lesson</h1>
+  <!-- Main Content -->
+  <main class="dashboard-container">
+    <section class="dashboard-card auth-form">
+
+      <h1 class="section-title">Create New Lesson</h1>
+      <p class="section-text">
+        Share your knowledge with students across SkillChain.
+      </p>
 
       <form id="create-lesson-form">
 
-        <label for="lesson-title">Title:</label>
-        <input
-          type="text"
-          id="lesson-title"
-          placeholder="Lesson title"
-          required
-        >
+        <!-- TITLE -->
+        <div class="form-group">
+          <label for="lesson-title">Lesson Title</label>
+          <input
+            type="text"
+            id="lesson-title"
+            placeholder="Enter lesson title"
+            required
+          >
+        </div>
 
         <!-- CATEGORY -->
-        <label for="lesson-category">Category:</label>
-        <select id="lesson-category" required>
-          <option value="" disabled selected>Select category</option>
-          <option value="mathematics">Mathematics</option>
-          <option value="physics">Physics</option>
-          <option value="chemistry">Chemistry</option>
-          <option value="programming">Programming</option>
-          <option value="python">Python</option>
-          <option value="__add_new__">+ Add new category</option>
-        </select>
+        <div class="form-group">
+          <label for="lesson-category">Category</label>
+          <select id="lesson-category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="physics">Physics</option>
+            <option value="chemistry">Chemistry</option>
+            <option value="programming">Programming</option>
+            <option value="python">Python</option>
+            <option value="__add_new__">+ Add new category</option>
+          </select>
+        </div>
 
-        <!-- ADD NEW CATEGORY (hidden by default) -->
-        <div id="new-category-wrapper" style="display:none;">
+        <!-- ADD NEW CATEGORY -->
+        <div
+          id="new-category-wrapper"
+          class="form-group"
+          style="display:none;"
+        >
           <input
             type="text"
             id="new-category-input"
@@ -147,43 +160,60 @@
           <button
             type="button"
             id="add-category-btn"
-            class="btn btn-primary"
+            class="btn btn-primary btn-block"
           >
             Add Category
           </button>
         </div>
 
-        <label for="lesson-content">Content:</label>
-        <textarea
-          id="lesson-content"
-          placeholder="Write lesson content here..."
-          required
-        ></textarea>
+        <!-- CONTENT -->
+        <div class="form-group">
+          <label for="lesson-content">Lesson Content</label>
+          <textarea
+            id="lesson-content"
+            placeholder="Write lesson content here..."
+            required
+          ></textarea>
+        </div>
 
-        <label for="lesson-media">Media (optional):</label>
-        <input
-          type="file"
-          id="lesson-media"
-          accept="image/*,video/*"
-        >
+        <!-- MEDIA -->
+        <div class="form-group">
+          <label for="lesson-media">Media (optional)</label>
+          <input
+            type="file"
+            id="lesson-media"
+            accept="image/*,video/*"
+          >
+        </div>
 
-        <label for="lesson-difficulty">Difficulty Level:</label>
-        <select id="lesson-difficulty">
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
+        <!-- DIFFICULTY -->
+        <div class="form-group">
+          <label for="lesson-difficulty">Difficulty Level</label>
+          <select id="lesson-difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
 
-        <button type="submit" class="btn btn-primary">
+        <!-- SUBMIT -->
+        <button type="submit" class="btn btn-primary btn-block">
           Create Lesson
         </button>
 
       </form>
+
     </section>
   </main>
 
 </section>
 
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
+<script src="/src/public/scripts/pages/auth.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
 
 </body>
 </html>

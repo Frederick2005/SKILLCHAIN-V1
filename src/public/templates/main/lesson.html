@@ -107,60 +107,48 @@
     <div class="logo">SkillChain</div>
   </header>
 
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
-
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
-
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
-
-      <button type="submit">Save Settings</button>
-    </form>
-  </main>
-
 </section>
-<section class="page lesson" id="lesson">
-  <main id="main-content">
-    <section class="lesson-view">
-      <h1 id="lesson-title">Lesson Title</h1>
 
-      <div id="lesson-content">
+<section class="page lesson" id="lesson">
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="logo">SkillChain</div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-container">
+    <section class="dashboard-card auth-form lesson-view">
+
+      <h1 class="section-title" id="lesson-title">
+        Lesson Title
+      </h1>
+
+      <div class="lesson-content section-text" id="lesson-content">
         <p>Lesson content will appear here...</p>
-        <!-- Images, videos, or quizzes can be dynamically injected here -->
+        <!-- Images, videos, quizzes injected dynamically -->
       </div>
 
       <div class="lesson-actions">
-        <a href="/fork-lesson.html">
-          <button>Fork Lesson</button>
+
+        <a href="/fork-lesson.html" class="btn btn-secondary">
+          Fork Lesson
         </a>
 
-        <a href="/edit-lesson.html">
-          <button>Edit Lesson</button>
+        <a href="/edit-lesson.html" class="btn btn-outline">
+          Edit Lesson
         </a>
 
-        <a href="/delete-lesson.html">
-          <button>Delete Lesson</button>
+        <a href="/delete-lesson.html" class="btn btn-danger">
+          Delete Lesson
         </a>
+
       </div>
+
     </section>
   </main>
-</section>
 
+</section>
 
 </body>
 </html>

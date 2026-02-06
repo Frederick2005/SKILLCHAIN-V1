@@ -21,7 +21,7 @@
   transition: all var(--transition-medium) var(--easing-default);
   box-shadow: var(--shadow-md);
   background: var(--color-primary);
-  color: #fff;
+  color: --color-text-light;
   font-size: var(--font-size-md);
 }
 
