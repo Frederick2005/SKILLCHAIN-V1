@@ -3,20 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Fork Lesson</title>
+  <title>SkillChain – Delete Lesson</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
-<<<<<<< HEAD:src/public/templates/main/fork.html
+    <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
   
-=======
-  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>  
->>>>>>> 2b8cc62 (setup development branch):templates /main/fork.html
 </head>
 <body>
-<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
-
-
+  
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -105,7 +101,8 @@
   </ul>
 </section>
 
-<section class="page fork-lesson" id="fork-lesson">
+
+<section class="page delete-lesson" id="delete-lesson">
 
   <!-- Header -->
   <header class="dashboard-header">
@@ -116,52 +113,41 @@
   <main class="dashboard-container">
     <section class="dashboard-card auth-form">
 
-      <h1 class="section-title">Fork Lesson</h1>
+      <h1 class="section-title">Delete Lesson</h1>
       <p class="section-text">
-        Create your own version of this lesson. The original author will still receive credit.
+        Are you sure you want to delete this lesson?
+        This action cannot be undone.
       </p>
 
-      <form id="fork-lesson-form">
-
-        <div class="form-group">
-          <label for="lesson-title">Title</label>
-          <input
-            type="text"
-            id="lesson-title"
-            placeholder="Lesson title"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="lesson-content">Content</label>
-          <textarea
-            id="lesson-content"
-            placeholder="Edit lesson content..."
-            required
-          ></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">
-          Fork Lesson
+      <div class="form-group">
+        <button
+          id="confirm-delete-btn"
+          class="btn btn-danger btn-block"
+        >
+          Yes, Delete Lesson
         </button>
+      </div>
 
-      </form>
+      <div class="form-group">
+        <button
+          id="cancel-delete-btn"
+          class="btn btn-secondary btn-block"
+        >
+          Cancel
+        </button>
+      </div>
 
     </section>
   </main>
 
 </section>
+</section>
 
-<<<<<<< HEAD:src/public/templates/main/fork.html
-
-=======
 <script src="/src/public/scripts/base/core.js"></script>
 <script src="/src/public/scripts/base/main.js"></script>
 <script src="/src/public/scripts/pages/auth.js"></script>
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
->>>>>>> 2b8cc62 (setup development branch):templates /main/fork.html
 </body>
 </html>

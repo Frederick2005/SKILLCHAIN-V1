@@ -3,19 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Home</title>
+  <title>SkillChain – Create Lesson</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
-<<<<<<< HEAD:src/public/templates/main/home.html
-=======
+  
     <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
->>>>>>> 2b8cc62 (setup development branch):templates /main/home.html
   
 </head>
 <body>
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
-
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -104,87 +101,119 @@
   </ul>
 </section>
 
-<!-- ===== DASHBOARD MAIN ===== -->
-<main class="dashboard-container">
 
-  <!-- DASHBOARD HEADER -->
+  
+<section class="page create-lesson" id="create-lesson">
+
+  <!-- Header -->
   <header class="dashboard-header">
-    <h2>Welcome back, <span id="student">Student</span> 👋</h2>
-    <div class="user-info">
-      <span>Points: 0</span>
-      <span>Badges: 0</span>
-    </div>
+    <div class="logo">SkillChain</div>
   </header>
 
-  <!-- DASHBOARD GRID -->
-  <div class="dashboard-grid">
+  <!-- Main Content -->
+  <main class="dashboard-container">
+    <section class="dashboard-card auth-form">
 
-    <!-- User Progress -->
-    <div class="dashboard-card" id="user-progress">
-      <h3>Your Progress</h3>
-      <div class="progress-stats">
-        <div class="stat">
-          <span class="stat-value" data-field="completedLessons">12</span>
-          <span class="stat-label">Lessons Completed</span>
+      <h1 class="section-title">Create New Lesson</h1>
+      <p class="section-text">
+        Share your knowledge with students across SkillChain.
+      </p>
+
+      <form id="create-lesson-form">
+
+        <!-- TITLE -->
+        <div class="form-group">
+          <label for="lesson-title">Lesson Title</label>
+          <input
+            type="text"
+            id="lesson-title"
+            placeholder="Enter lesson title"
+            required
+          >
         </div>
-        <div class="stat">
-          <span class="stat-value" data-field="points">1,450</span>
-          <span class="stat-label">Points Earned</span>
+
+        <!-- CATEGORY -->
+        <div class="form-group">
+          <label for="lesson-category">Category</label>
+          <select id="lesson-category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="physics">Physics</option>
+            <option value="chemistry">Chemistry</option>
+            <option value="programming">Programming</option>
+            <option value="python">Python</option>
+            <option value="__add_new__">+ Add new category</option>
+          </select>
         </div>
-        <div class="stat">
-          <span class="stat-value" data-field="badges">5</span>
-          <span class="stat-label">Badges</span>
+
+        <!-- ADD NEW CATEGORY -->
+        <div
+          id="new-category-wrapper"
+          class="form-group"
+          style="display:none;"
+        >
+          <input
+            type="text"
+            id="new-category-input"
+            placeholder="Enter new category"
+          >
+          <button
+            type="button"
+            id="add-category-btn"
+            class="btn btn-primary btn-block"
+          >
+            Add Category
+          </button>
         </div>
-        <div class="stat">
-          <span class="stat-value" data-field="streak">7</span>
-          <span class="stat-label">Day Streak</span>
+
+        <!-- CONTENT -->
+        <div class="form-group">
+          <label for="lesson-content">Lesson Content</label>
+          <textarea
+            id="lesson-content"
+            placeholder="Write lesson content here..."
+            required
+          ></textarea>
         </div>
-      </div>
-    </div>
 
-    <!-- Recent Activity -->
-    <div class="dashboard-card">
-      <h3>Recent Activity</h3>
-      <ul>
-        <li>John completed "Python for Beginners"</li>
-        <li>Mary forked "AI & Machine Learning Basics"</li>
-        <li>Alex created "Web3 Fundamentals"</li>
-      </ul>
-    </div>
+        <!-- MEDIA -->
+        <div class="form-group">
+          <label for="lesson-media">Media (optional)</label>
+          <input
+            type="file"
+            id="lesson-media"
+            accept="image/*,video/*"
+          >
+        </div>
 
-    <!-- Recommendations -->
-    <div class="dashboard-card">
-      <h3>Recommended for You</h3>
-      <ul>
-        <li>Introduction to Blockchain</li>
-        <li>Advanced JavaScript</li>
-        <li>UI/UX Design Basics</li>
-      </ul>
-    </div>
+        <!-- DIFFICULTY -->
+        <div class="form-group">
+          <label for="lesson-difficulty">Difficulty Level</label>
+          <select id="lesson-difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
 
-    <!-- Notifications -->
-    <div class="dashboard-card">
-      <h3>Notifications</h3>
-      <ul>
-        <li>Your subscription will renew in 3 days</li>
-        <li>New lesson added: "Smart Contracts"</li>
-        <li>System maintenance scheduled for tomorrow</li>
-      </ul>
-    </div>
+        <!-- SUBMIT -->
+        <button type="submit" class="btn btn-primary btn-block">
+          Create Lesson
+        </button>
 
-  </div>
+      </form>
 
-</main>
+    </section>
+  </main>
 
-<<<<<<< HEAD:src/public/templates/main/home.html
+</section>
 
-=======
 <script src="/src/public/scripts/base/core.js"></script>
 <script src="/src/public/scripts/base/main.js"></script>
 <script src="/src/public/scripts/pages/auth.js"></script>
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
->>>>>>> 2b8cc62 (setup development branch):templates /main/home.html
+
 </body>
 </html>

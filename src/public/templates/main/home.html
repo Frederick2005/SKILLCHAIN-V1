@@ -3,22 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Delete Lesson</title>
+  <title>SkillChain – Home</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
-<<<<<<< HEAD:src/public/templates/auth/login.html
-
-</head>
-<body>
-
-=======
     <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
-  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
-  
+
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -106,76 +100,84 @@
     <hr>
   </ul>
 </section>
->>>>>>> 2b8cc62 (setup development branch):templates /main/delete-confirm.html
 
+<!-- ===== DASHBOARD MAIN ===== -->
+<main class="dashboard-container">
 
-<section class="page delete-lesson" id="delete-lesson">
-
-  <!-- Header -->
+  <!-- DASHBOARD HEADER -->
   <header class="dashboard-header">
-    <div class="logo">SkillChain</div>
+    <h2>Welcome back, <span id="student">Student</span> 👋</h2>
+    <div class="user-info">
+      <span>Points: 0</span>
+      <span>Badges: 0</span>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="dashboard-container">
-    <section class="dashboard-card auth-form">
+  <!-- DASHBOARD GRID -->
+  <div class="dashboard-grid">
 
-      <h1 class="section-title">Delete Lesson</h1>
-      <p class="section-text">
-        Are you sure you want to delete this lesson?
-        This action cannot be undone.
-      </p>
-
-<<<<<<< HEAD:src/public/templates/auth/login.html
-      <form id="login-form" action="/src/public/templates/main/home.html" method="GET">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    <!-- User Progress -->
+    <div class="dashboard-card" id="user-progress">
+      <h3>Your Progress</h3>
+      <div class="progress-stats">
+        <div class="stat">
+          <span class="stat-value" data-field="completedLessons">12</span>
+          <span class="stat-label">Lessons Completed</span>
         </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        <div class="stat">
+          <span class="stat-value" data-field="points">1,450</span>
+          <span class="stat-label">Points Earned</span>
         </div>
-
-        <div class="form-options">
-          <label>
-            <input type="checkbox" name="remember" /> Remember me
-          </label>
-          <a href="forgot-password.html">Forgot Password?</a>
+        <div class="stat">
+          <span class="stat-value" data-field="badges">5</span>
+          <span class="stat-label">Badges</span>
         </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-
-      <p class="auth-footer">Don’t have an account? <a href="/src/public/templates/auth/signup.html">Sign Up</a></p>
-=======
-      <div class="form-group">
-        <button
-          id="confirm-delete-btn"
-          class="btn btn-danger btn-block"
-        >
-          Yes, Delete Lesson
-        </button>
+        <div class="stat">
+          <span class="stat-value" data-field="streak">7</span>
+          <span class="stat-label">Day Streak</span>
+        </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <button
-          id="cancel-delete-btn"
-          class="btn btn-secondary btn-block"
-        >
-          Cancel
-        </button>
-      </div>
->>>>>>> 2b8cc62 (setup development branch):templates /main/delete-confirm.html
+    <!-- Recent Activity -->
+    <div class="dashboard-card">
+      <h3>Recent Activity</h3>
+      <ul>
+        <li>John completed "Python for Beginners"</li>
+        <li>Mary forked "AI & Machine Learning Basics"</li>
+        <li>Alex created "Web3 Fundamentals"</li>
+      </ul>
+    </div>
 
-    </section>
-  </main>
+    <!-- Recommendations -->
+    <div class="dashboard-card">
+      <h3>Recommended for You</h3>
+      <ul>
+        <li>Introduction to Blockchain</li>
+        <li>Advanced JavaScript</li>
+        <li>UI/UX Design Basics</li>
+      </ul>
+    </div>
 
-</section>
-</section>
+    <!-- Notifications -->
+    <div class="dashboard-card">
+      <h3>Notifications</h3>
+      <ul>
+        <li>Your subscription will renew in 3 days</li>
+        <li>New lesson added: "Smart Contracts"</li>
+        <li>System maintenance scheduled for tomorrow</li>
+      </ul>
+    </div>
 
+  </div>
+
+</main>
+
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
 <script src="/src/public/scripts/pages/auth.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
 </body>
 </html>

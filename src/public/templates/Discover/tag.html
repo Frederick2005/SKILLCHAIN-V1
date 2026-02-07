@@ -3,26 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Chat Room</title>
+  <title>SkillChain – Tag</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
-<<<<<<< HEAD:src/public/templates/auth/forgot-password.html
-=======
-
-
-<section class="page chat-room" id="chat-room">
-
-  <header id="navbar">
-    <div class="logo">SkillChain</div>
-    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
-  </header>
-
-  <main id="main-content" class="chat-room">
-      
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
@@ -85,52 +74,92 @@
       <a href="/pages/settings.html">Settings</a>
     </li>
     <hr>
->>>>>>> 2b8cc62 (setup development branch):templates /chart/chat.html
 
+    <h4>Systems</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
+      <a href="/pages/support.html">Contact</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
+      <a href="/pages/feedback.html">Feedback</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-question-circle"></i></span>
+      <a href="/pages/help.html">Help</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-info-circle"></i></span>
+      <a href="/pages/about.html">About</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
+      <a href="/pages/logout.html">Logout</a>
+    </li>
+    <hr>
+  </ul>
+</section>
+<section class="page chat-settings" id="chat-settings">
 
-    <div class="chat-window" id="chat-window">
-      <div class="message received">Welcome to SkillChain private Chat! Be respectful and collaborative.Thanks for choosing this</div>
-    </div>
-
-    <div class="chat-input">
-      <input type="text" id="chat-message-input" placeholder="Type a message..." />
-      <button id="send-message-btn">➤</button>
-    </div>
-
-<<<<<<< HEAD:src/public/templates/auth/forgot-password.html
   <header id="navbar">
     <div class="logo">SkillChain</div>
   </header>
-  
+
   <main id="main-content">
-    <section class="auth-form">
-      <h1>Forgot Your Password?</h1>
-      <p>Enter your email to receive a password reset link.</p>
-      
-      <form id="forgot-password-form">
-        <label for="email">Email:</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-        
-        <button type="submit">Send Reset Link</button>
-      </form>
-      
-      <p><a href="/src/public/templates/auth/login.html">Back to Login</a></p>
+    <h1>Chat Settings</h1>
+    <form id="chat-settings-form">
+      <label>
+        <input type="checkbox" id="enable-notifications" />
+        Enable Notifications
+      </label>
+
+      <label>
+        <input type="checkbox" id="dark-mode-chat" />
+        Enable Dark Mode
+      </label>
+
+      <label>
+        Default Chat Theme:
+        <select id="chat-theme-select">
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+        </select>
+      </label>
+
+      <button type="submit">Save Settings</button>
+    </form>
+  </main>
+
+</section>
+<section class="page tag" id="tag">
+
+  <header>
+    <h1>#Tag</h1>
+  </header>
+
+  <main id="main-content">
+
+    <section class="section">
+      <p>Lessons related to this topic.</p>
     </section>
+
+    <section class="section">
+      <h3>Tagged Lessons</h3>
+      <p id="tagged-lessons">All lessons using this tag will appear here.</p>
+    </section>
+
   </main>
-  
 
 </section>
 
+<script src="/src/public/scripts/base/core.js"></script>
+<script src="/src/public/scripts/base/main.js"></script>
 <script src="/src/public/scripts/pages/auth.js"></script>
+<script src="/src/public/scripts/pages/dashboard.js"></script>
+<script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
-=======
-  </main>
-
-</section>
 
 
-
-
->>>>>>> 2b8cc62 (setup development branch):templates /chart/chat.html
 </body>
 </html>
