@@ -90,7 +90,11 @@ function initAutoScroll() {
   });
 }
 
+<<<<<<< HEAD
 // sidebar.js - harmonized version
+=======
+// sidebar.js 
+>>>>>>> 2b8cc62 (setup development branch)
 document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
   let toggleBtn = document.getElementById("sidebar-toggle");

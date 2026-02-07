@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Sign Up</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  
+</head>
+<body>
+
+<section class="page signup" id="signup">
+  
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="logo">SkillChain</div>
+  </header>
+  
+  <!-- Main Content Wrapper -->
+  <main class="dashboard-container">
+    <section class="dashboard-card auth-form">
+      
+      <h1 class="section-title">Create an Account</h1>
+      <p class="section-text">Join SkillChain and start learning.</p>
+      
+      <form id="signup-form">
+        
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm password" required>
+        </div>
+        
+        <label class="checkbox">
+          <input type="checkbox" id="terms" required>
+          I agree to the
+          <a href="/src/public/templates/legal/terms.html">Terms</a> &
+          <a href="/src/public/templates/settings/privacy.html">Privacy Policy</a>
+        </label>
+        
+        <button type="submit" class="btn btn-primary btn-block">
+          Sign Up
+        </button>
+        
+      </form>
+      
+      <p class="auth-footer">
+        Already have an account?
+        <a href="/src/public/templates/auth/login.html">Login here</a>
+      </p>
+      
+    </section>
+  </main>
+  
+</section>
+
+<script src="/src/public/scripts/pages/auth.js"></script>
+<script src="/src/public/scripts/UI/theme.js"></script>
+
+</body>
+</html>

@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Tag</title>
+  <title>SkillChain – Private Chat</title>
   <link rel="stylesheet" href="/src/public/styles/base/main.css" />
-  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
+<<<<<<< HEAD:src/public/templates/auth/reset-password.html
+
+=======
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
@@ -99,67 +101,42 @@
     <hr>
   </ul>
 </section>
-<section class="page chat-settings" id="chat-settings">
+<section class="page chat-room" id="chat-room">
 
   <header id="navbar">
     <div class="logo">SkillChain</div>
   </header>
+>>>>>>> 2b8cc62 (setup development branch):templates /chart/private-chat.html
 
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
+  <main id="main-content" class="chat-room">
 
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
+    <div class="chat-window" id="chat-window">
+      <div class="message received">Welcome to SkillChain private Chat! Be respectful and collaborative.Thanks for choosing this</div>
+    </div>
 
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
+    <div class="chat-input">
+      <input type="text" id="chat-message-input" placeholder="Type a message..." />
+      <button id="send-message-btn">➤</button>
+    </div>
 
-      <button type="submit">Save Settings</button>
-    </form>
+<<<<<<< HEAD:src/public/templates/auth/reset-password.html
+        <button type="submit" class="btn btn-primary">Reset Password</button>
+      </form>
+
+      <p><a href="/src/public/templates/auth/login.html">Back to Login</a></p>
+    </section>
   </main>
 
 </section>
-<section class="page tag" id="tag">
-
-  <header>
-    <h1>#Tag</h1>
-  </header>
-
-  <main id="main-content">
-
-    <section class="section">
-      <p>Lessons related to this topic.</p>
-    </section>
-
-    <section class="section">
-      <h3>Tagged Lessons</h3>
-      <p id="tagged-lessons">All lessons using this tag will appear here.</p>
-    </section>
-
-  </main>
-
-</section>
-
-<script src="/src/public/scripts/base/core.js"></script>
-<script src="/src/public/scripts/base/main.js"></script>
 <script src="/src/public/scripts/pages/auth.js"></script>
-<script src="/src/public/scripts/pages/dashboard.js"></script>
-<script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
+=======
+  </main>
 
+</section>
+
+
+>>>>>>> 2b8cc62 (setup development branch):templates /chart/private-chat.html
 
 </body>
 </html>

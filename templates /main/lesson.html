@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD:src/public/templates/main/main.html
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkillChain main app</title>
@@ -12,6 +13,21 @@
   <i class="fa-solid fa-bars"></i>
 </button>
 <!-- ====== SIDE BAR =========-->
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Lesson</title>
+
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  
+</head>
+<body>
+<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+  <!-- ====== SIDE BAR =========-->
+>>>>>>> 2b8cc62 (setup development branch):templates /main/lesson.html
   <section class="sidebar" id="sidebar">
     
     <div class="logo">
@@ -105,36 +121,52 @@
     <div class="logo">SkillChain</div>
   </header>
 
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
+</section>
 
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
+<section class="page lesson" id="lesson">
 
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="logo">SkillChain</div>
+  </header>
 
-      <button type="submit">Save Settings</button>
-    </form>
+  <!-- Main Content -->
+  <main class="dashboard-container">
+    <section class="dashboard-card auth-form lesson-view">
+
+      <h1 class="section-title" id="lesson-title">
+        Lesson Title
+      </h1>
+
+      <div class="lesson-content section-text" id="lesson-content">
+        <p>Lesson content will appear here...</p>
+        <!-- Images, videos, quizzes injected dynamically -->
+      </div>
+
+      <div class="lesson-actions">
+
+        <a href="/fork-lesson.html" class="btn btn-secondary">
+          Fork Lesson
+        </a>
+
+        <a href="/edit-lesson.html" class="btn btn-outline">
+          Edit Lesson
+        </a>
+
+        <a href="/delete-lesson.html" class="btn btn-danger">
+          Delete Lesson
+        </a>
+
+      </div>
+
+    </section>
   </main>
 
 </section>
-<div id="app"></div>
-<!-- All pages will load here . Feta Humphrey.-->
 
+<<<<<<< HEAD:src/public/templates/main/main.html
 
+=======
+>>>>>>> 2b8cc62 (setup development branch):templates /main/lesson.html
 </body>
 </html>
