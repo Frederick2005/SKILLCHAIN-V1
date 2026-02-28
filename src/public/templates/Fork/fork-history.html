@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Fork History</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  
+</head>
+<body>
+<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+  <i class="fa-solid fa-bars"></i>
+</button>
+<!-- ====== SIDE BAR =========-->
+<section class="sidebar" id="sidebar">
+  
+  <div class="logo">
+    <img src="/src/public/images/logo.png" alt="" />
+    <h2>SkillChain</h2>
+  </div>
+  
+  <ul class="links">
+    <h4>Main</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-home"></i> </span>
+      <a href="/pages/home.html">Home</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-compass"></i></span>
+      <a href="/pages/discover.html">Discover</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comments"></i></span>
+      <a href="/pages/chat.html">Chat</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
+      <a href="/pages/create.html">Create</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-tasks"></i></span>
+      <a href="/pages/tasks.html">Tasks</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/offline.html">Offline</a>
+    </li>
+    <hr>
+    
+    <h4>Account</h4>
+    <li>
+      <span class="dash"><i class="fas fa-chart-line"></i> </span>
+      <a href="/pages/activity.html">Activity</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/profile.html">Profile</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-life-ring"></i></span>
+      <a href="/pages/community-guidelines.html">Community</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-wallet"></i></span>
+      <a href="/pages/wallet.html">Wallet</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-bell"></i></span>
+      <a href="/pages/notifications.html">Notifications</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-cog"></i></span>
+      <a href="/pages/settings.html">Settings</a>
+    </li>
+    <hr>
+
+    <h4>Systems</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
+      <a href="/pages/support.html">Contact</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
+      <a href="/pages/feedback.html">Feedback</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-question-circle"></i></span>
+      <a href="/pages/help.html">Help</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-info-circle"></i></span>
+      <a href="/pages/about.html">About</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
+      <a href="/pages/logout.html">Logout</a>
+    </li>
+    <hr>
+  </ul>
+</section>
+<section class="page chat-settings" id="chat-settings">
+
+  <header id="navbar">
+    <div class="logo">SkillChain</div>
+  </header>
+
+  <main id="main-content">
+    <h1>Chat Settings</h1>
+    <form id="chat-settings-form">
+      <label>
+        <input type="checkbox" id="enable-notifications" />
+        Enable Notifications
+      </label>
+
+      <label>
+        <input type="checkbox" id="dark-mode-chat" />
+        Enable Dark Mode
+      </label>
+
+      <label>
+        Default Chat Theme:
+        <select id="chat-theme-select">
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+        </select>
+      </label>
+
+      <button type="submit">Save Settings</button>
+    </form>
+  </main>
+
+</section>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="dashboard-container">
+
+  <header class="dashboard-header">
+    <h2>Fork History</h2>
+  </header>
+
+  <div class="dashboard-grid">
+
+    <div class="dashboard-card">
+      <h3>My Forked Lessons</h3>
+      <ul>
+        <li>
+          <strong>"Python for Beginners"</strong> – forked from John
+          <span class="date">2026-01-10</span>
+        </li>
+        <li>
+          <strong>"AI & Machine Learning Basics"</strong> – forked from Mary
+          <span class="date">2026-01-12</span>
+        </li>
+        <li>
+          <strong>"Web3 Fundamentals"</strong> – forked from Alex
+          <span class="date">2026-01-15</span>
+        </li>
+        <li>
+          <strong>"Introduction to Blockchain"</strong> – forked from Zoe
+          <span class="date">2026-01-18</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Statistics</h3>
+      <p>Total Forked Lessons: <span id="total-forks">4</span></p>
+      <p>Most Forked Category: <span id="most-forked-category">Programming</span></p>
+    </div>
+
+  </div>
+
+</main>
+
+
+
+</body>
+</html>

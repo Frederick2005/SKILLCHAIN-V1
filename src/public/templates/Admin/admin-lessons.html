@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain Admin – Lessons</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+
+  <!-- FontAwesome -->
+  <
+</head>
+<body>
+ <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+  <i class="fa-solid fa-bars"></i>
+</button> 
+  <!-- ====== SIDE BAR =========-->
+<section class="sidebar" id="sidebar">
+  
+  <div class="logo">
+    <img src="/src/public/images/logo.png" alt="" />
+    <h2>SkillChain</h2>
+  </div>
+  
+  <ul class="links">
+    <h4>Main</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-home"></i> </span>
+      <a href="/pages/home.html">Home</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-compass"></i></span>
+      <a href="/pages/discover.html">Discover</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comments"></i></span>
+      <a href="/pages/chat.html">Chat</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
+      <a href="/pages/create.html">Create</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-tasks"></i></span>
+      <a href="/pages/tasks.html">Tasks</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/offline.html">Offline</a>
+    </li>
+    <hr>
+    
+    <h4>Account</h4>
+    <li>
+      <span class="dash"><i class="fas fa-chart-line"></i> </span>
+      <a href="/pages/activity.html">Activity</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/profile.html">Profile</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-life-ring"></i></span>
+      <a href="/pages/community-guidelines.html">Community</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-wallet"></i></span>
+      <a href="/pages/wallet.html">Wallet</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-bell"></i></span>
+      <a href="/pages/notifications.html">Notifications</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-cog"></i></span>
+      <a href="/pages/settings.html">Settings</a>
+    </li>
+    <hr>
+
+    <h4>Systems</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
+      <a href="/pages/support.html">Contact</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
+      <a href="/pages/feedback.html">Feedback</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-question-circle"></i></span>
+      <a href="/pages/help.html">Help</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-info-circle"></i></span>
+      <a href="/pages/about.html">About</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
+      <a href="/pages/logout.html">Logout</a>
+    </li>
+    <hr>
+  </ul>
+</section>
+
+  <!-- ===== ADMIN LESSONS PAGE ===== -->
+  <section class="page admin-lessons" id="admin-lessons">
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar">
+      <div class="logo">SkillChain Admin</div>
+      <nav>
+        <ul>
+          <li><a href="admin-dashboard.html">Dashboard</a></li>
+          <li><a href="admin-users.html">Users</a></li>
+          <li><a href="admin-lessons.html" class="active">Lessons</a></li>
+          <li><a href="admin-analytics.html">Analytics</a></li>
+          <li><a href="admin-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside id="sidebar">
+      <ul>
+        <li><a href="#">All Lessons</a></li>
+        <li><a href="#">Pending Approval</a></li>
+        <li><a href="#">Top Forked</a></li>
+        <li><a href="#">Reported Lessons</a></li>
+      </ul>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
+      <section class="lesson-overview">
+        <h1>Manage Lessons</h1>
+
+        <!-- Search & Filter -->
+        <div class="lesson-controls">
+          <input type="text" placeholder="Search lessons..." id="lesson-search" />
+
+          <select id="lesson-filter">
+            <option value="all">All</option>
+            <option value="pending">Pending Approval</option>
+            <option value="approved">Approved</option>
+            <option value="forked">Forked Lessons</option>
+          </select>
+
+          <button id="add-lesson-btn">Add New Lesson</button>
+        </div>
+
+        <!-- Lessons Table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson Title</th>
+              <th>Creator</th>
+              <th>Forked From</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Placeholder row -->
+            <tr>
+              <td>Introduction to Algebra</td>
+              <td>John Doe</td>
+              <td>—</td>
+              <td>Approved</td>
+              <td>
+                <button>Edit</button>
+                <button>Delete</button>
+                <button>Approve</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+  </section>
+
+  <!-- ===== GLOBAL JS (ATTACHED AS-IS) ===== -->
+  <
+</body>
+</html>

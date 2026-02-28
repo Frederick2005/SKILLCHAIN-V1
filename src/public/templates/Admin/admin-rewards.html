@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain Admin – Rewards</title>
+  <link rel="stylesheet" href="/src/public/styles/base/main.css" />
+  <
+</head>
+<body>
+  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+  <i class="fa-solid fa-bars"></i>
+</button>
+  <!-- ====== SIDE BAR =========-->
+<section class="sidebar" id="sidebar">
+  
+  <div class="logo">
+    <img src="/src/public/images/logo.png" alt="" />
+    <h2>SkillChain</h2>
+  </div>
+  
+  <ul class="links">
+    <h4>Main</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-home"></i> </span>
+      <a href="/pages/home.html">Home</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-compass"></i></span>
+      <a href="/pages/discover.html">Discover</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comments"></i></span>
+      <a href="/pages/chat.html">Chat</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
+      <a href="/pages/create.html">Create</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-tasks"></i></span>
+      <a href="/pages/tasks.html">Tasks</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/offline.html">Offline</a>
+    </li>
+    <hr>
+    
+    <h4>Account</h4>
+    <li>
+      <span class="dash"><i class="fas fa-chart-line"></i> </span>
+      <a href="/pages/activity.html">Activity</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
+      <a href="/pages/profile.html">Profile</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-life-ring"></i></span>
+      <a href="/pages/community-guidelines.html">Community</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-wallet"></i></span>
+      <a href="/pages/wallet.html">Wallet</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-bell"></i></span>
+      <a href="/pages/notifications.html">Notifications</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-cog"></i></span>
+      <a href="/pages/settings.html">Settings</a>
+    </li>
+    <hr>
+
+    <h4>Systems</h4>
+    <li>
+      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
+      <a href="/pages/support.html">Contact</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
+      <a href="/pages/feedback.html">Feedback</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-question-circle"></i></span>
+      <a href="/pages/help.html">Help</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-info-circle"></i></span>
+      <a href="/pages/about.html">About</a>
+    </li>
+    <li>
+      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
+      <a href="/pages/logout.html">Logout</a>
+    </li>
+    <hr>
+  </ul>
+</section>
+
+<section class="page admin-rewards" id="admin-rewards">
+
+  <header id="navbar">
+    <div class="logo">SkillChain Admin</div>
+    <nav>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-lessons.html">Lessons</a></li>
+        <li><a href="admin-rewards.html" class="active">Rewards</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <aside id="sidebar">
+    <ul>
+      <li><a href="#">All Rewards</a></li>
+      <li><a href="#">Pending Rewards</a></li>
+      <li><a href="#">Top Contributors</a></li>
+      <li><a href="#">Adjust Rewards</a></li>
+    </ul>
+  </aside>
+
+  <main id="main-content">
+    <section class="rewards-overview">
+      <h1>User Rewards Management</h1>
+
+      <div class="rewards-controls">
+        <input type="text" placeholder="Search users..." id="user-search">
+        <select id="reward-filter">
+          <option value="all">All Users</option>
+          <option value="pending">Pending</option>
+          <option value="top">Top Contributors</option>
+        </select>
+        <button id="adjust-reward-btn">Adjust Reward</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Total Tokens</th>
+            <th>Lessons Forked</th>
+            <th>Engagement Score</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jane Doe</td>
+            <td>1500</td>
+            <td>10</td>
+            <td>95%</td>
+            <td>Approved</td>
+            <td>
+              <button>View</button>
+              <button>Edit</button>
+              <button>Adjust</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</section>
+
+<
+</body>
+</html>

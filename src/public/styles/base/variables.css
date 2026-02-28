@@ -1,0 +1,135 @@
+/* =========================
+   SKILLCHAIN  VARIABLES
+   ========================= */
+
+/*====== COLORS ======= */
+:root {
+
+  /* ===== PRIMARY ===== */
+  --color-primary: blue;       
+  --color-primary-light: #3B82F6; 
+  --color-primary-dark: rgb(0, 15, 40);  
+
+  --color-secondary: white; 
+  --color-secondary-light: #34D399;
+  --color-secondary-dark: #ec2;
+  --color-accent: #555555;
+
+  /* ===== STATUS / ALERTS ===== */
+  --color-success: #10B981;
+  --color-success-light: #BBF7D0;
+  --color-error: #EF4444;
+  --color-error-light: #FEE2E2;
+  --color-warning: #FBBF24;
+  --color-warning-light: #FEF3C7;
+  --color-info: #3B82F6;
+  --color-info-light: #BFDBFE;
+
+  /* ===== BACKGROUNDS  ===== */
+  --color-bg: white;  
+  --color-card-bg: whitesmoke;    
+  --color-header-bg: white;    
+  --color-footer-bg: black;   
+
+  /* ===== TEXT  ===== */
+  --color-text: black;  
+  --color-text-muted: rgb(82, 80, 80);  
+  --color-text-light: white;   
+
+  /* ===== SHADOW ===== */
+  --color-shadow: rgba(0, 0, 0, 0.15);
+
+  /* ===== GRADIENTS  ===== */
+  --color-gradient-start: rgb(0, 15, 40);
+  --color-gradient-end: blue;
+}
+
+/* ========= TYPOGRAPHY ========*/
+:root {
+  --font-family-sans: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  --font-family-serif: 'Merriweather', serif;
+  --font-family-mono: 'Fira Code', monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-loose: 1.8;
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.5px;
+}
+
+/* ========== SPACING ========*/
+:root {
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  --grid-gap-sm: 8px;
+  --grid-gap-md: 16px;
+  --grid-gap-lg: 24px;
+  --sidebar-width: 250px;
+  --z-drawer: 1000;
+  --z-overlay: 900;
+}
+
+/* ====== BORDERS / RADIUS ======= */
+:root {
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+
+  --border-light: 1px solid var(--color-text-muted);
+  --border: 1px solid var(--color-text);
+}
+
+/* ===== SHADOWS / ELEVATION  ===== */
+:root {
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 8px 8px 12px rgba(0,0,0,0.15);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== ANIMATION / TRANSITIONS  ===== */
+:root {
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+  --transition-slow: 0.6s ease-in-out;
+
+  --easing-default: ease-in-out;
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== DARK MODE ===== */
+:root[data-theme="dark"] {
+  --color-bg: #111827;
+  --color-text: #F3F4F6;
+  --color-card-bg: #1F2937;
+  --color-header-bg: #1E3A8A;
+  --color-footer-bg: #1F2937;
+  --color-shadow: rgba(0,0,0,0.5);
+
+  --color-primary: #3B82F6;
+  --color-primary-light: #60A5FA;
+  --color-secondary: #22C55E;
+  --color-accent: #FBBF24;
+}

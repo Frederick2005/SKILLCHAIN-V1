@@ -5,7 +5,7 @@ import asyncHandler from "express-async-handler";
 // GET CONTENT
 // -----------------------------------------------------------
 export const getContent = asyncHandler(async (req, res) => {
-  const contents = await Content.find({ user: req.user.id });
+  const contents = await Content.find({ user: req.user._id });
   res.status(200).json(contents);
 });
 
