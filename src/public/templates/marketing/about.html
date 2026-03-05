@@ -6,6 +6,7 @@
   <title>SkillChain – About</title>
 
   <link rel="stylesheet" href="../../styles/base/main.css" />
+   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
@@ -105,33 +106,44 @@
     <div class="logo">SkillChain</div>
   </header>
 
-  <main id="main-content">
-    <h1>Chat Settings</h1>
-    <form id="chat-settings-form">
-      <label>
-        <input type="checkbox" id="enable-notifications" />
-        Enable Notifications
-      </label>
-
-      <label>
-        <input type="checkbox" id="dark-mode-chat" />
-        Enable Dark Mode
-      </label>
-
-      <label>
-        Default Chat Theme:
-        <select id="chat-theme-select">
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-        </select>
-      </label>
-
-      <button type="submit">Save Settings</button>
-    </form>
-  </main>
-
 </section>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="main-nav">
+
+  <!-- Logo (Desktop only) -->
+  <a href="/index.html" class="nav-logo">skillchain</a>
+
+  <!-- Navigation Items -->
+  <a href="../main/home.html" class="nav-item active">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <a href="../marketing/about.html" class="nav-item">
+    <i class="fa-solid fa-circle-info"></i>
+    <span>About</span>
+  </a>
+
+<a href="../main/create.html" class="nav-item">
+    <i class="fa-solid fa-plus"></i>
+    <span>Create</span>
+  </a>
+
+  <a href="../Discover/explore.html" class="nav-item">
+    <i class="fa-solid fa-compass"></i>
+    <span>Explore</span>
+  </a>
+
+  <a href="../social/profile.html" class="nav-item">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
+  </a>
+
+  <!-- Active Indicator -->
+  <div class="nav-indicator"></div>
+
+</nav>
 <section class="page about" id="about">
 
   <header>
@@ -163,6 +175,12 @@
 
 </section>
 
+<script src="../../scripts/base/core.js"></script>
+<script src="../../scripts/base/main.js"></script>
+<script src="../../scripts/pages/auth.js"></script>
+<script src="../../scripts/pages/dashboard.js"></script>
+<script src="../../scripts/UI/components.js"></script>
+<script src="../../scripts/UI/theme.js"></script>
 
 </body>
 </html>
