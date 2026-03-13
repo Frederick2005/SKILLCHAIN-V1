@@ -13,6 +13,43 @@
   
 </head>
 <body>
+<!-- ===== NAVBAR ===== -->
+<nav class="main-nav">
+
+  <!-- Logo (Desktop only) -->
+  <a href="/index.html" class="nav-logo">skillchain</a>
+
+  <!-- Navigation Items -->
+  <a href="../main/home.html" class="nav-item active">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <a href="../marketing/about.html" class="nav-item">
+    <i class="fa-solid fa-circle-info"></i>
+    <span>About</span>
+  </a>
+
+<a href="../main/create.html" class="nav-item">
+    <i class="fa-solid fa-plus"></i>
+    <span>Create</span>
+  </a>
+
+  <a href="../Discover/explore.html" class="nav-item">
+    <i class="fa-solid fa-compass"></i>
+    <span>Explore</span>
+  </a>
+
+  <a href="../social/profile.html" class="nav-item">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
+  </a>
+
+  <!-- Active Indicator -->
+  <div class="nav-indicator"></div>
+
+</nav>
+<!--=======SIDE BAR BUTTON========-->
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
@@ -21,7 +58,7 @@
 <section class="sidebar" id="sidebar">
   
   <div class="logo">
-    <img src="/src/public/images/logo.png" alt="" />
+    <img src="../../images/logo.png" alt="" />
     <h2>SkillChain</h2>
   </div>
   
@@ -87,15 +124,15 @@
     <h4>Systems</h4>
     <li>
       <span class="dash"><i class="fa-solid fa-address-book"></i></span>
-      <a href="/src/public/templates/support/contact.html">Contact</a>
+      <a href="../support/contact.html">Contact</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
-      <a href="/src/public/templates/support/feedback.html">Feedback</a>
+      <a href="../support/feedback.html">Feedback</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-question-circle"></i></span>
-      <a href="/src/public/templates/support/help.html">Help</a>
+      <a href="../support/help.html">Help</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-info-circle"></i></span>
@@ -108,6 +145,9 @@
     <hr>
   </ul>
 </section>
+
+
+
 
   <!-- ===== ADMIN DASHBOARD PAGE ===== -->
   <section class="page admin-dashboard" id="admin-dashboard">

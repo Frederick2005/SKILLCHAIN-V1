@@ -9,39 +9,72 @@
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
+<nav class="main-nav">
 
-<section class="page chat-room" id="chat-room">
+  <!-- Logo (Desktop only) -->
+  <a href="/index.html" class="nav-logo">skillchain</a>
 
-  <header id="navbar">
-    <div class="logo">SkillChain</div>
-    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+  <!-- Navigation Items -->
+  <a href="../main/home.html" class="nav-item active">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <a href="../marketing/about.html" class="nav-item">
+    <i class="fa-solid fa-circle-info"></i>
+    <span>About</span>
+  </a>
+
+<a href="../main/create.html" class="nav-item">
+    <i class="fa-solid fa-plus"></i>
+    <span>Create</span>
+  </a>
+
+  <a href="../Discover/explore.html" class="nav-item">
+    <i class="fa-solid fa-compass"></i>
+    <span>Explore</span>
+  </a>
+
+  <a href="../social/profile.html" class="nav-item">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
+  </a>
+
+  <!-- Active Indicator -->
+  <div class="nav-indicator"></div>
+
+</nav>
+<!--=======SIDE BAR BUTTON========-->
+<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
-  </header>
 
-  <main id="main-content" class="chat-room">
-      
 <!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
   <div class="logo">
-    <img src="../../public/images/logo.png" alt="" />
+    <img src="../../images/logo.png" alt="" />
     <h2>SkillChain</h2>
   </div>
   
   <ul class="links">
     <h4>Main</h4>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+  <i class="fas fa-moon"></i>
+  <span> light Mode</span>
+</button>
     <li>
       <span class="dash"><i class="fa-solid fa-home"></i> </span>
       <a href="../main/home.html">Home</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-compass"></i></span>
-      <a href="../main/discover.html">Discover</a>
+      <a href="../Discover/explore.html">Discover</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-comments"></i></span>
-      <a href="../main/chat.html">Chat</a>
+      <a href="../chart/chat.html">Chat</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
@@ -53,14 +86,14 @@
     </li>
     <li>
       <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="../main/offline.html">Offline</a>
+      <a href="../offline/offline.html">Offline</a>
     </li>
     <hr>
     
     <h4>Account</h4>
     <li>
       <span class="dash"><i class="fas fa-chart-line"></i> </span>
-      <a href="../social/activity.html">Activity</a>
+      <a href="../social/activity-feed.html">Activity</a>
     </li>
     <li>
       <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
@@ -68,11 +101,11 @@
     </li>
     <li>
       <span class="dash"><i class="fas fa-life-ring"></i></span>
-      <a href="../social/community-guidelines.html">Community</a>
+      <a href="../support/community-guidelines.html">Community</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-wallet"></i></span>
-      <a href="../social/wallet.html">Wallet</a>
+      <a href="../Rewards/wallet.html">Wallet</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-bell"></i></span>
@@ -108,6 +141,9 @@
     <hr>
   </ul>
 </section>
+
+
+
 
     <div class="chat-window" id="chat-window">
       <div class="message received">Welcome to SkillChain private Chat! Be respectful and collaborative.Thanks for choosing this</div>

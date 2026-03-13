@@ -95,14 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
   let toggleBtn = document.getElementById("sidebar-toggle");
 
-  // If no toggle button exists, create one dynamically
-  if (!toggleBtn) {
-    toggleBtn = document.createElement("button");
-    toggleBtn.id = "sidebar-toggle";
-    toggleBtn.classList.add("sidebar-toggle");
-    toggleBtn.innerHTML = `<i class="fas fa-angle-left"></i>`;
-    document.body.appendChild(toggleBtn);
-  }
 
   if (!sidebar) return;
 
