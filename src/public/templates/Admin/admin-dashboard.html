@@ -9,15 +9,15 @@
   <link rel="stylesheet" href="../../styles/base/main.css" />
 
   <!-- FontAwesome -->
+   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
-
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
 
-  <!-- ====== SIDE BAR =========-->
+<!-- ====== SIDE BAR =========-->
 <section class="sidebar" id="sidebar">
   
   <div class="logo">
@@ -27,79 +27,83 @@
   
   <ul class="links">
     <h4>Main</h4>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+  <i class="fas fa-moon"></i>
+  <span> light Mode</span>
+</button>
     <li>
       <span class="dash"><i class="fa-solid fa-home"></i> </span>
-      <a href="../Admin/admin-dashboard.html">Home</a>
+      <a href="../main/home.html">Home</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-compass"></i></span>
-      <a href="../Discover/discover.html">Discover</a>
+      <a href="../Discover/explore.html">Discover</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-comments"></i></span>
-      <a href="../Chat/chat.html">Chat</a>
+      <a href="../chart/chat.html">Chat</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
-      <a href="../Create/create.html">Create</a>
+      <a href="../main/create.html">Create</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-tasks"></i></span>
-      <a href="../Tasks/tasks.html">Tasks</a>
+      <a href="../main/tasks.html">Tasks</a>
     </li>
     <li>
       <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="../Offline/offline.html">Offline</a>
+      <a href="../offline/offline.html">Offline</a>
     </li>
     <hr>
     
     <h4>Account</h4>
     <li>
       <span class="dash"><i class="fas fa-chart-line"></i> </span>
-      <a href="../Activity/activity.html">Activity</a>
+      <a href="../social/activity-feed.html">Activity</a>
     </li>
     <li>
       <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="../Profile/profile.html">Profile</a>
+      <a href="../social/profile.html">Profile</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-life-ring"></i></span>
-      <a href="../Community/community-guidelines.html">Community</a>
+      <a href="../support/community-guidelines.html">Community</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-wallet"></i></span>
-      <a href="../Wallet/wallet.html">Wallet</a>
+      <a href="../Rewards/wallet.html">Wallet</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-bell"></i></span>
-      <a href="../Notifications/notifications.html">Notifications</a>
+      <a href="../social/notifications.html">Notifications</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-cog"></i></span>
-      <a href="../Settings/settings.html">Settings</a>
+      <a href="../settings/settings.html">Settings</a>
     </li>
     <hr>
 
     <h4>Systems</h4>
     <li>
       <span class="dash"><i class="fa-solid fa-address-book"></i></span>
-      <a href="../support/contact.html">Contact</a>
+      <a href="/src/public/templates/support/contact.html">Contact</a>
     </li>
     <li>
       <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
-      <a href="../support/feedback.html">Feedback</a>
+      <a href="/src/public/templates/support/feedback.html">Feedback</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-question-circle"></i></span>
-      <a href="../Help/help.html">Help</a>
+      <a href="/src/public/templates/support/help.html">Help</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-info-circle"></i></span>
-      <a href="../About/about.html">About</a>
+      <a href="../marketing/about.html">About</a>
     </li>
     <li>
       <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
-      <a href="../Logout/logout.html">Logout</a>
+      <a href="../auth/logout.html">Logout</a>
     </li>
     <hr>
   </ul>
@@ -155,7 +159,13 @@
     </main>
   </section>
 
-  <!-- ===== GLOBAL JS (ATTACHED AS-IS) ===== -->
+  <!-- ===== GLOBAL JS ===== -->
+<script src="../../scripts/base/core.js"></script>
+<script src="../../scripts/base/main.js"></script>
+<script src="../../scripts/pages/auth.js"></script>
+<script src="../../scripts/pages/dashboard.js"></script>
+<script src="../../scripts/UI/components.js"></script>
+<script src="../../scripts/UI/theme.js"></script>
   
 </body>
 </html>
