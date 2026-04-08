@@ -8,8 +8,8 @@
 
 /* ---------- FOOTER BASE ---------- */
 .footer {
-  background-color: var(--color-footer-bg, #1e40af); /* dark blue */
-  color: var(--color-text-muted, #cbd5e1);
+  background-color: var(--color-footer-bg); 
+  color: var(--color-text-muted);
   padding: var(--spacing-lg) var(--spacing-xl);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
@@ -38,12 +38,12 @@
   font-size: var(--font-size-md);
   margin-bottom: var(--spacing-sm);
   cursor: pointer;
-  color: var(--color-text, #ffffff);
+  color: var(--color-text-muted);
   transition: color var(--transition-fast) var(--easing-default);
 }
 
 .footer-column h4:hover {
-  color: var(--color-secondary, #3b82f6);
+  color: var(--color-secondary);
 }
 
 /* ---------- FOOTER LINKS ---------- */

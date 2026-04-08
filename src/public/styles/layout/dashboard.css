@@ -44,7 +44,7 @@
 /* ---------- DASHBOARD GRID ---------- */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   gap: var(--grid-gap-lg);
   width: 100%;
 }
@@ -57,7 +57,7 @@
   padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   transition: transform var(--transition-fast) var(--easing-default),
               box-shadow var(--transition-fast) var(--easing-default);
   cursor: pointer;

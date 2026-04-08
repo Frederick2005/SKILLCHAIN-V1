@@ -58,4 +58,24 @@ document.addEventListener("DOMContentLoaded", () => {
       updateThemeUI(true);
     }
   });
+
+
+  // put a comment
+  // const navgroup = document.querySelectorAll(".nav-item")
+
+  // console.log(navgroup);
+                  
+  // navgroup.forEach(navgroupitem => {
+  //   navgroupitem.addEventListener('click', () => {
+  //     if (navgroupitem.classList.contains == "active") {
+  //       navgroupitem.classList.remove('active')
+  //     } else {
+  //        navgroupitem.classList.add('active')
+  //     }
+      
+  //   })
+  // })
+  
+
+
 });

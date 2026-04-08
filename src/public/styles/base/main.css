@@ -1,13 +1,13 @@
 /* ===== BASE ===== */
-@import "/src/public/styles/base/variables.css";
-@import "/src/public/styles/base/foundation.css";
+@import "../base/variables.css";
+@import "../base/foundation.css";
 /* ===== LAYOUTS ===== */
-@import "/src/public/styles/layout/dashboard.css";
-@import "/src/public/styles/layout/footer.css";
-@import "/src/public/styles/layout/header.css";
+@import "../layout/dashboard.css";
+@import "../layout/footer.css";
+@import "../layout/header.css";
 /* ===== COMPONENTS ===== */
-@import "/src/public/styles/components /Buttons.css";
-@import "/src/public/styles/components /cards.css";
-@import "/src/public/styles/components /Modals.css";
+@import "../components/Modals.css";
+@import "../components/Buttons.css";
+@import "../components/Cards.css";
 /* ===== THEMES ===== */
-@import "/src/public/styles/theme/theme-base.css";
+@import "../theme/theme-base.css";
