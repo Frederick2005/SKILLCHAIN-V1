@@ -20,7 +20,7 @@
       <h1 class="section-title">Welcome Back</h1>
       <p class="section-text">Login to continue learning and earning.</p>
 
-      <form id="login-form" action="/src/public/templates/main/home.html" method="GET">
+      <form id="login-form">
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="you@example.com" required />
@@ -32,16 +32,13 @@
         </div>
 
         <div class="form-options">
-          <label>
-            <input type="checkbox" name="remember" /> Remember me
-          </label>
           <a href="forgot-password.html">Forgot Password?</a>
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
 
-      <p class="auth-footer">Don’t have an account? <a href="/src/public/templates/auth/signup.html">Sign Up</a></p>
+      <p class="auth-footer">Don’t have an account? <a href="/signup">Sign Up</a></p>
 
     </section>
   </main>
@@ -51,5 +48,32 @@
 <script src="/src/public/scripts/pages/auth.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
 
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      console.log('Form submitted:', { email, password });
+      // Add your API call or validation logic here
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          if (data.token) {
+        localStorage.setItem('authToken', data.token);
+          }
+          window.location.href = '/profile';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+        });
+  </script>
 </body>
 </html>

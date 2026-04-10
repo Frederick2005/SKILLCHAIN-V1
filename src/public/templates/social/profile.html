@@ -6,258 +6,107 @@
   <title>SkillChain – Profile</title>
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="../../styles/base/main.css" />
+  <link rel="stylesheet" href="/styles/base/main.css" />
   
 </head>
 <body>
 <!-- ===== NAVBAR ===== -->
 <nav class="main-nav">
-
-  <!-- Logo (Desktop only) -->
-  <a href="/index.html" class="nav-logo">skillchain</a>
-
-  <!-- Navigation Items -->
-  <a href="../main/home.html" class="nav-item">
+  <a href="/" class="nav-logo">skillchain</a>
+  <a href="/" class="nav-item">
     <i class="fa-solid fa-house"></i>
     <span>Home</span>
   </a>
-
-  <a href="../marketing/about.html" class="nav-item">
+  <a href="/about" class="nav-item">
     <i class="fa-solid fa-circle-info"></i>
     <span>About</span>
   </a>
-
-<a href="../main/create.html" class="nav-item">
+  <a href="/create" class="nav-item">
     <i class="fa-solid fa-plus"></i>
     <span>Create</span>
   </a>
-
-  <a href="../Discover/explore.html" class="nav-item">
+  <a href="/explore" class="nav-item">
     <i class="fa-solid fa-compass"></i>
     <span>Explore</span>
   </a>
-
-  <a href="../social/profile.html" class="nav-item active">
+  <a href="/profile" class="nav-item active">
     <i class="fa-solid fa-user"></i>
     <span>Profile</span>
   </a>
-
-<!--========dark/light theme button=======-->
-<button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
-  <i class="fas fa-moon"></i>
-  <span> light Mode</span>
-</button>
-
-
-  <!-- Active Indicator -->
+  <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button>
   <div class="nav-indicator"></div>
 </nav>
-<!--=======SIDE BAR BUTTON========--
-<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
-  <i class="fa-solid fa-bars"></i>
-</button>-->
-
-   
-<!-- ====== SIDE BAR =========--
-<section class="sidebar" id="sidebar">
-  
-  <div class="logo">
-    <img src="../../images/logo.png" alt="" />
-    <h2>SkillChain</h2>
-  </div>
-  
-  <ul class="links">
-    <h4>Main</h4>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-  <i class="fas fa-moon"></i>
-  <span> light Mode</span>
-</button>
-    <li>
-      <span class="dash"><i class="fa-solid fa-home"></i> </span>
-      <a href="../main/home.html">Home</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-compass"></i></span>
-      <a href="../Discover/explore.html">Discover</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-comments"></i></span>
-      <a href="../chart/chat.html">Chat</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-square-plus"></i></span>
-      <a href="../main/create.html">Create</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-tasks"></i></span>
-      <a href="../main/tasks.html">Tasks</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="../offline/offline.html">Offline</a>
-    </li>
-    <hr>
-    
-    <h4>Account</h4>
-    <li>
-      <span class="dash"><i class="fas fa-chart-line"></i> </span>
-      <a href="../social/activity-feed.html">Activity</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-sharp fa-solid fa-user"></i></span>
-      <a href="../social/profile.html">Profile</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-life-ring"></i></span>
-      <a href="../support/community-guidelines.html">Community</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-wallet"></i></span>
-      <a href="../Rewards/wallet.html">Wallet</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-bell"></i></span>
-      <a href="../social/notifications.html">Notifications</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-cog"></i></span>
-      <a href="../settings/settings.html">Settings</a>
-    </li>
-    <hr>
-
-    <h4>Systems</h4>
-    <li>
-      <span class="dash"><i class="fa-solid fa-address-book"></i></span>
-      <a href="../support/contact.html">Contact</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fa-solid fa-comment-dots"></i></span>
-      <a href="../support/feedback.html">Feedback</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-question-circle"></i></span>
-      <a href="../support/help.html">Help</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-info-circle"></i></span>
-      <a href="../marketing/about.html">About</a>
-    </li>
-    <li>
-      <span class="dash"><i class="fas fa-sign-out-alt"></i></span>
-      <a href="../auth/logout.html">Logout</a>
-    </li>
-    <hr>
-  </ul>
-</section> -->
 
 <!-- ================= SPA: PROFILE ================= -->
 <section class="page profile" id="profile" data-route="profile">
-
   <main id="main-content" class="container">
 
     <!-- ================= PROFILE HEADER ================= -->
     <section class="profile-top card">
-
       <div class="profile-left">
         <div class="avatar-box">
-          <img
-            id="profileImg"
-            src="../../images/avatar.jpeg"
-            alt="Default Profile Picture"
-          />
+          <img id="profileImg" src="../../images/avatar.jpeg" alt="Profile Picture" />
         </div>
-        <span class="rank">Bronze</span>
+        <span class="rank" id="userRank">User</span>
       </div>
 
       <div class="profile-center">
-        <h1 class="username">Akampa</h1>
-
+        <h1 class="username" id="username">Username</h1>
         <div class="profile-meta-grid">
-          <p><strong>Name:</strong> Akampa Fredrick</p>
-          <p><strong>Member Since:</strong> Jan 2026</p>
-          <p><strong>Last Seen:</strong> Jan 2026</p>
-          <p><strong>Skill Tier:</strong> Bronze</p>
-        </div>
-
-        <button class="btn view-badges">View Skill Badges</button>
-      </div>
-
-      <div class="profile-right">
-        <p><strong>Following:</strong> 80</p>
-        <p><strong>Followers:</strong> 120</p>
-        <p><strong>Allies:</strong> 8</p>
-
-        <div class="profile-links">
-          <span>Profiles:</span>
-          <a href="#/leaderboard">GitHub</a>
-          <a href="#/chat">X</a>
-          <a href="#/private-chat">LinkedIn</a>
+          <p class="createdAt" id="createdAt"></p>
+          <p class="email" id="email"></p>
+          <button id="logoutBtn">Logout</button>
         </div>
       </div>
-
     </section>
 
-    <!-- ================= TABS ================= -->
-    <nav class="profile-tabs">
-      <button>Stats</button>
-      <button>Lessons</button>
-      <button>Projects</button>
-      <button>Community</button>
-      <button>Achievements</button>
-    </nav>
-
-    <!-- ================= MAIN CONTENT ================= -->
-    <section class="profile-content">
-
-      <section class="card">
-        <h3>Progress</h3>
-        <ul class="stats-list">
-          <li>Skill Tier: <strong>Bronze</strong></li>
-          <li>Skill Points: <strong>450</strong></li>
-          <li>Lessons Completed: <strong>18</strong></li>
-          <li>Leaderboard Position: <strong>#42</strong></li>
-        </ul>
+    <!-- ================= LEARNER VIEW ================= -->
+    <div id="learner-view" class="profile-view">
+      <section class="profile-content">
+        <section class="card">
+          <h3>Profile Info</h3>
+          <ul class="stats-list">
+            <li>Role: <strong id="userRole">Learner</strong></li>
+            <li>Member Since: <strong id="memberSince">--</strong></li>
+          </ul>
+        </section>
       </section>
+    </div>
 
-      <section class="card">
-        <h3>Skill Breakdown</h3>
-        <ul class="stats-list">
-          <li>Completed Lessons <span>300 SP</span></li>
-          <li>Challenges Solved <span>100 SP</span></li>
-          <li>Community Help <span>50 SP</span></li>
-          <li>Achievements <span>0 SP</span></li>
-        </ul>
-      </section>
+    <!-- ================= INSTRUCTOR VIEW ================= -->
+    <div id="instructor-view" class="profile-view" style="display: none;">
+      <section class="profile-content">
+        <section class="card">
+          <h3>Teaching Statistics</h3>
+          <ul class="stats-list">
+            <li>Total Content Created: <strong id="contentCreated">0</strong></li>
+          </ul>
+        </section>
 
-      <section class="card">
-        <h3>Tier Progress</h3>
-        <div class="progress-circle" data-progress="62">
-          <svg>
-            <circle cx="60" cy="60" r="54"></circle>
-            <circle cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="circle-text">
-            <span>62%</span>
-            <small>to Silver</small>
+        <section class="card">
+          <h3>Quick Actions</h3>
+          <div class="action-buttons">
+            <button class="btn">Create New Content</button>
+            <button class="btn">View Content</button>
           </div>
-        </div>
+        </section>
       </section>
+    </div>
 
-      <section class="card">
-        <h3>Community</h3>
-        <ul class="stats-list">
-          <li>Comments: <strong>4</strong></li>
-          <li>Helpful Answers: <strong>2</strong></li>
-          <li>Shared Lessons: <strong>1</strong></li>
-        </ul>
+    <!-- ================= ADMIN VIEW ================= -->
+    <div id="admin-view" class="profile-view" style="display: none;">
+      <section class="profile-content">
+        <section class="card">
+          <h3>Admin Panel</h3>
+          <ul class="stats-list">
+            <li>Role: <strong>Administrator</strong></li>
+          </ul>
+        </section>
       </section>
-
-      <section class="card">
-        <h3>Streaks</h3>
-        <p>Current Streak: <strong>6 days</strong></p>
-      </section>
-
-    </section>
+    </div>
 
   </main>
 </section>
@@ -269,6 +118,67 @@
 <script src="../../scripts/pages/dashboard.js"></script>
 <script src="../../scripts/UI/components.js"></script>
 <script src="../../scripts/UI/theme.js"></script>
+
+<script>
+  // Toggle between views based on user role
+  function displayProfileView(userRole) {
+    document.getElementById('learner-view').style.display = 'none';
+    document.getElementById('instructor-view').style.display = 'none';
+    document.getElementById('admin-view').style.display = 'none';
+
+    if (userRole === 'instructor') {
+      document.getElementById('instructor-view').style.display = 'block';
+    } else if (userRole === 'admin') {
+      document.getElementById('admin-view').style.display = 'block';
+    } else {
+      document.getElementById('learner-view').style.display = 'block';
+    }
+  }
+
+  // Load user data from API
+  document.addEventListener('DOMContentLoaded', async () => {
+    const token = localStorage.getItem('authToken');
+    
+    if (!token) {
+      console.warn('No authentication token found');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/auth/profile', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      const profileData = await response.json();
+      
+      // Populate common fields
+      document.getElementById('username').textContent = profileData.username;
+      document.getElementById('email').textContent = profileData.email;
+      document.getElementById('userRank').textContent = profileData.role.charAt(0).toUpperCase() + profileData.role.slice(1);
+      document.getElementById('userRole').textContent = profileData.role.charAt(0).toUpperCase() + profileData.role.slice(1);
+      document.getElementById('memberSince').textContent = new Date(profileData.createdAt).toLocaleDateString();
+      document.getElementById('createdAt').textContent = new Date(profileData.createdAt).toLocaleDateString();
+
+      // Display appropriate view based on role
+      displayProfileView(profileData.role);
+
+      // Populate role-specific data
+      if (profileData.role === 'instructor') {
+        document.getElementById('contentCreated').textContent = profileData.content?.length || '0';
+      }
+    } catch (error) {
+      console.error('Error fetching profile data:', error);
+    }
+  });
+
+  // Logout functionality
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('authToken');
+    window.location.href = '/signin';
+  });
+</script>
 
 </body>
 </html>

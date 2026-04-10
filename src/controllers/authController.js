@@ -10,10 +10,10 @@ import asyncHandler from "express-async-handler";
 // -----------------------------------------------------------
 export const registerUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
 
     // Validate
-    if (!username || !email || !password)
+    if (!username || !email || !password || !role)
       return res.status(400).json({ message: "All fields are required" });
 
     // Check if user exists
@@ -30,6 +30,7 @@ export const registerUser = async (req, res) => {
       username, // this must match your field
       email,
       password: hashedPassword,
+      role,
     });
 
     res.status(201).json({
@@ -38,6 +39,7 @@ export const registerUser = async (req, res) => {
         id: user._id,
         username: user.username,
         email: user.email,
+        role: user.role,
       },
       token: generateToken(user._id),
     });

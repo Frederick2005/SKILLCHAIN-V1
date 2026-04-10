@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Explore</title>
   <link rel="stylesheet" href="../../styles/base/main.css" />
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
-  
+
 </head>
+
 <body>
-<!-- ===== NAVBAR ===== -->
-<nav class="main-nav">
+  <!-- ===== NAVBAR ===== -->
+  <nav class="main-nav">
 
-  <!-- Logo (Desktop only) -->
-  <a href="/index.html" class="nav-logo">skillchain</a>
+    <!-- Logo (Desktop only) -->
+    <a href="/index.html" class="nav-logo">skillchain</a>
 
-  <!-- Navigation Items -->
-  <a href="../main/home.html" class="nav-item">
-    <i class="fa-solid fa-house"></i>
-    <span>Home</span>
-  </a>
+    <!-- Navigation Items -->
+    <a href="/" class="nav-item">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
 
-  <a href="../marketing/about.html" class="nav-item">
-    <i class="fa-solid fa-circle-info"></i>
-    <span>About</span>
-  </a>
+    <a href="/about" class="nav-item">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>About</span>
+    </a>
 
-<a href="../main/create.html" class="nav-item">
-    <i class="fa-solid fa-plus"></i>
-    <span>Create</span>
-  </a>
+    <a href="/create" class="nav-item">
+      <i class="fa-solid fa-plus"></i>
+      <span>Create</span>
+    </a>
 
-  <a href="../Discover/explore.html" class="nav-item active">
-    <i class="fa-solid fa-compass"></i>
-    <span>Explore</span>
-  </a>
+    <a href="/explore " class="nav-item active">
+      <i class="fa-solid fa-compass"></i>
+      <span>Explore</span>
+    </a>
 
-  <a href="../social/profile.html" class="nav-item">
-    <i class="fa-solid fa-user"></i>
-    <span>Profile</span>
-  </a>
+    <a href="/profile" class="nav-item">
+      <i class="fa-solid fa-user"></i>
+      <span>Profile</span>
+    </a>
 
-  <!-- Active Indicator -->
-  <div class="nav-indicator"></div>
+    <!-- Active Indicator -->
+    <div class="nav-indicator"></div>
 
-  <!--=========dark/light theme button========-->
-  <button id="theme-toggle" class="theme-toggle sidebar-toggle" aria-label="Toggle theme">
-  <i class="fas fa-moon"></i>
-  <span> light Mode</span>
-</button>
+    <!--=========dark/light theme button========-->
+    <button id="theme-toggle" class="theme-toggle sidebar-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+      <span> light Mode</span>
+    </button>
 
-</nav>
+  </nav>
 
-<!--=======SIDE BAR BUTTON========--
+  <!--=======SIDE BAR BUTTON========--
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
@@ -153,51 +155,121 @@
 
 
 
-<section class="page explore" id="explore">
+  <section class="page explore" id="explore">
 
-  <header class="dashboard-header">
-    <h1>Explore</h1>
-  </header>
+    <header class="dashboard-header">
+      <h1>Explore</h1>
+    </header>
 
-  <main id="main-content">
+    <main id="main-content">
 
-    <section class="section">
-      <h2>Discover New Knowledge</h2>
-      <p>Explore lessons, subjects, and creators from students and teachers across different schools.</p>
-    </section>
+      <section class="section">
+        <h2>Discover New Knowledge</h2>
+        <p>Explore lessons, subjects, and creators from students and teachers across different schools.</p>
+      </section>
 
-    <section class="section">
-      <h3>Popular Categories</h3>
-      <ul class="category-list" id="category-list">
-        <!-- Categories injected here -->
-      </ul>
-    </section>
+      <section class="section">
+        <h3>Popular Categories</h3>
+        <hr>
+        <div class="content-list" id="content-list">
+          <!-- Contents injected here -->
 
-    <section class="section">
-      <h3>Trending Lessons</h3>
-      <ul id="trending-lessons">
-        <!-- Trending lessons injected here -->
-      </ul>
-    </section>
+        </div>
+      </section>
 
-    <section class="section">
-      <h3>Top Creators</h3>
-      <ul id="top-creators">
-        <!-- Top creators injected here -->
-      </ul>
-    </section>
+      <section class="section">
+        <h3>Trending Lessons</h3>
+        <ul id="trending-lessons">
+          <!-- Trending lessons injected here -->
+        </ul>
+      </section>
 
-  </main>
+      <section class="section">
+        <h3>Top Creators</h3>
+        <ul id="top-creators">
+          <!-- Top creators injected here -->
+        </ul>
+      </section>
 
-</section>
+    </main>
 
-<script src="/src/public/scripts/base/core.js"></script>
-<script src="/src/public/scripts/base/main.js"></script>
-<script src="/src/public/scripts/pages/auth.js"></script>
-<script src="/src/public/scripts/pages/dashboard.js"></script>
-<script src="/src/public/scripts/UI/components.js"></script>
-<script src="/src/public/scripts/UI/theme.js"></script>
+  </section>
+
+  <script src="/src/public/scripts/base/core.js"></script>
+  <script src="/src/public/scripts/base/main.js"></script>
+  <script src="/src/public/scripts/pages/auth.js"></script>
+  <script src="/src/public/scripts/pages/dashboard.js"></script>
+  <script src="/src/public/scripts/UI/components.js"></script>
+  <script src="/src/public/scripts/UI/theme.js"></script>
+
+
+  <!-- load content for explore page -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load categories, trending lessons, and top creators
+      // loadCategories();
+      // loadTrendingLessons();
+      // loadTopCreators();
+
+      fetch('/api/content/', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Explore content:', data[0]);
+          const contentList = data; // Assuming API returns { content: [...] }
+          console.log('Content list:', contentList);
+
+          data.forEach(content => {
+            const ContentContainer = document.createElement('div');
+            const ContentTitle = document.createElement('h3');
+            const ContentDescription = document.createElement('p');
+            const CreatedBy = document.createElement('p');
+            const createdAt = document.createElement('p');
+
+            ContentContainer.style.border = '1px solid #ccc';
+            ContentContainer.style.padding = '10px';
+            ContentContainer.style.margin = '10px';
+            ContentContainer.style.borderRadius = '5px';
+
+            
+            ContentTitle.textContent = content.title;
+            ContentDescription.textContent = content.description;
+            createdAt.textContent = `Created at: ${new Date(content.createdAt).toLocaleDateString()}`;
+            ContentContainer.appendChild(ContentTitle);
+            ContentContainer.appendChild(ContentDescription);
+            ContentContainer.appendChild(createdAt);
+
+            // fetch content creator name
+            fetch(`/api/users/${content.user}`, {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+              }
+            })
+              .then(response => response.json())
+              .then(userData => {
+                CreatedBy.textContent = `Created by: ${userData.username}`;
+                ContentContainer.appendChild(CreatedBy);
+              })
+              .catch(error => console.error('Error fetching creator:', error));
+
+            document.getElementById('content-list').appendChild(ContentContainer);
+          });
+        });
+
+
+      // // Check if user is authenticated
+      // const token = localStorage.getItem('authToken');
+      // if (!token) {
+      //   // Redirect to login if not authenticated
+      //   window.location.href = '/signin';
+      // }
+    });
+  </script>
 
 
 </body>
+
 </html>
