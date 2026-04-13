@@ -66,8 +66,12 @@
           console.log('Success:', data);
           if (data.token) {
         localStorage.setItem('authToken', data.token);
+        console.log(data);
+        
+        localStorage.setItem('userId', data.user._id);
+        alert('Login successful!');
           }
-          window.location.href = '/profile';
+          // window.location.href = '/profile';
         })
         .catch((error) => {
           console.error('Error:', error);

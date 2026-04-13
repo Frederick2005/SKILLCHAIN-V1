@@ -230,6 +230,10 @@
     transform var(--transition-fast);
 }
 
+.theme-toggle{
+  transform: translateY(-15px);
+}
+
 .theme-toggle:hover {
   background: var(--color-card-bg);
   transform: translateY(-1px);

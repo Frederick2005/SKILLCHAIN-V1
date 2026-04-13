@@ -5,8 +5,8 @@ import asyncHandler from "express-async-handler";
 // -----------------------------------------------------------
 // GET CONTENT
 // -----------------------------------------------------------
-export const getContent = asyncHandler(async (req, res) => {
-  const contents = await Content.find({ user: req.user._id });
+export const getContents = asyncHandler(async (req, res) => {
+  const contents = await Content.find();
   res.status(200).json(contents);
 });
 
@@ -33,4 +33,29 @@ export const createContent = asyncHandler(async (req, res) => {
   await user.save();
 
   res.status(201).json(newContent);
+});
+
+export const editContent = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const { title, description } = req.body;
+
+  const content = await Content.findById(id);
+  if (!content) {
+    return res.status(404).json({ message: "Content not found" });
+  }
+
+  content.title = title;
+  content.description = description;
+
+  const updatedContent = await content.save();
+  res.status(200).json(updatedContent);
+});
+
+export const getContent = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const content = await Content.findById(id);
+  if (!content) {
+    return res.status(404).json({ message: "Content not found" });
+  }
+  res.status(200).json(content);
 });

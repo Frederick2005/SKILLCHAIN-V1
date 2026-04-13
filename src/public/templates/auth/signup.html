@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Sign Up</title>
-  <link rel="stylesheet" href="/styles/base/main.css" />
+  <link rel="stylesheet" href="../../styles/base/main.css" />
 
 </head>
 
@@ -87,6 +87,8 @@
           console.log('Success:', data);
           if (data.token) {
         localStorage.setItem('authToken', data.token);
+        localStorage.setItem('userId', data.userId);
+        alert('Registration successful!');
           }
           window.location.href = '/profile';
         })
