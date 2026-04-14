@@ -196,7 +196,7 @@
 }
 
 .auth-footer a {
-  color: var(--color-secondary);
+  color: var(--color-gradient-end);
   font-weight: 600;
   text-decoration: none;
   transition: color var(--transition-fast);
