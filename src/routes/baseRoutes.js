@@ -15,7 +15,8 @@ const renderTemplate = (res, fileName) => {
   res.sendFile(path.join(TEMPLATE_DIR, fileName));
 };
 
-router.get("/", (_, res) => renderTemplate(res, "/main/home.html"));
+router.get("/", (_, res) => renderTemplate(res, "/main/index.html"));
+router.get("/home", (_, res) => renderTemplate(res, "/main/home.html"));
 router.get("/about", (_, res) => renderTemplate(res, "/marketing/about.html"));
 router.get("/create", (_, res) => renderTemplate(res, "/main/create.html"));
 router.get("/explore", (_, res) => renderTemplate(res, "/Discover/explore.html"));

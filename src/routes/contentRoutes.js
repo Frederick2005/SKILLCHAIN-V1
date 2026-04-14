@@ -10,6 +10,7 @@ router.post("/create", protect, createContent)
 
 router.get("/:id", getContent);
 
+// user must be logged in and must be the creator of the content to edit it
 router.put("/:id", protect, editContent);
 
 

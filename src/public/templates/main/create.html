@@ -12,44 +12,32 @@
 <body>
 <!-- ===== NAVBAR ===== -->
 <nav class="main-nav">
-
-  <!-- Logo (Desktop only) -->
-  <a href="/index.html" class="nav-logo">skillchain</a>
-
-  <!-- Navigation Items -->
+  <a href="/" class="nav-logo">skillchain</a>
   <a href="/" class="nav-item">
-    <i class="fa-solid fa-house"></i>
+    <!-- <i class="fa-solid fa-house"></i> -->
     <span>Home</span>
   </a>
-
   <a href="/about" class="nav-item">
-    <i class="fa-solid fa-circle-info"></i>
+    <!-- <i class="fa-solid fa-circle-info"></i> -->
     <span>About</span>
   </a>
-
-<a href="/create" class="nav-item active">
-    <i class="fa-solid fa-plus"></i>
+  <a href="/create" class="nav-item">
+    <!-- <i class="fa-solid fa-plus"></i> -->
     <span>Create</span>
   </a>
-
-  <a href="/explore " class="nav-item">
-    <i class="fa-solid fa-compass"></i>
+  <a href="/explore" class="nav-item active">
+    <!-- <i class="fa-solid fa-compass"></i> -->
     <span>Explore</span>
   </a>
-
   <a href="/profile" class="nav-item">
-    <i class="fa-solid fa-user"></i>
+    <!-- <i class="fa-solid fa-user"></i> -->
     <span>Profile</span>
   </a>
-
-  <!-- Active Indicator -->
+  <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button> -->
   <div class="nav-indicator"></div>
-<!--======= dark/light mode =======-->
-  <button id="theme-toggle" class="theme-toggle sidebar-toggle" aria-label="Toggle theme">
-  <i class="fas fa-moon"></i>
-  <span> light Mode</span>
-</button>
-
 </nav>
 <!--=======SIDE BAR BUTTON========
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
@@ -261,6 +249,8 @@
 <script src="/src/public/scripts/pages/dashboard.js"></script>
 <script src="/src/public/scripts/UI/components.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
+
+<script src="/scripts/pages/nav.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
