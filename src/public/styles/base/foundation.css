@@ -1,5 +1,5 @@
 /* =========================
-   SkillChain Foundation
+   EduConnect Foundation
    ========================= */
 
 /* ---------- IMPORT VARIABLES ---------- */
@@ -44,7 +44,7 @@ a:hover {
 /* ---------- HEADINGS ---------- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-sans);
-  color: var(--color-text);
+  color: var(--color-text-muted);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-md);
 }

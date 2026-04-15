@@ -25,14 +25,14 @@ header {
 header h1 {
   font-size: var(--font-size-2xl);
   font-weight: 700;
-  color: var(--color-card-bg, #ffffff);
+  color: var(--color-text-muted);
   margin: 0;
   cursor: pointer;
   transition: color var(--transition-fast) var(--easing-default);
 }
 
 header h1:hover {
-  color: var(--color-secondary, #3b82f6);
+  color: var(--color-primary);
 }
 
 /* ---------- NAVIGATION ---------- */

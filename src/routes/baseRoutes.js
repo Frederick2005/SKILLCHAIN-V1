@@ -15,18 +15,27 @@ const renderTemplate = (res, fileName) => {
   res.sendFile(path.join(TEMPLATE_DIR, fileName));
 };
 
-router.get("/", (_, res) => renderTemplate(res, "/main/home.html"));
+router.get("/", (_, res) => renderTemplate(res, "/main/index.html"));
+router.get("/home", (_, res) => renderTemplate(res, "/main/home.html"));
 router.get("/about", (_, res) => renderTemplate(res, "/marketing/about.html"));
 router.get("/create", (_, res) => renderTemplate(res, "/main/create.html"));
 router.get("/explore", (_, res) => renderTemplate(res, "/Discover/explore.html"));
 router.get("/profile", (_, res) => renderTemplate(res, "/social/profile.html"));
 router.get("/edit-lesson/:id", (_, res) => renderTemplate(res, "/main/edit-lesson.html"));
 
-router.get("/help", (_, res) => renderTemplate(res, "help.html"));
+router.get("/help", (_, res) => renderTemplate(res, "/support/help.html"));
 router.get("/account", (_, res) => renderTemplate(res, "account.html"));
-router.get("/inbox", (_, res) => renderTemplate(res, "inbox.html"));
+router.get("/chat", (_, res) => renderTemplate(res, "chart/chat.html"));
 router.get("/library", (_, res) => renderTemplate(res, "library.html"));
 router.get("/messages", (_, res) => renderTemplate(res, "messages.html"));
+// test
+
+router.get("/privacy-policy", (_, res) => renderTemplate(res, "legal/privacy-policy.html"));
+router.get("/terms", (_, res) => renderTemplate(res, "legal/terms.html"));
+router.get("/guidelines", (_, res) => renderTemplate(res, "support/community-guidelines.html/"));
+router.get("/contributors", (_, res) => renderTemplate(res, "Fork/contributors.html"));
+router.get("/pricing", (_, res) => renderTemplate(res, "marketing/pricing.html"));
+router.get("/features", (_, res) => renderTemplate(res, "marketing/features.html"));
 
 router.get("/signup", (_, res) => renderTemplate(res, "auth/signup.html"));
 router.get("/signin", (_, res) => renderTemplate(res, "auth/login.html"));

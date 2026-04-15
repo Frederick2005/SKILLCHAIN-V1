@@ -5,7 +5,7 @@ import { getAllUsers, getUser } from "../controllers/userController.js";
 const router = express.Router();
 
 router.get("/", protect, getAllUsers);
-router.get("/:id", protect, getUser);
+router.get("/:id", getUser);
 
 
 

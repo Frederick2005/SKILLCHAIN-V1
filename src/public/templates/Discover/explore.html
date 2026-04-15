@@ -1,63 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkillChain – Explore</title>
-    <link rel="stylesheet" href="../../styles/base/main.css" />
-    <script
-      src="https://kit.fontawesome.com/a1ae1ba1c7.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
 
-  <body>
-    <!-- ===== NAVBAR ===== -->
-    <nav class="main-nav">
-      <!-- Logo (Desktop only) -->
-      <a href="/index.html" class="nav-logo">skillchain</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Explore</title>
+  <link rel="stylesheet" href="../../styles/base/main.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
 
-      <!-- Navigation Items -->
-      <a href="/" class="nav-item">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-      </a>
-
-      <a href="/about" class="nav-item">
-        <i class="fa-solid fa-circle-info"></i>
-        <span>About</span>
-      </a>
-
-      <a href="/create" class="nav-item">
-        <i class="fa-solid fa-plus"></i>
-        <span>Create</span>
-      </a>
-
-      <a href="/explore " class="nav-item active">
-        <i class="fa-solid fa-compass"></i>
-        <span>Explore</span>
-      </a>
-
-      <a href="/profile" class="nav-item">
-        <i class="fa-solid fa-user"></i>
-        <span>Profile</span>
-      </a>
-
-      <!-- Active Indicator -->
-      <div class="nav-indicator"></div>
-
-      <!--=========dark/light theme button========-->
-      <button
-        id="theme-toggle"
-        class="theme-toggle sidebar-toggle"
-        aria-label="Toggle theme"
-      >
-        <i class="fas fa-moon"></i>
-        <span> light Mode</span>
-      </button>
-    </nav>
-
-    <!--=======SIDE BAR BUTTON========--
+<body>
+<!-- ===== NAVBAR ===== -->
+<nav class="main-nav">
+  <a href="/" class="nav-logo">skillchain</a>
+  <a href="/" class="nav-item">
+    <!-- <i class="fa-solid fa-house"></i> -->
+    <span>Home</span>
+  </a>
+  <a href="/about" class="nav-item">
+    <!-- <i class="fa-solid fa-circle-info"></i> -->
+    <span>About</span>
+  </a>
+  <a href="/create" class="nav-item">
+    <!-- <i class="fa-solid fa-plus"></i> -->
+    <span>Create</span>
+  </a>
+  <a href="/explore" class="nav-item active">
+    <!-- <i class="fa-solid fa-compass"></i> -->
+    <span>Explore</span>
+  </a>
+  <a href="/profile" class="nav-item">
+    <!-- <i class="fa-solid fa-user"></i> -->
+    <span>Profile</span>
+  </a>
+  <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button> -->
+  <div class="nav-indicator"></div>
+</nav>
+  <!--=======SIDE BAR BUTTON========--
 <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
   <i class="fa-solid fa-bars"></i>
 </button>
@@ -155,132 +137,135 @@
 </section>
 -->
 
-    <section class="page explore" id="explore">
-      <header class="dashboard-header">
-        <h1>Explore</h1>
-      </header>
+  <section class="page explore" id="explore">
+    <header class="dashboard-header">
+      <h1>Explore</h1>
+    </header>
 
-      <main id="main-content">
-        <section class="section">
-          <h2>Discover New Knowledge</h2>
-          <p>
-            Explore lessons, subjects, and creators from students and teachers
-            across different schools.
-          </p>
-        </section>
+    <main id="main-content">
+      <section class="section">
+        <h2>Discover New Knowledge</h2>
+        <p>
+          Explore lessons, subjects, and creators from students and teachers
+          across different schools.
+        </p>
+      </section>
 
-        <section class="section">
-          <h3>Popular Categories</h3>
-          <hr />
-          <div class="content-list" id="content-list">
-            <!-- Contents injected here -->
-          </div>
-        </section>
+      <section class="section">
+        <h3>Popular Categories</h3>
+        <hr />
+        <div class="content-list" id="content-list">
+          <!-- Contents injected here -->
+        </div>
+      </section>
 
-        <section class="section">
-          <h3>Trending Lessons</h3>
-          <ul id="trending-lessons">
-            <!-- Trending lessons injected here -->
-          </ul>
-        </section>
+      <section class="section">
+        <h3>Trending Lessons</h3>
+        <ul id="trending-lessons">
+          <!-- Trending lessons injected here -->
+        </ul>
+      </section>
 
-        <section class="section">
-          <h3>Top Creators</h3>
-          <ul id="top-creators">
-            <!-- Top creators injected here -->
-          </ul>
-        </section>
-      </main>
-    </section>
+      <section class="section">
+        <h3>Top Creators</h3>
+        <ul id="top-creators">
+          <!-- Top creators injected here -->
+        </ul>
+      </section>
+    </main>
+  </section>
 
-    <script src="/src/public/scripts/base/core.js"></script>
-    <script src="/src/public/scripts/base/main.js"></script>
-    <script src="/src/public/scripts/pages/auth.js"></script>
-    <script src="/src/public/scripts/pages/dashboard.js"></script>
-    <script src="/src/public/scripts/UI/components.js"></script>
-    <script src="/src/public/scripts/UI/theme.js"></script>
+  <script src="/scripts/base/core.js"></script>
+  <script src="/scripts/base/main.js"></script>
+  <script src="/scripts/pages/auth.js"></script>
+  <script src="/scripts/pages/dashboard.js"></script>
+  <script src="/scripts/UI/components.js"></script>
+  <script src="/scripts/UI/theme.js"></script>
 
-    <!-- load content for explore page -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Load categories, trending lessons, and top creators
-        // loadCategories();
-        // loadTrendingLessons();
-        // loadTopCreators();
+  <script src="/scripts/pages/nav.js"></script>
 
-        fetch("/api/content/", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Explore content:", data[0]);
-            const contentList = data; // Assuming API returns { content: [...] }
-            console.log("Content list:", contentList);
+  <!-- load content for explore page -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Load categories, trending lessons, and top creators
+      // loadCategories();
+      // loadTrendingLessons();
+      // loadTopCreators();
 
-            data.forEach((content) => {
-              const ContentContainer = document.createElement("div");
-              const ContentTitle = document.createElement("h3");
-              const ContentDescription = document.createElement("p");
-              const CreatedBy = document.createElement("p");
-              const createdAt = document.createElement("p");
-              const category = document.createElement("p");
+      fetch("/api/content/", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Explore content:", data[0]);
+          const contentList = data; // Assuming API returns { content: [...] }
+          console.log("Content list:", contentList);
 
-              ContentContainer.style.border = "1px solid #ccc";
-              ContentContainer.style.padding = "10px";
-              ContentContainer.style.margin = "10px";
-              ContentContainer.style.borderRadius = "5px";
+          data.forEach((content) => {
+            const ContentContainer = document.createElement("div");
+            const ContentTitle = document.createElement("h3");
+            const ContentDescription = document.createElement("p");
+            const CreatedBy = document.createElement("p");
+            const createdAt = document.createElement("p");
+            const category = document.createElement("p");
 
-              ContentTitle.textContent = content.title;
-              ContentDescription.textContent = content.description;
-              category.textContent = `Category: ${content.category}`;
-              createdAt.textContent = `Created at: ${new Date(content.createdAt).toLocaleDateString()}`;
-              ContentContainer.appendChild(ContentTitle);
-              ContentContainer.appendChild(ContentDescription);
-              ContentContainer.appendChild(category);
-              ContentContainer.appendChild(createdAt);
+            ContentContainer.style.border = "1px solid #ccc";
+            ContentContainer.style.padding = "10px";
+            ContentContainer.style.margin = "10px";
+            ContentContainer.style.borderRadius = "5px";
 
-              
+            ContentTitle.textContent = content.title;
+            ContentDescription.textContent = content.description;
+            category.textContent = `Category: ${content.category}`;
+            createdAt.textContent = `Created at: ${new Date(content.createdAt).toLocaleDateString()}`;
+            ContentContainer.appendChild(ContentTitle);
+            ContentContainer.appendChild(ContentDescription);
+            ContentContainer.appendChild(category);
+            ContentContainer.appendChild(createdAt);
 
-              // verify if loggenin user is the creator of the lesson. then allow edit permission
-              if (localStorage.getItem("userId") === content.user) {
-                const editBTN = document.createElement("button");
-                editBTN.textContent = "Edit";
-                editBTN.addEventListener("click", () => {
-                  window.location.href = `/edit-lesson/${content._id}`;
-                });
-                ContentContainer.appendChild(editBTN);
-              }
 
-              // fetch content creator name
-              fetch(`/api/users/${content.user}`, {
-                headers: {
-                  Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                },
+
+            // verify if loggenin user is the creator of the lesson. then allow edit permission
+            if (localStorage.getItem("userId") === content.user) {
+              const editBTN = document.createElement("button");
+              editBTN.textContent = "Edit";
+              editBTN.addEventListener("click", () => {
+                window.location.href = `/edit-lesson/${content._id}`;
+              });
+              ContentContainer.appendChild(editBTN);
+            }
+
+            // fetch content creator name
+            fetch(`/api/users/${content.user}`, {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+              },
+            })
+              .then((response) => response.json())
+              .then((userData) => {
+                CreatedBy.textContent = `Created by: ${userData.username}`;
+                ContentContainer.appendChild(CreatedBy);
               })
-                .then((response) => response.json())
-                .then((userData) => {
-                  CreatedBy.textContent = `Created by: ${userData.username}`;
-                  ContentContainer.appendChild(CreatedBy);
-                })
-                .catch((error) =>
-                  console.error("Error fetching creator:", error),
-                );
+              .catch((error) =>
+                console.error("Error fetching creator:", error),
+              );
 
-              document
-                .getElementById("content-list")
-                .appendChild(ContentContainer);
-            });
+            document
+              .getElementById("content-list")
+              .appendChild(ContentContainer);
           });
+        });
 
-        // // Check if user is authenticated
-        // const token = localStorage.getItem('authToken');
-        // if (!token) {
-        //   // Redirect to login if not authenticated
-        //   window.location.href = '/signin';
-        // }
-      });
-    </script>
-  </body>
+      // // Check if user is authenticated
+      // const token = localStorage.getItem('authToken');
+      // if (!token) {
+      //   // Redirect to login if not authenticated
+      //   window.location.href = '/signin';
+      // }
+    });
+  </script>
+</body>
+
 </html>

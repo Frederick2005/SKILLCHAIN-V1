@@ -9,6 +9,61 @@
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
+ <nav class="main-nav">
+
+    <!-- Logo (Desktop only) -->
+    <a href="/" class="nav-logo">skillchain</a>
+
+    <!-- Navigation Items -->
+    <div class="nav-list">
+
+      <a href="/home" class="nav-item">
+        <!-- <i class="fa-solid fa-house"></i> -->
+        <span>Home</span>
+      </a>
+
+      <a href="/about" class="nav-item">
+        <!-- <i class="fa-solid fa-circle-info"></i> -->
+        <span>About</span>
+      </a>
+
+      <a href="/features" class="nav-item">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Features</span>
+      </a>
+      
+      <a href="/pricing" class="nav-item">
+       <!-- <i class="fa-solid fa-user"></i> -->
+       <span>Pricing</span>
+      </a>
+
+      <a href="/create" class="nav-item">
+       <!-- <i class="fa-solid fa-plus"></i> -->
+       <span>Create</span>
+      </a>
+
+      <a href="/signin" class="nav-item">
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <span>Sign In</span>
+      </a>
+      
+      <!--=====DARK/LIGHT MODE BUTTON=====-->
+
+      <!-- <a href="" class="nav-item"></a>  -->
+      <!-- <button id="theme-toggle" class="theme-toggle sidebar-toggle"
+        aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <span> light Mode</span>
+      </button> -->
+
+    </div>
+
+    <!-- Active Indicator -->
+    <div class="nav-indicator"></div>
+
+
+  </nav>
 
 <section class="page login" id="login">
 
@@ -47,6 +102,8 @@
 
 <script src="/src/public/scripts/pages/auth.js"></script>
 <script src="/src/public/scripts/UI/theme.js"></script>
+
+<script src="/src/public/scripts/pages/nav.js"></script>
 
   <script>
     document.getElementById('login-form').addEventListener('submit', function (e) {
