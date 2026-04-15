@@ -23,7 +23,13 @@ router.get("/explore", (_, res) => renderTemplate(res, "/Discover/explore.html")
 router.get("/profile", (_, res) => renderTemplate(res, "/social/profile.html"));
 router.get("/edit-lesson/:id", (_, res) => renderTemplate(res, "/main/edit-lesson.html"));
 
+<<<<<<< HEAD
 router.get("/help", (_, res) => renderTemplate(res, "/support/help.html"));
+=======
+router.get("/lesson/:id", (_, res) => renderTemplate(res, "/Discover/lesson.html"));
+
+router.get("/help", (_, res) => renderTemplate(res, "help.html"));
+>>>>>>> 274cbbb0a68e191ef13918915a15f65edda66968
 router.get("/account", (_, res) => renderTemplate(res, "account.html"));
 router.get("/chat", (_, res) => renderTemplate(res, "chart/chat.html"));
 router.get("/library", (_, res) => renderTemplate(res, "library.html"));

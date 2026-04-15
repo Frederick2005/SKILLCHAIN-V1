@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillChain – Explore</title>
+  <!-- <link rel="stylesheet" href="../../styles/base/main.css" /> -->
+  <link rel="stylesheet" href="/styles/base/nav.css" />
+  <link rel="stylesheet" href="/styles/base/lesson.css" />
+  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <a href="/" class="nav-logo">skillchain</a>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="main-nav">
+      <a href="/" class="nav-item">
+        <!-- <i class="fa-solid fa-house"></i> -->
+        <span>Home</span>
+      </a>
+      <a href="/about" class="nav-item">
+        <!-- <i class="fa-solid fa-circle-info"></i> -->
+        <span>About</span>
+      </a>
+      <a href="/create" class="nav-item">
+        <!-- <i class="fa-solid fa-plus"></i> -->
+        <span>Create</span>
+      </a>
+      <a href="/explore" class="nav-item active">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Explore</span>
+      </a>
+      <a href="/profile" class="nav-item">
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <span>Profile</span>
+      </a>
+      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button> -->
+      <div class="nav-indicator"></div>
+    </nav>
+  </header>
+
+    <section class="section-main">
+      <a href="/explore">Back</a>
+      <div class="lesson-card">
+        <h2 class="lesson-title"></h2>
+        <hr>
+        <p class="lesson-description"></p>
+        <div class="lesson-details">
+          <p><span id="view-count">0</span> Views</p>
+          <p><span id="like-count">0</span> Likes</p>
+        </div>
+      </div>
+    </section>
+
+  <script src="/scripts/base/core.js"></script>
+  <script src="/scripts/base/main.js"></script>
+  <script src="/scripts/pages/auth.js"></script>
+  <script src="/scripts/pages/dashboard.js"></script>
+  <script src="/scripts/UI/components.js"></script>
+  <script src="/scripts/UI/theme.js"></script>
+
+  <script src="/scripts/pages/nav.js"></script>
+
+  <!-- load content for explore page -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lessonTitle = document.querySelector(".lesson-title");
+      const lessonDescription = document.querySelector(".lesson-description");
+
+      const lessonId = localStorage.getItem("lessonId"); // Get lesson ID from URL
+      // Fetch lesson data (replace with actual API call)
+      fetch(`/api/content/${lessonId}`) // Example endpoint
+        .then((response) => response.json())
+        .then((data) => {
+          lessonTitle.textContent = data.title;
+          lessonDescription.textContent = data.description;
+        })
+        .catch((error) => {
+          console.error("Error fetching lesson data:", error);
+          lessonTitle.textContent = "Lesson not found";
+          lessonDescription.textContent = "Sorry, we couldn't load the lesson details.";
+        });
+    });
+  </script>
+</body>
+
+</html>
