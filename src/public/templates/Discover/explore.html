@@ -112,14 +112,47 @@
             const createdAt = document.createElement("p");
             const category = document.createElement("p");
             const viewBTN = document.createElement("button");
+            const likeBTN = document.createElement("button");
 
             ContentContainer.className = "content-container";
             viewBTN.textContent = "Read More...";
             viewBTN.className = "read-more-btn";
             viewBTN.addEventListener("click", () => {
+              fetch(`/api/content/${content._id}/view`, {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                },
+              })
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Error incrementing view count");
+                  }
+                })
+                .catch((error) =>
+                  console.error("Error incrementing view count:", error),
+                );
               localStorage.setItem("lessonId", content._id); // Store lesson ID in localStorage for retrieval on lesson page
               window.location.href = `/lesson/${content._id}`;
             });
+
+             likeBTN.textContent = "Like";
+             likeBTN.className = "like-btn";
+             likeBTN.addEventListener("click", () => {
+              fetch(`/api/content/${content._id}/like`, {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                },
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    alert("Content liked!");
+                  } else {
+                    alert("Error liking content");
+                  }
+                })
+             });
             
             ContentTitle.textContent = content.title;
 
@@ -127,10 +160,11 @@
             ContentDescription.textContent = LimitedDescription;
             category.textContent = `Category: ${content.category}`;
             createdAt.textContent = `Created at: ${new Date(content.createdAt).toLocaleDateString()}`;
+            ContentContainer.appendChild(category);
             ContentContainer.appendChild(ContentTitle);
             ContentDescription.appendChild(viewBTN);
+              ContentDescription.appendChild(likeBTN);
             ContentContainer.appendChild(ContentDescription);
-            ContentContainer.appendChild(category);
             ContentContainer.appendChild(createdAt);
 
 
