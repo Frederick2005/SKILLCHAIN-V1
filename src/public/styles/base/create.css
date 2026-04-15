@@ -1,0 +1,89 @@
+:root {
+    --color-primary: #4a90e2;
+    --color-primary-dark: #357ABD;
+    --color-secondary: #50e3c2;
+    --color-background: #f5f5f5;
+    --color-text: #333333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+}
+
+
+.create-lesson {
+    padding: 2rem;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+}
+
+.create-lesson h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.create-lesson form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-lesson .form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.create-lesson .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.create-lesson .form-group input,
+.create-lesson .form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.create-lesson .form-group textarea  {
+    resize: vertical;
+    height: 150px;
+}
+
+.create-lesson .form-group input:focus,
+.create-lesson .form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.create-lesson .form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.create-lesson .form-group select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.create-lesson button {
+    padding: 0.75rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}

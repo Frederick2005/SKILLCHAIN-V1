@@ -23,6 +23,8 @@ router.get("/explore", (_, res) => renderTemplate(res, "/Discover/explore.html")
 router.get("/profile", (_, res) => renderTemplate(res, "/social/profile.html"));
 router.get("/edit-lesson/:id", (_, res) => renderTemplate(res, "/main/edit-lesson.html"));
 
+router.get("/lesson/:id", (_, res) => renderTemplate(res, "/Discover/lesson.html"));
+
 router.get("/help", (_, res) => renderTemplate(res, "help.html"));
 router.get("/account", (_, res) => renderTemplate(res, "account.html"));
 router.get("/inbox", (_, res) => renderTemplate(res, "inbox.html"));

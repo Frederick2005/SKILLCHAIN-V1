@@ -8,6 +8,7 @@ router.get("/", getContents);
 
 router.post("/create", protect, createContent)
 
+// anyone can view content, but only the creator can edit it
 router.get("/:id", getContent);
 
 // user must be logged in and must be the creator of the content to edit it
