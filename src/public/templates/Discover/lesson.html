@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="/styles/base/nav.css" />
   <link rel="stylesheet" href="/styles/base/lesson.css" />
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+
 </head>
 
 <body>
@@ -58,8 +62,23 @@
     <div class="comments-section">
       <h3>Comments <span id="comment-count">0</span></h3>
       <form id="comment-form">
-        <textarea name="comment" placeholder="Write a comment..." required></textarea>
-        <button type="submit">Post Comment</button>
+        <div id="comment-toolbar">
+          <span class="ql-formats">
+            <button class="ql-bold"></button>
+            <button class="ql-italic"></button>
+            <button class="ql-underline"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-list" value="ordered"></button>
+            <button class="ql-list" value="bullet"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-blockquote"></button>
+            <button class="ql-clean"></button>
+          </span>
+        </div>
+        <div id="comment-editor"></div>
+        <button type="submit" id="comment-submit">Post Comment</button>
       </form>
       <div class="comments-list"></div>
     </div>
@@ -76,138 +95,340 @@
 
   <!-- load content for explore page -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const lessonTitle = document.querySelector(".lesson-title");
-      const lessonDescription = document.querySelector(".lesson-description");
+    // document.addEventListener("DOMContentLoaded", () => {
+    //   const lessonTitle = document.querySelector(".lesson-title");
+    //   const lessonDescription = document.querySelector(".lesson-description");
 
-      const lessonId = localStorage.getItem("lessonId"); // Get lesson ID from URL
-      // Fetch lesson data (replace with actual API call)
-      fetch(`/api/content/${lessonId}`) // Example endpoint
-        .then((response) => response.json())
-        .then((data) => {
-          lessonTitle.textContent = data.title;
-          lessonDescription.textContent = data.description;
+    //   const lessonId = localStorage.getItem("lessonId"); // Get lesson ID from URL
+    //   // Fetch lesson data (replace with actual API call)
+    //   fetch(`/api/content/${lessonId}`) // Example endpoint
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       lessonTitle.textContent = data.title;
+    //       lessonDescription.innerHTML = data.description;
+    //       document.getElementById("view-count").textContent = data.views;
+    //       document.getElementById("like-count").textContent = data.likes.length;
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error fetching lesson data:", error);
+    //       lessonTitle.textContent = "Lesson not found";
+    //       lessonDescription.textContent = "Sorry, we couldn't load the lesson details.";
+    //     });
+
+    //   // Fetch comments for the lesson (replace with actual API call)
+    //   // find lesson the loop through comments and find the ones that match the lesson id and display them
+    //   fetch(`/api/comments/${lessonId}`) // Example endpoint to get comments for a specific content
+    //     .then((response) => response.json())
+    //     .then((comments) => {
+    //       const commentsList = document.querySelector(".comments-list");
+    //       commentsList.innerHTML = ""; // Clear existing comments
+    //       document.getElementById("comment-count").textContent = comments.length;
+    //       comments.forEach((comment) => {
+    //         const commentElement = document.createElement("div");
+    //         const commentAuthor = document.createElement("p");
+    //         const commentText = document.createElement("p");
+    //         const deleteButton = document.createElement("button");
+    //         commentAuthor.classList.add("comment-author");
+    //         deleteButton.textContent = "Delete";
+    //         deleteButton.classList.add("delete-button");
+
+    //         deleteButton.addEventListener("click", () => {
+    //           const authToken = localStorage.getItem("authToken"); // Get auth token from localStorage (set during login)
+    //           console.log(comment._id);
+
+    //           if (!authToken) {
+    //             alert("Authentication token not found. Please log in again.");
+    //             return;
+    //           }
+    //           fetch(`/api/comments/${comment._id}`, {
+    //             method: "DELETE",
+    //             headers: {
+    //               Authorization: `Bearer ${authToken}`, // Include auth token in request headers
+    //             },
+
+    //           })
+    //             .then((response) => {
+    //               if (response.ok) {
+    //                 commentElement.remove(); // Remove comment from UI
+    //               } else {
+    //                 throw new Error("Failed to delete comment");
+    //               }
+    //             })
+    //             .catch((error) => {
+    //               console.error("Error deleting comment:", error);
+    //               alert("Sorry, we couldn't delete the comment.");
+    //             });
+    //         });
+
+    //         // You may want to fetch the username based on the user ID if it's not included in the comment object
+    //         fetch(`/api/users/${comment.user}`) // Example endpoint to get user details
+    //           .then((response) => response.json())
+    //           .then((userData) => {
+    //             commentAuthor.textContent = `Author: ${userData.username}`; // Update with actual username
+    //           })
+    //           .catch((error) => {
+    //             console.error("Error fetching user data:", error);
+    //             commentAuthor.textContent = `User: ${comment.user}`; // Fallback to user ID if username can't be fetched
+    //           });
+    //         commentElement.classList.add("comment");
+    //         commentText.classList.add("comment-text");
+    //         commentText.textContent = comment.comment; // Assuming comment object has a 'comment' field
+    //         commentElement.appendChild(commentAuthor);
+    //         commentElement.appendChild(commentText);
+    //         commentElement.appendChild(deleteButton);
+    //         commentsList.appendChild(commentElement);
+    //       });
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error fetching comments:", error);
+    //       const commentsList = document.querySelector(".comments-list");
+    //       commentsList.innerHTML = "<p>Sorry, we couldn't load the comments.</p>";
+    //     })
+
+
+    // });
+
+    // // Handle comment form submission
+    // document.getElementById("comment-form").addEventListener("submit", function (e) {
+    //   e.preventDefault();
+    //   const commentText = this.comment.value;
+    //   const lessonId = localStorage.getItem("lessonId");
+
+    //   const userId = localStorage.getItem("userId"); // Get user ID from localStorage (set during login)
+    //   if (!userId) {
+    //     alert("You must be logged in to post a comment.");
+    //     return;
+    //   }
+    //   const authToken = localStorage.getItem("authToken"); // Get auth token from localStorage (set during login)
+    //   if (!authToken) {
+    //     alert("Authentication token not found. Please log in again.");
+    //     return;
+    //   }
+    //   // Submit comment (replace with actual API call)
+    //   fetch(`/api/comments/create`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${authToken}`, // Include auth token in request headers
+    //     },
+    //     body: JSON.stringify({
+    //       comment: commentText,
+    //       contentId: lessonId,    // <-- this is what ties the comment to the lesson
+    //     })
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       // Handle successful comment submission
+    //       console.log("Comment submitted:", data);
+    //       this.comment.value = ""; // Clear the comment input
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error submitting comment:", error);
+    //     });
+    // });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const lessonId = localStorage.getItem("lessonId");
+
+      // Lesson content fetch (unchanged)
+      fetch(`/api/content/${lessonId}`)
+        .then(res => res.json())
+        .then(data => {
+          document.querySelector(".lesson-title").textContent = data.title;
+          document.querySelector(".lesson-description").innerHTML = data.description;
           document.getElementById("view-count").textContent = data.views;
           document.getElementById("like-count").textContent = data.likes.length;
         })
-        .catch((error) => {
-          console.error("Error fetching lesson data:", error);
-          lessonTitle.textContent = "Lesson not found";
-          lessonDescription.textContent = "Sorry, we couldn't load the lesson details.";
+        .catch(() => {
+          document.querySelector(".lesson-title").textContent = "Lesson not found";
         });
 
-      // Fetch comments for the lesson (replace with actual API call)
-      // find lesson the loop through comments and find the ones that match the lesson id and display them
-      fetch(`/api/comments?content=${lessonId}`) // Example endpoint to get comments for a specific content
-        .then((response) => response.json())
-        .then((comments) => {
-          const commentsList = document.querySelector(".comments-list");
-          commentsList.innerHTML = ""; // Clear existing comments
-          document.getElementById("comment-count").textContent = comments.length;
-          comments.forEach((comment) => {
-            const commentElement = document.createElement("div");
-            const commentAuthor = document.createElement("p");
-            const commentText = document.createElement("p");
-            const deleteButton = document.createElement("button");
-            commentAuthor.classList.add("comment-author");
-            deleteButton.textContent = "Delete";
-            deleteButton.classList.add("delete-button");
+      // ---- reusable comment loader ----
+      function loadComments() {
+        fetch(`/api/comments/${lessonId}`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
+        })
+          .then(res => res.json())
+          .then(comments => {
+            const commentsList = document.querySelector(".comments-list");
+            commentsList.innerHTML = "";
+            document.getElementById("comment-count").textContent = comments.length;
 
-            deleteButton.addEventListener("click", () => {
-              const authToken = localStorage.getItem("authToken"); // Get auth token from localStorage (set during login)
-              console.log(comment._id);
-              
-              if (!authToken) {
-                alert("Authentication token not found. Please log in again.");
-                return;
+            comments.forEach(comment => {
+              const commentElement = document.createElement("div");
+              const commentAuthor = document.createElement("p");
+              const commentText = document.createElement("p");
+              const deleteButton = document.createElement("button");
+
+              commentElement.classList.add("comment");
+              commentAuthor.classList.add("comment-author");
+              commentText.classList.add("comment-text");
+              deleteButton.classList.add("delete-button");
+              deleteButton.textContent = "Delete";
+
+              // Only show delete button if comment belongs to logged-in user
+              if (localStorage.getItem("userId") !== comment.user?._id) {
+                deleteButton.style.display = "none";
               }
-              fetch(`/api/comments/${comment._id}`, {
-                method: "DELETE",
-                headers: {
-                  Authorization: `Bearer ${authToken}`, // Include auth token in request headers
-                },
 
-              })
-                .then((response) => {
-                  if (response.ok) {
-                    commentElement.remove(); // Remove comment from UI
-                  } else {
-                    throw new Error("Failed to delete comment");
-                  }
+              deleteButton.addEventListener("click", () => {
+                fetch(`/api/comments/${comment._id}`, {
+                  method: "DELETE",
+                  headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
                 })
-                .catch((error) => {
-                  console.error("Error deleting comment:", error);
-                  alert("Sorry, we couldn't delete the comment.");
-                });
-            });
-
-            // You may want to fetch the username based on the user ID if it's not included in the comment object
-            fetch(`/api/users/${comment.user}`) // Example endpoint to get user details
-              .then((response) => response.json())
-              .then((userData) => {
-                commentAuthor.textContent = `Author: ${userData.username}`; // Update with actual username
-              })
-              .catch((error) => {
-                console.error("Error fetching user data:", error);
-                commentAuthor.textContent = `User: ${comment.user}`; // Fallback to user ID if username can't be fetched
+                  .then(res => {
+                    if (res.ok) {
+                      commentElement.remove();
+                      document.getElementById("comment-count").textContent =
+                        document.querySelectorAll(".comment").length;
+                    }
+                  })
+                  .catch(err => console.error("Error deleting comment:", err));
               });
-            commentElement.classList.add("comment");
-            commentText.classList.add("comment-text");
-            commentText.textContent = comment.comment; // Assuming comment object has a 'comment' field
-            commentElement.appendChild(commentAuthor);
-            commentElement.appendChild(commentText);
-            commentElement.appendChild(deleteButton);
-            commentsList.appendChild(commentElement);
+
+              // Reply toggle button
+              const replyToggle = document.createElement("button");
+              replyToggle.textContent = "Reply";
+              replyToggle.classList.add("reply-toggle");
+
+              // Reply form (hidden by default)
+              const replyForm = document.createElement("div");
+              replyForm.classList.add("reply-form");
+              replyForm.style.display = "none";
+              replyForm.innerHTML = `
+  <textarea class="reply-input" placeholder="Write a reply..."></textarea>
+  <button class="reply-submit">Post Reply</button>
+`;
+
+              // Reply list
+              const replyList = document.createElement("div");
+              replyList.classList.add("reply-list");
+
+              // Toggle reply form
+              replyToggle.addEventListener("click", () => {
+                replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
+              });
+
+              // Load replies for this comment
+              fetch(`/api/replies/${comment._id}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` }
+              })
+                .then(res => res.json())
+                .then(replies => {
+                  replies.forEach(reply => {
+                    const replyEl = document.createElement("div");
+                    const replyAuthor = document.createElement("p");
+                    const replyText = document.createElement("p");
+
+                    replyEl.classList.add("reply");
+                    replyAuthor.textContent = reply.user?.username ?? "Unknown";
+                    replyText.innerHTML = reply.reply;   // HTML from Quill
+
+                    replyEl.appendChild(replyAuthor);
+                    replyEl.appendChild(replyText);
+                    replyList.appendChild(replyEl);
+                  });
+                });
+
+              // Submit a reply
+              replyForm.querySelector(".reply-submit").addEventListener("click", () => {
+                const replyText = replyForm.querySelector(".reply-input").value.trim();
+                if (!replyText) return;
+
+                fetch(`/api/replies`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("authToken")}`
+                  },
+                  body: JSON.stringify({
+                    reply: replyText,
+                    commentId: comment._id
+                  })
+                })
+                  .then(res => res.json())
+                  .then(newReply => {
+                    const replyEl = document.createElement("div");
+                    const replyAuthor = document.createElement("p");
+                    const replyText = document.createElement("p");
+
+                    replyEl.classList.add("reply");
+                    replyAuthor.textContent = newReply.user?.username ?? "Unknown";
+                    replyText.innerHTML = newReply.reply;
+
+                    replyEl.appendChild(replyAuthor);
+                    replyEl.appendChild(replyText);
+                    replyList.appendChild(replyEl);
+
+                    replyForm.querySelector(".reply-input").value = "";
+                    replyForm.style.display = "none";
+                  });
+              });
+
+              commentText.innerHTML = comment.comment;
+              commentElement.appendChild(commentAuthor);
+              commentElement.appendChild(commentText);
+              commentElement.appendChild(deleteButton);
+              commentsList.appendChild(commentElement);
+              commentElement.appendChild(replyToggle);
+              commentElement.appendChild(replyForm);
+              commentElement.appendChild(replyList);
+            });
+          })
+          .catch(() => {
+            document.querySelector(".comments-list").innerHTML =
+              "<p>Could not load comments.</p>";
           });
-        })
-        .catch((error) => {
-          console.error("Error fetching comments:", error);
-          const commentsList = document.querySelector(".comments-list");
-          commentsList.innerHTML = "<p>Sorry, we couldn't load the comments.</p>";
-        })
+      }
 
+      loadComments(); // initial load
+
+      // ---- comment form submit ----
+      document.getElementById("comment-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+          alert("You must be logged in to post a comment.");
+          return;
+        }
+
+        // Validate editor isn't empty
+        if (commentQuill.getText().trim().length === 0) {
+          alert("Please write something before posting.");
+          return;
+        }
+
+        const htmlContent = commentQuill.root.innerHTML;  // grab formatted HTML
+
+        fetch(`/api/comments`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`
+          },
+          body: JSON.stringify({
+            comment: htmlContent,     // saves formatted HTML
+            contentId: lessonId
+          })
+        })
+          .then(res => res.json())
+          .then(() => {
+            commentQuill.setContents([]);  // clear editor
+            loadComments();                // refresh list
+          })
+          .catch(err => console.error("Error posting comment:", err));
+      });
 
     });
 
-    // Handle comment form submission
-    document.getElementById("comment-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const commentText = this.comment.value;
-      const lessonId = localStorage.getItem("lessonId");
-
-      const userId = localStorage.getItem("userId"); // Get user ID from localStorage (set during login)
-      if (!userId) {
-        alert("You must be logged in to post a comment.");
-        return;
-      }
-      const authToken = localStorage.getItem("authToken"); // Get auth token from localStorage (set during login)
-      if (!authToken) {
-        alert("Authentication token not found. Please log in again.");
-        return;
-      }
-      // Submit comment (replace with actual API call)
-      fetch(`/api/comments/create`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`, // Include auth token in request headers
-        },
-        body: JSON.stringify({
-          user: userId,
-          comment: commentText,
-        })
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Handle successful comment submission
-          console.log("Comment submitted:", data);
-          this.comment.value = ""; // Clear the comment input
-        })
-        .catch((error) => {
-          console.error("Error submitting comment:", error);
-        });
+    // Initialize comment editor
+    const commentQuill = new Quill('#comment-editor', {
+      theme: 'snow',
+      modules: { toolbar: '#comment-toolbar' },
+      placeholder: 'Write a comment...'
     });
-
   </script>
 </body>
 

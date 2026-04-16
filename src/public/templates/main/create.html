@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Create Lesson</title>
   <!-- <link rel="stylesheet" href="../../styles/base/main.css" /> -->
-   <link rel="stylesheet" href="/styles/base/nav.css" />
+  <link rel="stylesheet" href="/styles/base/nav.css" />
   <link rel="stylesheet" href="/styles/base/create.css" />
+  <link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
 
@@ -16,76 +18,107 @@
 <body>
   <header>
     <a href="/" class="nav-logo">skillchain</a>
-     <!-- ===== NAVBAR ===== -->
-  <nav class="main-nav">
-    <a href="/home" class="nav-item">
-      <!-- <i class="fa-solid fa-house"></i> -->
-      <span>Home</span>
-    </a>
-    <a href="/about" class="nav-item">
-      <!-- <i class="fa-solid fa-circle-info"></i> -->
-      <span>About</span>
-    </a>
-    <a href="/create" class="nav-item">
-      <!-- <i class="fa-solid fa-plus"></i> -->
-      <span>Create</span>
-    </a>
-    <a href="/explore" class="nav-item active">
-      <!-- <i class="fa-solid fa-compass"></i> -->
-      <span>Explore</span>
-    </a>
-    <a href="/profile" class="nav-item">
-      <!-- <i class="fa-solid fa-user"></i> -->
-      <span>Profile</span>
-    </a>
-    <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <!-- ===== NAVBAR ===== -->
+    <nav class="main-nav">
+      <a href="/home" class="nav-item">
+        <!-- <i class="fa-solid fa-house"></i> -->
+        <span>Home</span>
+      </a>
+      <a href="/about" class="nav-item">
+        <!-- <i class="fa-solid fa-circle-info"></i> -->
+        <span>About</span>
+      </a>
+      <a href="/create" class="nav-item">
+        <!-- <i class="fa-solid fa-plus"></i> -->
+        <span>Create</span>
+      </a>
+      <a href="/explore" class="nav-item active">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Explore</span>
+      </a>
+      <a href="/profile" class="nav-item">
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <span>Profile</span>
+      </a>
+      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
     <span>Light Mode</span>
   </button> -->
-    <div class="nav-indicator"></div>
-  </nav>
+      <div class="nav-indicator"></div>
+    </nav>
   </header>
- 
+
   <section class="page create-lesson" id="create-lesson">
 
-      <h1>Create New Lesson</h1>
-      <!-- <p class="section-text">
+    <h1>Create New Lesson</h1>
+    <!-- <p class="section-text">
         Share your knowledge with students across SkillChain.
       </p> -->
 
-      <form id="create-lesson-form">
+    <form id="create-lesson-form">
 
-        <!-- TITLE -->
-        <div class="form-group">
-          <label for="lesson-title">Lesson Title</label>
-          <input type="text" id="lesson-title" placeholder="Enter lesson title" required>
+      <!-- TITLE -->
+      <div class="form-group">
+        <label for="lesson-title">Lesson Title</label>
+        <input type="text" id="lesson-title" placeholder="Enter lesson title" required>
+      </div>
+
+      <!-- CATEGORY -->
+      <div class="form-group">
+        <label for="lesson-category">Category</label>
+        <select id="lesson-category" required>
+          <option value="" disabled selected>Select category</option>
+          <option value="mathematics">Mathematics</option>
+          <option value="physics">Physics</option>
+          <option value="chemistry">Chemistry</option>
+          <option value="biology">Biology</option>
+          <option value="computer-science">English</option>
+          <option value="history">History</option>
+          <option value="literature">Geography</option>
+
+          <!-- <option value="__add_new__">+ Add new category</option> -->
+        </select>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="form-group">
+        <label>Lesson Content</label>
+        <div id="quill-toolbar">
+          <span class="ql-formats">
+            <select class="ql-header">
+              <option value="2">Heading</option>
+              <option value="3">Subheading</option>
+              <option selected value="">Normal</option>
+            </select>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-bold"></button>
+            <button class="ql-italic"></button>
+            <button class="ql-underline"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-list" value="ordered"></button>
+            <button class="ql-list" value="bullet"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-link"></button>
+            <button class="ql-blockquote"></button>
+            <button class="ql-code-block"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-clean"></button>
+          </span>
         </div>
+        <div id="lesson-content-editor"></div>
+        <!-- Hidden input carries the HTML value on submit -->
+        <input type="hidden" id="lesson-content" name="lesson-content" />
+      </div>
+      <!-- SUBMIT -->
+      <button type="submit" class="btn btn-primary btn-block">
+        Create Lesson
+      </button>
 
-        <!-- CATEGORY -->
-        <div class="form-group">
-          <label for="lesson-category">Category</label>
-          <select id="lesson-category" required>
-            <option value="" disabled selected>Select category</option>
-            <option value="mathematics">Mathematics</option>
-            <option value="physics">Physics</option>
-            <option value="chemistry">Chemistry</option>
-            <option value="programming">Programming</option>
-            <option value="python">Python</option>
-            <!-- <option value="__add_new__">+ Add new category</option> -->
-          </select>
-        </div>
-
-        <!-- CONTENT -->
-        <div class="form-group">
-          <label for="lesson-content">Lesson Content</label>
-          <textarea id="lesson-content" placeholder="Write lesson content here..." required></textarea>
-        </div>
-        <!-- SUBMIT -->
-        <button type="submit" class="btn btn-primary btn-block">
-          Create Lesson
-        </button>
-
-      </form>
+    </form>
 
   </section>
 
@@ -100,13 +133,30 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const categorySelect = document.getElementById('lesson-category');
 
-      // Handle form submission
+      // Initialize Quill
+      const quill = new Quill('#lesson-content-editor', {
+        theme: 'snow',
+        modules: {
+          toolbar: '#quill-toolbar'
+        },
+        placeholder: 'Write your lesson content here...'
+      });
+
       const createLessonForm = document.getElementById('create-lesson-form');
+
       createLessonForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Collect form data and submit to backend (not implemented here)
+
+        // Get the HTML content from Quill
+        const htmlContent = quill.root.innerHTML;
+
+        // Prevent submitting an empty editor
+        if (quill.getText().trim().length === 0) {
+          alert('Please add some lesson content.');
+          return;
+        }
+
         fetch('/api/content/create', {
           method: 'POST',
           headers: {
@@ -116,15 +166,17 @@
           body: JSON.stringify({
             title: document.getElementById('lesson-title').value,
             category: document.getElementById('lesson-category').value,
-            description: document.getElementById('lesson-content').value
+            description: htmlContent   // <-- sends full HTML with formatting
           })
         })
-          .then(response => response.json())
+          .then(res => res.json())
           .then(data => {
             alert('Lesson created successfully!');
             createLessonForm.reset();
+            quill.setContents([]);  // clear the editor too
           });
       });
+
     });
   </script>
 

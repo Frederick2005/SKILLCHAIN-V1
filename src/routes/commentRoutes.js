@@ -4,18 +4,10 @@ import { getComments, getComment, createComment, deleteComment, likeComment } fr
 
 const router = express.Router();
 
-router.get("/", getComments);
-
-router.post("/create", protect, createComment)
-
-// anyone can view content, but only the creator can edit it
-router.get("/:id", getComment);
-
-router.delete("/:id", protect, deleteComment);
-
-// like and views
-router.post("/:id/like", protect, likeComment);
-
-// router.get("/dashboard", protect)
+router.post("/", protect, createComment);             // POST /api/comments
+router.get("/:contentId", protect, getComments);     // GET  /api/comments/:contentId
+router.get("/single/:id", protect, getComment);      // GET  /api/comments/single/:id
+router.delete("/:id", protect, deleteComment);       // DELETE /api/comments/:id
+router.post("/:id/like", protect, likeComment);      // POST /api/comments/:id/like
 
 export default router;

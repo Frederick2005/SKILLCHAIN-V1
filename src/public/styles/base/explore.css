@@ -78,3 +78,20 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.lesson-content h2       { font-size: 1.4rem; font-weight: 600; margin: 1.2rem 0 0.4rem; }
+.lesson-content h3       { font-size: 1.15rem; font-weight: 600; margin: 1rem 0 0.4rem; }
+.lesson-content p        { margin: 0.6rem 0; line-height: 1.75; }
+.lesson-content strong   { font-weight: 600; }
+.lesson-content em       { font-style: italic; }
+.lesson-content ul,
+.lesson-content ol       { padding-left: 1.5rem; margin: 0.6rem 0; }
+.lesson-content li       { margin: 0.3rem 0; }
+.lesson-content blockquote {
+  border-left: 3px solid #ccc;
+  padding-left: 1rem;
+  color: #666;
+  margin: 1rem 0;
+}
+.lesson-content pre,
+.lesson-content code     { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }

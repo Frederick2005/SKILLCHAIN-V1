@@ -3,29 +3,30 @@ import Comment from "../models/Comment.js";
 import asyncHandler from "express-async-handler";
 
 // -----------------------------------------------------------
-// GET COMMENTS
-// -----------------------------------------------------------
+// GET COMMENTS — only for a specific content
 export const getComments = asyncHandler(async (req, res) => {
-  const comments = await Comment.find();
+  const { contentId } = req.params; // comes from route: /api/comments/:contentId
+
+  const comments = await Comment.find({ content: contentId })
+    .populate("user", "username"); // optionally return the username too
+
   res.status(200).json(comments);
 });
 
-// -----------------------------------------------------------
-// CREATE COMMENT
-// -----------------------------------------------------------
+// CREATE COMMENT — attach to specific content
 export const createComment = asyncHandler(async (req, res) => {
-  const { comment } = req.body;
+  const { comment, contentId } = req.body;
 
-  if (!comment) {
-    return res.status(400).json({ message: "Comment is required" });
+  if (!comment || !contentId) {
+    return res.status(400).json({ message: "Comment and contentId are required" });
   }
 
   const newComment = await Comment.create({
     user: req.user._id,
+    content: contentId,   // ADD THIS
     comment,
   });
 
-  // Update user's comment list
   const user = await User.findById(req.user._id);
   user.comments.push(newComment._id);
   await user.save();
