@@ -1,109 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Login</title>
-  <link rel="stylesheet" href="../../styles/base/main.css" />
+  <link rel="stylesheet" href="../../styles/base/auth.css" />
+  <link rel="stylesheet" href="../../styles/base/nav.css" />
 
 </head>
+
 <body>
-
-<!-- ===== NAVBAR ===== -->
- <nav class="main-nav">
-
-    <!-- Logo (Desktop only) -->
+  <header>
     <a href="/" class="nav-logo">skillchain</a>
-
-    <!-- Navigation Items -->
-    <div class="nav-list">
-
-      <a href="/home" class="nav-item">
+    <!-- ===== NAVBAR ===== -->
+    <nav class="main-nav">
+      <a href="/" class="nav-item">
         <!-- <i class="fa-solid fa-house"></i> -->
         <span>Home</span>
       </a>
-
       <a href="/about" class="nav-item">
         <!-- <i class="fa-solid fa-circle-info"></i> -->
         <span>About</span>
       </a>
-
-      <a href="/features" class="nav-item">
-        <!-- <i class="fa-solid fa-compass"></i> -->
-        <span>Features</span>
-      </a>
-      
-      <a href="/pricing" class="nav-item">
-       <!-- <i class="fa-solid fa-user"></i> -->
-       <span>Pricing</span>
-      </a>
-
       <a href="/create" class="nav-item">
-       <!-- <i class="fa-solid fa-plus"></i> -->
-       <span>Create</span>
+        <!-- <i class="fa-solid fa-plus"></i> -->
+        <span>Create</span>
       </a>
-
-      <a href="/signin" class="nav-item">
+      <a href="/explore" class="nav-item active">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Explore</span>
+      </a>
+      <a href="/profile" class="nav-item">
         <!-- <i class="fa-solid fa-user"></i> -->
-        <span>Sign In</span>
+        <span>Profile</span>
       </a>
-      
-      <!--=====DARK/LIGHT MODE BUTTON=====-->
+      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button> -->
+      <div class="nav-indicator"></div>
+    </nav>
+  </header>
+  <section class="dashboard-card auth-section">
 
-      <!-- <a href="" class="nav-item"></a>  -->
-      <!-- <button id="theme-toggle" class="theme-toggle sidebar-toggle"
-        aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-        <span> light Mode</span>
-      </button> -->
+    <h1 class="section-title">Welcome Back</h1>
+    <p class="section-text">Login to continue learning and earning.</p>
 
-    </div>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      </div>
 
-    <!-- Active Indicator -->
-    <div class="nav-indicator"></div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      </div>
 
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
 
-  </nav>
+    <p class="redirect-link">
+      Don’t have an account?
+      <a href="/signup">Sign Up</a>
+    </p>
 
-<section class="page login" id="login">
+  </section>
 
+  <script src="/src/public/scripts/pages/auth.js"></script>
+  <script src="/src/public/scripts/UI/theme.js"></script>
 
-  <!-- Main Content Wrapper -->
-  <main class="dashboard-container">
-    <section class="dashboard-card auth-form">
-
-      <h1 class="section-title">Welcome Back</h1>
-      <p class="section-text">Login to continue learning and earning.</p>
-
-      <form id="login-form">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required />
-        </div>
-
-        <div class="form-options">
-          <a href="forgot-password.html">Forgot Password?</a>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-
-      <p class="auth-footer">Don’t have an account? <a href="/signup">Sign Up</a></p>
-
-    </section>
-  </main>
-
-</section>
-
-<script src="/src/public/scripts/pages/auth.js"></script>
-<script src="/src/public/scripts/UI/theme.js"></script>
-
-<script src="/src/public/scripts/pages/nav.js"></script>
+  <script src="/src/public/scripts/pages/nav.js"></script>
 
   <script>
     document.getElementById('login-form').addEventListener('submit', function (e) {
@@ -122,19 +90,20 @@
         .then(data => {
           console.log('Success:', data);
           if (data.token) {
-        localStorage.setItem('authToken', data.token);
-        console.log(data);
-        
-        localStorage.setItem('userId', data.user._id);
-        alert('Login successful!');
+            localStorage.setItem('authToken', data.token);
+            console.log(data);
+
+            localStorage.setItem('userId', data.user._id);
+            alert('Login successful!');
           }
-           window.location.href = '/profile';
+          window.location.href = '/profile';
         })
         .catch((error) => {
           console.error('Error:', error);
         });
 
-        });
+    });
   </script>
 </body>
+
 </html>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Explore</title>
   <!-- <link rel="stylesheet" href="../../styles/base/main.css" /> -->
-   <link rel="stylesheet" href="/styles/base/nav.css" />
+  <link rel="stylesheet" href="/styles/base/nav.css" />
   <link rel="stylesheet" href="/styles/base/explore.css" />
   <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
 </head>
@@ -14,67 +14,71 @@
 <body>
   <header>
     <a href="/" class="nav-logo">skillchain</a>
-     <!-- ===== NAVBAR ===== -->
-  <nav class="main-nav">
-    <a href="/" class="nav-item">
-      <!-- <i class="fa-solid fa-house"></i> -->
-      <span>Home</span>
-    </a>
-    <a href="/about" class="nav-item">
-      <!-- <i class="fa-solid fa-circle-info"></i> -->
-      <span>About</span>
-    </a>
-    <a href="/create" class="nav-item">
-      <!-- <i class="fa-solid fa-plus"></i> -->
-      <span>Create</span>
-    </a>
-    <a href="/explore" class="nav-item active">
-      <!-- <i class="fa-solid fa-compass"></i> -->
-      <span>Explore</span>
-    </a>
-    <a href="/profile" class="nav-item">
-      <!-- <i class="fa-solid fa-user"></i> -->
-      <span>Profile</span>
-    </a>
-    <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <!-- ===== NAVBAR ===== -->
+    <nav class="main-nav">
+      <a href="/" class="nav-item">
+        <!-- <i class="fa-solid fa-house"></i> -->
+        <span>Home</span>
+      </a>
+      <a href="/about" class="nav-item">
+        <!-- <i class="fa-solid fa-circle-info"></i> -->
+        <span>About</span>
+      </a>
+      <a href="/create" class="nav-item">
+        <!-- <i class="fa-solid fa-plus"></i> -->
+        <span>Create</span>
+      </a>
+      <a href="/explore" class="nav-item active">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Explore</span>
+      </a>
+      <a href="/profile" class="nav-item">
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <span>Profile</span>
+      </a>
+      <!-- <a href="/signin" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>Sign In</span>
+      </a> -->
+
+      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
     <span>Light Mode</span>
   </button> -->
-    <div class="nav-indicator"></div>
-  </nav>
+      <div class="nav-indicator"></div>
+    </nav>
   </header>
+  <main id="main-content" class="explore-container">
+    <section class="section-top">
+      <h2>Discover New Knowledge</h2>
+      <p>
+        Explore lessons, subjects, and creators from students and teachers
+        across different schools.
+      </p>
+    </section>
 
-    <main id="main-content" class="explore-container">
-      <section class="section-top">
-        <h2>Discover New Knowledge</h2>
-        <p>
-          Explore lessons, subjects, and creators from students and teachers
-          across different schools.
-        </p>
-      </section>
+    <section class="section">
+      <h3>Popular Categories</h3>
+      <hr />
+      <div class="content-list" id="content-list">
+        <!-- Contents injected here -->
+      </div>
+    </section>
 
-      <section class="section">
-        <h3>Popular Categories</h3>
-        <hr />
-        <div class="content-list" id="content-list">
-          <!-- Contents injected here -->
-        </div>
-      </section>
+    <section class="section">
+      <h3>Trending Lessons</h3>
+      <ul id="trending-lessons">
+        <!-- Trending lessons injected here -->
+      </ul>
+    </section>
 
-      <section class="section">
-        <h3>Trending Lessons</h3>
-        <ul id="trending-lessons">
-          <!-- Trending lessons injected here -->
-        </ul>
-      </section>
-
-      <section class="section">
-        <h3>Top Creators</h3>
-        <ul id="top-creators">
-          <!-- Top creators injected here -->
-        </ul>
-      </section>
-    </main>
+    <section class="section">
+      <h3>Top Creators</h3>
+      <ul id="top-creators">
+        <!-- Top creators injected here -->
+      </ul>
+    </section>
+  </main>
 
   <script src="/scripts/base/core.js"></script>
   <script src="/scripts/base/main.js"></script>
@@ -136,9 +140,9 @@
               window.location.href = `/lesson/${content._id}`;
             });
 
-             likeBTN.textContent = "Like";
-             likeBTN.className = "like-btn";
-             likeBTN.addEventListener("click", () => {
+            likeBTN.textContent = "Like";
+            likeBTN.className = "like-btn";
+            likeBTN.addEventListener("click", () => {
               fetch(`/api/content/${content._id}/like`, {
                 method: "POST",
                 headers: {
@@ -152,18 +156,27 @@
                     alert("Error liking content");
                   }
                 })
-             });
-            
+            });
+
             ContentTitle.textContent = content.title;
 
-            const LimitedDescription = content.description.substring(0, 100) + "..."; // Limit description to first 100 characters
+            // ADD — strips HTML tags to get plain text for the preview
+            function stripHTML(html) {
+              const temp = document.createElement('div');
+              temp.innerHTML = html;
+              return temp.textContent || temp.innerText || '';
+            }
+
+            const plainText = stripHTML(content.description);
+            const LimitedDescription = plainText.substring(0, 120) + "...";
+            
             ContentDescription.textContent = LimitedDescription;
             category.textContent = `Category: ${content.category}`;
             createdAt.textContent = `Created at: ${new Date(content.createdAt).toLocaleDateString()}`;
             ContentContainer.appendChild(category);
             ContentContainer.appendChild(ContentTitle);
             ContentDescription.appendChild(viewBTN);
-              ContentDescription.appendChild(likeBTN);
+            ContentDescription.appendChild(likeBTN);
             ContentContainer.appendChild(ContentDescription);
             ContentContainer.appendChild(createdAt);
 

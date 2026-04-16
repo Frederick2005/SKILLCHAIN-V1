@@ -26,12 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     });
                 }
+
             })
             .catch((err) => console.error("Error fetching user data:", err));
         }
         
         // If token exists, show all nav links
         navLinks.forEach((link) => (link.style.display = "flex"));
+        if (href === "/signin" || href === "/signup") {
+            link.style.display = "none";
+        }
     } else {
         // If no token, hide create and profile links
         navLinks.forEach((link) => {
