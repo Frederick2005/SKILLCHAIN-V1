@@ -55,3 +55,55 @@ body {
     display: flex;
     gap: 20px;
 }
+
+.comments-section {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.comments-section h3 {
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+.comments-section form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+.comments-section textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+.comments-section button {
+    align-self: flex-end;
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.comments-section button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.comments-section .comment {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.comments-section .comment .comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+.comments-section .comment .comment-text {
+    color: var(--color-text);
+}

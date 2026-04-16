@@ -8,6 +8,7 @@ import baseRoutes from './routes/baseRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import contentRoutes from './routes/contentRoutes.js';
+import commentRoutes from "./routes/commentRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -39,6 +40,7 @@ app.use('/', baseRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/content', contentRoutes); // Placeholder for content routes
+app.use("/api/comments", commentRoutes); // Placeholder for comment routes
 
 // Start server
 app.listen(PORT, () => {
