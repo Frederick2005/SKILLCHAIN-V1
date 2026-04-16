@@ -1,55 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Login</title>
-  <link rel="stylesheet" href="../../styles/base/main.css" />
+  <link rel="stylesheet" href="../../styles/base/auth.css" />
+  <link rel="stylesheet" href="../../styles/base/nav.css" />
 
 </head>
+
 <body>
+  <header>
+    <a href="/" class="nav-logo">skillchain</a>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="main-nav">
+      <a href="/" class="nav-item">
+        <!-- <i class="fa-solid fa-house"></i> -->
+        <span>Home</span>
+      </a>
+      <a href="/about" class="nav-item">
+        <!-- <i class="fa-solid fa-circle-info"></i> -->
+        <span>About</span>
+      </a>
+      <a href="/create" class="nav-item">
+        <!-- <i class="fa-solid fa-plus"></i> -->
+        <span>Create</span>
+      </a>
+      <a href="/explore" class="nav-item active">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Explore</span>
+      </a>
+      <a href="/profile" class="nav-item">
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <span>Profile</span>
+      </a>
+      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button> -->
+      <div class="nav-indicator"></div>
+    </nav>
+  </header>
+  <section class="dashboard-card auth-section">
 
+    <h1 class="section-title">Welcome Back</h1>
+    <p class="section-text">Login to continue learning and earning.</p>
 
-<section class="page login" id="login">
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      </div>
 
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      </div>
 
-  <!-- Main Content Wrapper -->
-  <main class="dashboard-container">
-    <section class="dashboard-card auth-form">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
 
-      <h1 class="section-title">Welcome Back</h1>
-      <p class="section-text">Login to continue learning and earning.</p>
+    <p class="redirect-link">
+      Don’t have an account?
+      <a href="/signup">Sign Up</a>
+    </p>
 
-      <form id="login-form" action="/src/public/templates/main/home.html" method="GET">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
-        </div>
+  </section>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required />
-        </div>
+  <script src="/src/public/scripts/pages/auth.js"></script>
+  <script src="/src/public/scripts/UI/theme.js"></script>
 
-        <div class="form-options">
-          <label>
-            <input type="checkbox" name="remember" /> Remember me
-          </label>
-          <a href="forgot-password.html">Forgot Password?</a>
-        </div>
+  <script src="/src/public/scripts/pages/nav.js"></script>
 
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-      <p class="auth-footer">Don’t have an account? <a href="/src/public/templates/auth/signup.html">Sign Up</a></p>
+      console.log('Form submitted:', { email, password });
+      // Add your API call or validation logic here
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          if (data.token) {
+            localStorage.setItem('authToken', data.token);
+            console.log(data);
 
-    </section>
-  </main>
+            localStorage.setItem('userId', data.user._id);
+            alert('Login successful!');
+          }
+          window.location.href = '/profile';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
 
-</section>
-
-<script src="/src/public/scripts/pages/auth.js"></script>
-<script src="/src/public/scripts/UI/theme.js"></script>
-
+    });
+  </script>
 </body>
+
 </html>

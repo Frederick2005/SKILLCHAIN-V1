@@ -1,72 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillChain – Sign Up</title>
-  <link rel="stylesheet" href="../../styles/base/main.css" />
-  
+  <link rel="stylesheet" href="../../styles/base/auth.css" />
+  <link rel="stylesheet" href="../../styles/base/nav.css" />
+
 </head>
+
 <body>
+  <header>
+    <a href="/" class="nav-logo">skillchain</a>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="main-nav">
+      <a href="/" class="nav-item">
+        <!-- <i class="fa-solid fa-house"></i> -->
+        <span>Home</span>
+      </a>
+      <a href="/about" class="nav-item">
+        <!-- <i class="fa-solid fa-circle-info"></i> -->
+        <span>About</span>
+      </a>
+      <a href="/create" class="nav-item">
+        <!-- <i class="fa-solid fa-plus"></i> -->
+        <span>Create</span>
+      </a>
+      <a href="/explore" class="nav-item active">
+        <!-- <i class="fa-solid fa-compass"></i> -->
+        <span>Explore</span>
+      </a>
+      <a href="/profile" class="nav-item">
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <span>Profile</span>
+      </a>
+      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+    <span>Light Mode</span>
+  </button> -->
+      <div class="nav-indicator"></div>
+    </nav>
+  </header>
 
-<section class="page signup" id="signup">
-  
- 
-  
-  <!-- Main Content Wrapper -->
-  <main class="dashboard-container">
-    <section class="dashboard-card auth-form">
-      
-      <h1 class="section-title">Create an Account</h1>
-      <p class="section-text">Join SkillChain and start learning.</p>
-      
-      <form id="signup-form">
-        
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" placeholder="Enter username" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter email" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter password" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="confirm-password">Confirm Password</label>
-          <input type="password" id="confirm-password" placeholder="Confirm password" required>
-        </div>
-        
-        <label class="checkbox">
-          <input type="checkbox" id="terms" required>
-          I agree to the
-          <a href="../legal/terms.html">Terms</a> &
-          <a href="../legal/privacy-policy.html">Privacy Policy</a>
-        </label>
-        
-        <button type="submit" class="btn btn-primary btn-block">
-          Sign Up
-        </button>
-        
-      </form>
-      
-      <p class="auth-footer">
-        Already have an account?
-        <a href="/src/public/templates/auth/login.html">Login here</a>
-      </p>
-      
-    </section>
-  </main>
-  
-</section>
+      <section class="dashboard-card auth-section">
 
-<script src="/src/public/scripts/pages/auth.js"></script>
-<script src="/src/public/scripts/UI/theme.js"></script>
+        <h1 class="section-title">Create an Account</h1>
+        <p class="section-text">Join SkillChain and start learning.</p>
+
+        <form id="signup-form">
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="role">I am a:</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="learner">Learner</option>
+                <option value="instructor">Instructor</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Sign Up
+          </button>
+
+        </form>
+
+        <p class="redirect-link">
+          Already have an account?
+          <a href="/signin">Login here</a>
+        </p>
+
+      </section>
+
+
+  <script src="/scripts/pages/auth.js"></script>
+  <script src="/scripts/UI/theme.js"></script>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const role = document.getElementById('role').value;
+
+      console.log('Form submitted:', { username, email, password, role });
+      // Add your API call or validation logic here
+      fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password, role })
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          if (data.token) {
+        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('userId', data.userId);
+        alert('Registration successful!');
+          }
+          window.location.href = '/profile';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+        });
+  </script>
 
 </body>
+
 </html>

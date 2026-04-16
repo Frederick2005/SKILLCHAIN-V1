@@ -3,10 +3,13 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import connectDB from './config/db.js';
+// import connectDB from './config/db.js';
 import baseRoutes from './routes/baseRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import contentRoutes from './routes/contentRoutes.js';
+import commentRoutes from "./routes/commentRoutes.js";
+import replyRoutes from "./routes/replyRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -16,7 +19,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 
 // CONNECT DATABASE
-// connectDB()
+// connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,7 +39,10 @@ app.use(morgan('dev'));
 // Routes
 app.use('/', baseRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/content', contentRoutes); // Placeholder for content routes
+app.use("/api/comments", commentRoutes); // Placeholder for comment routes
+app.use("/api/replies", replyRoutes);
 
 // Start server
 app.listen(PORT, () => {

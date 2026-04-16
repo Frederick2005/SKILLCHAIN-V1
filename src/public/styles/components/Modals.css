@@ -165,7 +165,7 @@
   border-radius: var(--border-radius-md);
   border: var(--border-width-thin) solid transparent;
   background: rgba(255, 255, 255, 0.12);
-  color: var(--color-text-light);
+  color: var(--color-text-muted);
   font-size: var(--font-size-md);
   transition: transform var(--transition-fast),
               box-shadow var(--transition-fast),
@@ -196,7 +196,7 @@
 }
 
 .auth-footer a {
-  color: var(--color-secondary);
+  color: var(--color-gradient-end);
   font-weight: 600;
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -967,7 +967,7 @@ body.sidebar-collapsed main {
 
 .username {
   font-size: var(--font-size-2xl);
-  color: var(--color-text-light);
+  color: var(--color-text-muted);
 }
 
 .profile-meta-grid {
