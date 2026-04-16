@@ -80,6 +80,27 @@
           <label for="lesson-content">Lesson Content</label>
           <textarea id="lesson-content" placeholder="Write lesson content here..." required></textarea>
         </div>
+          <!-- FILE UPLOAD -->
+      <div class="form-group">
+        <label>Attachments <span style="font-weight:400;color:#94a3b8;">(optional)</span></label>
+
+        <div class="upload-zone" id="upload-zone">
+          <input
+            type="file"
+            id="lesson-files"
+            name="files"
+            multiple
+            accept=".pdf,.doc,.docx,.zip"
+          />
+          <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <p>Drag &amp; drop files here, or</p>
+          <span class="upload-btn-label">Browse Files</span>
+          <p class="upload-hint">PDF, Word (.doc/.docx), or ZIP — max 2 MB per file</p>
+        </div>
+
+        <div class="file-list" id="file-list"></div>
+        <p class="upload-limit-note">ZIP files must only contain PDF or Word documents.</p>
+      </div>
         <!-- SUBMIT -->
         <button type="submit" class="btn btn-primary btn-block">
           Create Lesson
