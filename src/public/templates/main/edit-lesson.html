@@ -5,77 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SkillChain – Edit Lesson</title>
     <!-- <link rel="stylesheet" href="../../styles/base/main.css" /> -->
-     
-     <link rel="stylesheet" href="/styles/base/nav.css">
-     <link rel="stylesheet" href="/styles/base/create.css">
+
+    <link rel="stylesheet" href="/styles/base/nav.css" />
+    <link rel="stylesheet" href="/styles/base/create.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
     <script
       src="https://kit.fontawesome.com/a1ae1ba1c7.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-  <!-- ===== NAVBAR ===== -->
-  <header>
-    <a href="/" class="nav-logo">skillchain</a>
-     <!-- ===== NAVBAR ===== -->
-  <nav class="main-nav">
-    <a href="/" class="nav-item">
-      <!-- <i class="fa-solid fa-house"></i> -->
-      <span>Home</span>
-    </a>
-    <a href="/about" class="nav-item">
-      <!-- <i class="fa-solid fa-circle-info"></i> -->
-      <span>About</span>
-    </a>
-    <a href="/create" class="nav-item">
-      <!-- <i class="fa-solid fa-plus"></i> -->
-      <span>Create</span>
-    </a>
-    <a href="/explore" class="nav-item active">
-      <!-- <i class="fa-solid fa-compass"></i> -->
-      <span>Explore</span>
-    </a>
-    <a href="/profile" class="nav-item">
-      <!-- <i class="fa-solid fa-user"></i> -->
-      <span>Profile</span>
-    </a>
-    <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+    <!-- ===== NAVBAR ===== -->
+    <header>
+      <a href="/" class="nav-logo">skillchain</a>
+      <!-- ===== NAVBAR ===== -->
+      <nav class="main-nav">
+        <a href="/" class="nav-item">
+          <!-- <i class="fa-solid fa-house"></i> -->
+          <span>Home</span>
+        </a>
+        <a href="/about" class="nav-item">
+          <!-- <i class="fa-solid fa-circle-info"></i> -->
+          <span>About</span>
+        </a>
+        <a href="/create" class="nav-item">
+          <!-- <i class="fa-solid fa-plus"></i> -->
+          <span>Create</span>
+        </a>
+        <a href="/explore" class="nav-item active">
+          <!-- <i class="fa-solid fa-compass"></i> -->
+          <span>Explore</span>
+        </a>
+        <a href="/profile" class="nav-item">
+          <!-- <i class="fa-solid fa-user"></i> -->
+          <span>Profile</span>
+        </a>
+        <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
     <span>Light Mode</span>
   </button> -->
-    <div class="nav-indicator"></div>
-  </nav>
-  </header>
+        <div class="nav-indicator"></div>
+      </nav>
+    </header>
 
- <section class="page create-lesson" id="create-lesson">
-
+    <section class="page create-lesson" id="edit-lesson">
       <h1>Edit Lesson</h1>
       <!-- <p class="section-text">
         Share your knowledge with students across SkillChain.
       </p> -->
 
       <form id="edit-lesson-form">
-
         <!-- TITLE -->
         <div class="form-group">
           <label for="lesson-title">Lesson Title</label>
-          <input type="text" id="lesson-title" placeholder="Enter lesson title" required>
+          <input
+            type="text"
+            id="lesson-title"
+            placeholder="Enter lesson title"
+            required
+          />
         </div>
-
 
         <!-- CONTENT -->
         <div class="form-group">
-          <label for="lesson-content">Lesson Content</label>
-          <textarea id="lesson-content" placeholder="Write lesson content here..." required></textarea>
+          <label>Lesson Content</label>
+          <div id="quill-toolbar">
+            <span class="ql-formats">
+              <select class="ql-header">
+                <option value="2">Heading</option>
+                <option value="3">Subheading</option>
+                <option selected value="">Normal</option>
+              </select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-bold"></button>
+              <button class="ql-italic"></button>
+              <button class="ql-underline"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-list" value="ordered"></button>
+              <button class="ql-list" value="bullet"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-link"></button>
+              <button class="ql-blockquote"></button>
+              <button class="ql-code-block"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-clean"></button>
+            </span>
+          </div>
+          <div id="lesson-content-editor"></div>
+          <!-- Hidden input carries the HTML value on submit -->
+          <input type="hidden" id="lesson-content" name="lesson-content" />
         </div>
         <!-- SUBMIT -->
         <button type="submit" class="btn btn-primary btn-block">
           Edit Lesson
         </button>
-
       </form>
-
-  </section>
+    </section>
     <script src="/src/public/scripts/base/core.js"></script>
     <script src="/src/public/scripts/base/main.js"></script>
     <script src="/src/public/scripts/pages/auth.js"></script>
@@ -85,64 +118,89 @@
 
     <script>
       // load previous lesson data (this would typically be done by fetching the lesson details from the server using the lesson ID from the URL)
+      let quill;
+
       document.addEventListener("DOMContentLoaded", () => {
-        // For demonstration, we'll just set some placeholder values
-        fetch(`/api/content/${window.location.pathname.split("/").pop()}`, {
+        const lessonId = window.location.pathname.split("/").pop();
+
+        fetch(`/api/content/${lessonId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },
         })
-          .then((response) => response.json())
+          .then((res) => res.json())
           .then((data) => {
             document.getElementById("lesson-title").value = data.title;
-            document.getElementById("lesson-content").value = data.description;
             localStorage.setItem("lessonId", data._id);
+
+            quill = new Quill("#lesson-content-editor", {
+              theme: "snow",
+              modules: { toolbar: "#quill-toolbar" },
+            });
+
+            quill.clipboard.dangerouslyPasteHTML(data.description);
           });
       });
 
-
-
       // Handle Edit Lesson Form Submission
-      document.getElementById('edit-lesson-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+      document
+        .getElementById("edit-lesson-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-        // Get form values
-        const title = document.getElementById('lesson-title').value;
-        const content = document.getElementById('lesson-content').value;
-        // const media = document.getElementById('lesson-media').files[0];
-        // const difficulty = document.getElementById('lesson-difficulty').value;
+          // Get form values
+          const title = document.getElementById("lesson-title").value;
+          const content = quill.root.innerHTML;
+          // const media = document.getElementById('lesson-media').files[0];
+          // const difficulty = document.getElementById('lesson-difficulty').value;
 
-        const LessonId = localStorage.getItem("lessonId");
-
-        fetch(`/api/content/${LessonId}`, { // Use the lesson ID from localStorage
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`
-          },
-          body: JSON.stringify({ title, description: content /*, media, difficulty */ })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+          // Prevent submitting an empty editor
+          if (quill.getText().trim().length === 0) {
+            alert("Please add some lesson content.");
+            return;
           }
-          return response.json();
-        })
-        .then(data => {
-          console.log('Response data:', data);
-          if (data.success || data._id) {
-            alert('Lesson updated successfully!');
-            // Optionally redirect to the lesson view page
-            window.location.href = `/explore`;
-          } else {
-            alert('Failed to update lesson: ' + (data.message || 'Unknown error'));
-          }
-        })
-        .catch(error => {
-          console.error('Error updating lesson:', error);
-          alert('An error occurred while updating the lesson: ' + error.message);
+
+          const LessonId = localStorage.getItem("lessonId");
+
+          fetch(`/api/content/${LessonId}`, {
+            // Use the lesson ID from localStorage
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+            body: JSON.stringify({
+              title,
+              description: content /*, media, difficulty */,
+            }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Response data:", data);
+              if (data.success || data._id) {
+                alert("Lesson updated successfully!");
+                quill.setContents([]); // clear the editor too
+                // Optionally redirect to the lesson view page
+                window.location.href = `/explore`;
+              } else {
+                alert(
+                  "Failed to update lesson: " +
+                    (data.message || "Unknown error"),
+                );
+              }
+            })
+            .catch((error) => {
+              console.error("Error updating lesson:", error);
+              alert(
+                "An error occurred while updating the lesson: " + error.message,
+              );
+            });
         });
-      });
     </script>
   </body>
 </html>
