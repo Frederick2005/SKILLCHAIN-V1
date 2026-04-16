@@ -26,13 +26,14 @@ router.get("/edit-lesson/:id", (_, res) => renderTemplate(res, "/main/edit-lesso
 
 router.get("/lesson/:id", (_, res) => renderTemplate(res, "/Discover/lesson.html"));
 
-router.get("/help", (_, res) => renderTemplate(res, "help.html"));
+router.get("/help", (_, res) => renderTemplate(res, "/support/help.html"));
 router.get("/account", (_, res) => renderTemplate(res, "account.html"));
 router.get("/chat", (_, res) => renderTemplate(res, "chart/chat.html"));
 router.get("/library", (_, res) => renderTemplate(res, "library.html"));
 router.get("/messages", (_, res) => renderTemplate(res, "messages.html"));
 // test
 
+router.get("/faq", (_, res) => renderTemplate(res, "/support/lesson.html"));
 router.get("/privacy-policy", (_, res) => renderTemplate(res, "legal/privacy-policy.html"));
 router.get("/terms", (_, res) => renderTemplate(res, "legal/terms.html"));
 router.get("/guidelines", (_, res) => renderTemplate(res, "support/community-guidelines.html/"));
