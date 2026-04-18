@@ -18,6 +18,21 @@ function initAuth() {
 // Utilities
 // -------------------------
 
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // 🔍 Validate user (your existing logic)
+
+  
+  req.session.user = { email }; 
+
+  res.redirect('/main');
+});
+router.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/login');
+  });
+});
 function getCSRFToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta ? meta.getAttribute("content") : "";

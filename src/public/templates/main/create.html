@@ -1,207 +1,411 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillChain – Create Lesson</title>
+    <!-- <link rel="stylesheet" href="../../styles/base/main.css" /> -->
+    <link rel="stylesheet" href="/styles/base/nav.css" />
+    <link rel="stylesheet" href="/styles/base/create.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkillChain – Create Lesson</title>
-  <!-- <link rel="stylesheet" href="../../styles/base/main.css" /> -->
-  <link rel="stylesheet" href="/styles/base/nav.css" />
-  <link rel="stylesheet" href="/styles/base/create.css" />
-  <link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 
-  <script src="https://kit.fontawesome.com/a1ae1ba1c7.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a1ae1ba1c7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-</head>
-
-<body>
-  <header>
-    <a href="/" class="nav-logo">skillchain</a>
-    <!-- ===== NAVBAR ===== -->
-    <nav class="main-nav">
-      <a href="/home" class="nav-item">
-        <!-- <i class="fa-solid fa-house"></i> -->
-        <span>Home</span>
-      </a>
-      <a href="/about" class="nav-item">
-        <!-- <i class="fa-solid fa-circle-info"></i> -->
-        <span>About</span>
-      </a>
-      <a href="/create" class="nav-item">
-        <!-- <i class="fa-solid fa-plus"></i> -->
-        <span>Create</span>
-      </a>
-      <a href="/explore" class="nav-item active">
-        <!-- <i class="fa-solid fa-compass"></i> -->
-        <span>Explore</span>
-      </a>
-      <a href="/profile" class="nav-item">
-        <!-- <i class="fa-solid fa-user"></i> -->
-        <span>Profile</span>
-      </a>
-      <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
+  <body>
+    <header>
+      <a href="/" class="nav-logo">skillchain</a>
+      <!-- ===== NAVBAR ===== -->
+      <nav class="main-nav">
+        <a href="/home" class="nav-item">
+          <!-- <i class="fa-solid fa-house"></i> -->
+          <span>Home</span>
+        </a>
+        <a href="/about" class="nav-item">
+          <!-- <i class="fa-solid fa-circle-info"></i> -->
+          <span>About</span>
+        </a>
+        <a href="/create" class="nav-item">
+          <!-- <i class="fa-solid fa-plus"></i> -->
+          <span>Create</span>
+        </a>
+        <a href="/explore" class="nav-item active">
+          <!-- <i class="fa-solid fa-compass"></i> -->
+          <span>Explore</span>
+        </a>
+        <a href="/profile" class="nav-item">
+          <!-- <i class="fa-solid fa-user"></i> -->
+          <span>Profile</span>
+        </a>
+        <!-- <button id="theme-toggle" class="theme-toggle nav-item sidebar-toggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
     <span>Light Mode</span>
   </button> -->
-      <div class="nav-indicator"></div>
-    </nav>
-  </header>
+        <div class="nav-indicator"></div>
+      </nav>
+    </header>
 
-  <section class="page create-lesson" id="create-lesson">
-
-    <h1>Create New Lesson</h1>
-    <!-- <p class="section-text">
+    <section class="page create-lesson" id="create-lesson">
+      <h1>Create New Lesson</h1>
+      <!-- <p class="section-text">
         Share your knowledge with students across SkillChain.
       </p> -->
 
-    <form id="create-lesson-form">
-
-      <!-- TITLE -->
-      <div class="form-group">
-        <label for="lesson-title">Lesson Title</label>
-        <input type="text" id="lesson-title" placeholder="Enter lesson title" required>
-      </div>
-
-      <!-- CATEGORY -->
-      <div class="form-group">
-        <label for="lesson-category">Category</label>
-        <select id="lesson-category" required>
-          <option value="" disabled selected>Select category</option>
-          <option value="mathematics">Mathematics</option>
-          <option value="physics">Physics</option>
-          <option value="chemistry">Chemistry</option>
-          <option value="biology">Biology</option>
-          <option value="computer-science">English</option>
-          <option value="history">History</option>
-          <option value="literature">Geography</option>
-
-          <!-- <option value="__add_new__">+ Add new category</option> -->
-        </select>
-      </div>
-
-      <!-- CONTENT -->
-      <div class="form-group">
-        <label>Lesson Content</label>
-        <div id="quill-toolbar">
-          <span class="ql-formats">
-            <select class="ql-header">
-              <option value="2">Heading</option>
-              <option value="3">Subheading</option>
-              <option selected value="">Normal</option>
-            </select>
-          </span>
-          <span class="ql-formats">
-            <button class="ql-bold"></button>
-            <button class="ql-italic"></button>
-            <button class="ql-underline"></button>
-          </span>
-          <span class="ql-formats">
-            <button class="ql-list" value="ordered"></button>
-            <button class="ql-list" value="bullet"></button>
-          </span>
-          <span class="ql-formats">
-            <button class="ql-link"></button>
-            <button class="ql-blockquote"></button>
-            <button class="ql-code-block"></button>
-          </span>
-          <span class="ql-formats">
-            <button class="ql-clean"></button>
-          </span>
-        </div>
-        <div id="lesson-content-editor"></div>
-        <!-- Hidden input carries the HTML value on submit -->
-        <input type="hidden" id="lesson-content" name="lesson-content" />
-      </div>
-       <!-- FILE UPLOAD -->
-      <div class="form-group">
-        <label>Attachments <span style="font-weight:400;color:#94a3b8;">(optional)</span></label>
-
-        <div class="upload-zone" id="upload-zone">
+      <form id="create-lesson-form">
+        <!-- TITLE -->
+        <div class="form-group">
+          <label for="lesson-title">Lesson Title</label>
           <input
-            type="file"
-            id="lesson-files"
-            name="files"
-            multiple
-            accept=".pdf,.doc,.docx,.zip"
+            type="text"
+            id="lesson-title"
+            placeholder="Enter lesson title"
+            required
           />
-          <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-          <p>Drag &amp; drop files here, or</p>
-          <span class="upload-btn-label">Browse Files</span>
-          <p class="upload-hint">PDF, Word (.doc/.docx), or ZIP — max 2 MB per file</p>
         </div>
 
-        <div class="file-list" id="file-list"></div>
-        <p class="upload-limit-note">ZIP files must only contain PDF or Word documents.</p>
-      </div>
+        <!-- CATEGORY -->
+        <div class="form-group">
+          <label for="lesson-category">Category</label>
+          <select id="lesson-category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="physics">Physics</option>
+            <option value="chemistry">Chemistry</option>
+            <option value="biology">Biology</option>
+            <option value="computer-science">English</option>
+            <option value="history">History</option>
+            <option value="literature">Geography</option>
 
-      <!-- SUBMIT -->
-      <button type="submit" class="btn btn-primary btn-block">
-        Create Lesson
-      </button>
+            <!-- <option value="__add_new__">+ Add new category</option> -->
+          </select>
+        </div>
 
-    </form>
+        <!-- CONTENT -->
+        <div class="form-group">
+          <label>Lesson Content</label>
 
-  </section>
+          <!-- Toolbar -->
+          <div id="quill-toolbar">
+            <span class="ql-formats">
+              <select class="ql-header">
+                <option value="2">Heading</option>
+                <option value="3">Subheading</option>
+                <option selected>Normal</option>
+              </select>
+            </span>
 
-  <script src="/src/public/scripts/base/core.js"></script>
-  <script src="/src/public/scripts/base/main.js"></script>
-  <script src="/src/public/scripts/pages/auth.js"></script>
-  <script src="/src/public/scripts/pages/dashboard.js"></script>
-  <script src="/src/public/scripts/UI/components.js"></script>
-  <script src="/src/public/scripts/UI/theme.js"></script>
+            <span class="ql-formats">
+              <button class="ql-bold"></button>
+              <button class="ql-italic"></button>
+              <button class="ql-underline"></button>
+              <button class="ql-formula"></button>
+            </span>
 
-  <script src="/scripts/pages/nav.js"></script>
+            <span class="ql-formats">
+              <button class="ql-list" value="ordered"></button>
+              <button class="ql-list" value="bullet"></button>
+            </span>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+            <span class="ql-formats">
+              <button class="ql-link"></button>
+              <button class="ql-blockquote"></button>
+              <button class="ql-code-block"></button>
+            </span>
 
-      // Initialize Quill
-      const quill = new Quill('#lesson-content-editor', {
-        theme: 'snow',
-        modules: {
-          toolbar: '#quill-toolbar'
-        },
-        placeholder: 'Write your lesson content here...'
-      });
+            <span class="ql-formats">
+              <button class="ql-clean"></button>
+            </span>
+          </div>
 
-      const createLessonForm = document.getElementById('create-lesson-form');
+          <!-- Editor -->
+          <div id="lesson-content-editor" style="height: 200px"></div>
 
-      createLessonForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+          <!-- Hidden input -->
+          <input type="hidden" id="lesson-content" name="lessonContent" />
+        </div>
+        <!-- FILE UPLOAD -->
+        <div class="form-group">
+          <label
+            >Attachments
+            <span style="font-weight: 400; color: #94a3b8"
+              >(optional)</span
+            ></label
+          >
 
-        // Get the HTML content from Quill
-        const htmlContent = quill.root.innerHTML;
+          <div class="upload-zone" id="upload-zone">
+            <input
+              type="file"
+              id="lesson-files"
+              name="files"
+              title="upload zone"
+              multiple
+              accept=".pdf,.doc,.docx,.zip"
+            />
+            <div class="upload-icon">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <p>Drag &amp; drop files here, or</p>
+            <span class="upload-btn-label">Browse Files</span>
+            <p class="upload-hint">
+              PDF, Word (.doc/.docx), or ZIP — max 2 MB per file
+            </p>
+          </div>
 
-        // Prevent submitting an empty editor
-        if (quill.getText().trim().length === 0) {
-          alert('Please add some lesson content.');
-          return;
-        }
+          <div class="file-list" id="file-list"></div>
+          <p class="upload-limit-note">
+            ZIP files must only contain PDF or Word documents.
+          </p>
+        </div>
 
-        fetch('/api/content/create', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+        <!-- SUBMIT -->
+        <button type="submit" class="btn btn-primary btn-block">
+          Create Lesson
+        </button>
+      </form>
+    </section>
+
+    <script src="/src/public/scripts/base/core.js"></script>
+    <script src="/src/public/scripts/base/main.js"></script>
+    <script src="/src/public/scripts/pages/auth.js"></script>
+    <script src="/src/public/scripts/pages/dashboard.js"></script>
+    <script src="/src/public/scripts/UI/components.js"></script>
+    <script src="/src/public/scripts/UI/theme.js"></script>
+
+    <script src="/scripts/pages/nav.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize Quill
+        const quill = new Quill("#lesson-content-editor", {
+          theme: "snow",
+          modules: {
+            toolbar: "#quill-toolbar",
           },
-          body: JSON.stringify({
-            title: document.getElementById('lesson-title').value,
-            category: document.getElementById('lesson-category').value,
-            description: htmlContent   // <-- sends full HTML with formatting
-          })
-        })
-          .then(res => res.json())
-          .then(data => {
-            alert('Lesson created successfully!');
-            createLessonForm.reset();
-            quill.setContents([]);  // clear the editor too
+          formula: true,
+          placeholder: "Write your lesson content here...",
+        });
+
+        const createLessonForm = document.getElementById("create-lesson-form");
+
+        createLessonForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // Get the HTML content from Quill
+          const htmlContent = quill.root.innerHTML;
+
+          // Prevent submitting an empty editor
+          if (quill.getText().trim().length === 0) {
+            alert("Please add some lesson content.");
+            return;
+          }
+          quill.clipboard.addMatcher(Node.TEXT_NODE, function (node, delta) {
+            let text = node.data;
+
+            // Convert \( ... \) → $ ... $
+            text = text.replace(/\\\((.*?)\\\)/g, "$$$1$");
+
+            // Convert \[ ... \] → $$ ... $$
+            text = text.replace(/\\\[(.*?)\\\]/g, "$$$$1$$$$");
+
+            return {
+              ops: [{ insert: text }],
+            };
           });
+
+
+          /* ============================================================
+       CONSTANTS
+    ============================================================ */
+          const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
+          const ALLOWED_TYPES = [
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/zip",
+            "application/x-zip-compressed",
+            "application/octet-stream",
+          ];
+          const ALLOWED_EXTENSIONS = [".pdf", ".doc", ".docx", ".zip"];
+
+          /* ============================================================
+       STATE
+    ============================================================ */
+          let selectedFiles = []; // { file: File, id: string, valid: boolean, error: string|null }
+
+          /* ============================================================
+       HELPERS
+    ============================================================ */
+          function getExtension(filename) {
+            return filename.slice(filename.lastIndexOf(".")).toLowerCase();
+          }
+
+          function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + " B";
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+            return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+          }
+
+          function getFileIcon(filename) {
+            const ext = getExtension(filename);
+            if (ext === ".pdf")
+              return '<i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i>';
+            if (ext === ".zip")
+              return '<i class="fa-solid fa-file-zipper" style="color:#f59e0b;"></i>';
+            return '<i class="fa-solid fa-file-word" style="color:#3b82f6;"></i>';
+          }
+
+          function validateFile(file) {
+            const ext = getExtension(file.name);
+            if (!ALLOWED_EXTENSIONS.includes(ext)) {
+              return {
+                valid: false,
+                error: `File type not allowed. Use PDF, DOC, DOCX, or ZIP.`,
+              };
+            }
+            if (file.size > MAX_FILE_SIZE_BYTES) {
+              return {
+                valid: false,
+                error: `Exceeds 2 MB limit (${formatBytes(file.size)}).`,
+              };
+            }
+            return { valid: true, error: null };
+          }
+
+          function uniqueId() {
+            return Math.random().toString(36).slice(2);
+          }
+
+          /* ============================================================
+       RENDER FILE LIST
+    ============================================================ */
+          function renderFileList() {
+            const list = document.getElementById("file-list");
+            list.innerHTML = "";
+
+            selectedFiles.forEach(({ file, id, valid, error }) => {
+              const item = document.createElement("div");
+              item.className = `file-item${valid ? "" : " file-error"}`;
+              item.dataset.id = id;
+
+              item.innerHTML = `
+          <span class="file-icon">${getFileIcon(file.name)}</span>
+          <div class="file-info">
+            <div class="file-name" title="${file.name}">${file.name}</div>
+            <div class="file-meta">${formatBytes(file.size)}</div>
+            ${error ? `<div class="file-error-msg"><i class="fa-solid fa-triangle-exclamation"></i> ${error}</div>` : ""}
+          </div>
+          <button type="button" class="file-remove" data-id="${id}" title="Remove file">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        `;
+
+              list.appendChild(item);
+            });
+
+            list.querySelectorAll(".file-remove").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                const removeId = btn.dataset.id;
+                selectedFiles = selectedFiles.filter((f) => f.id !== removeId);
+                renderFileList();
+                syncFileInput();
+              });
+            });
+          }
+          /* ============================================================
+       SYNC — keep a DataTransfer in sync so FormData picks it up
+    ============================================================ */
+          function syncFileInput() {
+            const input = document.getElementById("lesson-files");
+            const dt = new DataTransfer();
+            selectedFiles
+              .filter((f) => f.valid)
+              .forEach((f) => dt.items.add(f.file));
+            input.files = dt.files;
+          }
+          /* ============================================================
+       DRAG & DROP
+    ============================================================ */
+          const uploadZone = document.getElementById("upload-zone");
+
+          uploadZone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            uploadZone.classList.add("drag-over");
+          });
+
+          uploadZone.addEventListener("dragleave", () => {
+            uploadZone.classList.remove("drag-over");
+          });
+
+          uploadZone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove("drag-over");
+            addFiles(e.dataTransfer.files);
+          });
+
+          document
+            .getElementById("lesson-files")
+            .addEventListener("change", function () {
+              addFiles(this.files);
+            });
+
+          /* ============================================================
+       PROCESS NEW FILES
+    ============================================================ */
+          function addFiles(newFiles) {
+            Array.from(newFiles).forEach((file) => {
+              const alreadyAdded = selectedFiles.some(
+                (f) => f.file.name === file.name && f.file.size === file.size,
+              );
+              if (alreadyAdded) return;
+
+              const { valid, error } = validateFile(file);
+              selectedFiles.push({ file, id: uniqueId(), valid, error });
+            });
+
+            renderFileList();
+            syncFileInput();
+          }
+
+          fetch("/api/content/create", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+            body: JSON.stringify({
+              title: document.getElementById("lesson-title").value,
+              category: document.getElementById("lesson-category").value,
+              description: htmlContent, // <-- sends full HTML with formatting
+            }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              alert("Lesson created successfully!");
+              createLessonForm.reset();
+              quill.setContents([]); // clear the editor too
+            });
+        });
       });
-
-    });
-  </script>
-
-</body>
-
+    </script>
+  </body>
 </html>

@@ -12,6 +12,7 @@ import commentRoutes from "./routes/commentRoutes.js";
 import replyRoutes from "./routes/replyRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import session from 'express-session';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,11 +22,34 @@ dotenv.config();
 // CONNECT DATABASE
 connectDB();
 
+// ✅ CREATE APP FIRST
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-// Serve static files from /public
+// ✅ SESSION (after app is created)
+app.use(session({
+  secret: 'skillchain_secret',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// ✅ CACHE CONTROL
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
+// ✅ AUTH MIDDLEWARE
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.user) {
+    return next();
+  }
+  res.redirect('/login');
+}
+
+
+// Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
 // Middleware
@@ -35,13 +59,12 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 
-
 // Routes
 app.use('/', baseRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/content', contentRoutes); // Placeholder for content routes
-app.use("/api/comments", commentRoutes); // Placeholder for comment routes
+app.use('/api/content', contentRoutes);
+app.use("/api/comments", commentRoutes);
 app.use("/api/replies", replyRoutes);
 
 // Start server

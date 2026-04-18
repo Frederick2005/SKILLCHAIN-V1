@@ -33,7 +33,7 @@ router.get("/library", (_, res) => renderTemplate(res, "library.html"));
 router.get("/messages", (_, res) => renderTemplate(res, "messages.html"));
 // test
 
-router.get("/faq", (_, res) => renderTemplate(res, "/support/lesson.html"));
+router.get("/faq", (_, res) => renderTemplate(res, "/support/faq.html"));
 router.get("/privacy-policy", (_, res) => renderTemplate(res, "legal/privacy-policy.html"));
 router.get("/terms", (_, res) => renderTemplate(res, "legal/terms.html"));
 router.get("/guidelines", (_, res) => renderTemplate(res, "support/community-guidelines.html/"));
